@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        
+
 </head>
 
 <body>
@@ -41,7 +42,7 @@
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-list-ul fs-3 px-4 text-light"></i><a
-                            class="text-decoration-none fs-5 text-light" href="index.php?act=listdm">Danh
+                            class="text-decoration-none fs-5 text-light" href="index.php?act=adddm">Danh
                             Mục</a>
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
@@ -65,3 +66,49 @@
 
                 </ul>
             </div>
+            <div class="col-xl-10">
+                <hr>
+                <h2 class="text-center">
+                    Danh sách loại hàng hóa
+                </h2>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Mã loại</th>
+                        <th scope="col">Tên loại</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"><input type="checkbox" name="" id=""></th>
+                        <td>001</td>
+                        <td>Otto</td>
+                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><input type="checkbox" name="" id=""></th>
+                        <td>001</td>
+                        <td>Otto</td>
+                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><input type="checkbox" name="" id=""></th>
+                        <td>001</td>
+                        <td>Otto</td>
+                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="submit" class="btn btn-primary">Chọn tất cả</button>
+                  <button type="reset" class="btn btn-primary">Bỏ chọn tất cả</button>
+                  <button type="reset" class="btn btn-primary">Xóa các mục đã chọn</button>
+                  <a href="index.php?act=adddm"><button type="button"  class="btn btn-primary" >Thêm mới</button></a> 
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
