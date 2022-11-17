@@ -46,7 +46,7 @@
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-bag-fill fs-3 px-4 text-light"></i><a
-                            class="text-decoration-none fs-5 text-light" href="">Sản
+                            class="text-decoration-none fs-5 text-light" href="index.php?act=listpro">Sản
                             Phẩm</a>
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
