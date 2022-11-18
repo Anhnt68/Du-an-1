@@ -2,6 +2,7 @@
 include "../dao/pdo.php";
 include "../dao/category_dao.php";
 include "../dao/product_dao.php";
+include "../global.php";
 include "header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -11,10 +12,23 @@ if (isset($_GET['act'])) {
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tenloai = $_POST['tenloai'];
                 $anhloai = $_FILES['anhloai']['name'];
-                $target_dir = "../upload";
-                $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
-                insert_dm($tenloai, $anhloai);
-                $thongbao = "them thành công";
+    // move_uploaded_file($_FILES["anhloai"]["tmp_name"],"../uploads".$_FILES["anhloai"]["name"]);
+
+                // $target_dir = "../uploads/";
+                // $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
+                // insert_dm($tenloai, $anhloai);
+                // $thongbao = "them thành công";
+
+                $target_dir = "../uploads/";
+                               $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
+
+                    if (move_uploaded_file($_FILES["anhloai"]["tmp_name"], $target_file)) {
+
+                    } else {
+                    }
+                                   insert_dm($tenloai, $anhloai);
+                    $thongbao = "Thêm thành công";
+                
             }
             include "category/add.php";
             break;
@@ -42,8 +56,13 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $tenloai = $_POST['tenloai'];
                 $anhloai = $_FILES['anhloai']['name'];
-                $target_dir = "../upload";
-                $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
+                $target_dir = "../uploads/";
+                               $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
+
+                    if (move_uploaded_file($_FILES["anhloai"]["tmp_name"], $target_file)) {
+
+                    } else {
+                    }
                 update_dm($id, $tenloai, $anhloai);
                 $thongbao = "cập nhật thành công";
             }
@@ -61,7 +80,7 @@ if (isset($_GET['act'])) {
                     $productDesc = $_POST['productDesc'];
                     $quatity = $_POST['quatity'];
                     $productImage = $_FILES['productImage']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["productImage"]["name"]);
                     if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                     } else {
@@ -109,7 +128,7 @@ if (isset($_GET['act'])) {
                     $productDesc = $_POST['productDesc'];
                     $productImage = $_FILES['productImage']['name'];
                     $quatity = $_POST['quatity'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../uploads/";
                     $target_file = $target_dir . basename($_FILES["productImage"]["name"]);
                     if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                         //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";

@@ -22,7 +22,7 @@
                         extract($dm);
                         $suadm="index.php?act=suadm&id=".$id;
                         $xoadm="index.php?act=xoadm&id=".$id;
-                        $hinhpath = "../upload/".$categoryImage;
+                        $hinhpath = "../uploads/".$categoryImage;
                         if(is_file($hinhpath)){
                             $categoryImage="<img src='".$hinhpath."' height='80'";
                         }else{

@@ -35,7 +35,7 @@
                                 extract($product);
                                 $suapro = "index.php?act=suapro&id=".$id;
                                 $xoapro = "index.php?act=xoapro&id=".$id;
-                                $hinhpath = "../upload/".$productImage;
+                                $hinhpath = "../uploads/".$productImage;
                                 if(is_file($hinhpath)){
                                     $productImage="<img src = '".$hinhpath."' height='80'>";
                                 } else {
