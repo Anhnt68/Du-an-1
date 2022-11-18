@@ -30,7 +30,7 @@ if (is_file($hinhpath)) {
                 </select>
             </div>
             <?php
-                extract($product);
+            extract($product);
             ?>
             <div class="row mb10">
                 Tên sản phẩm <br>
@@ -42,12 +42,22 @@ if (is_file($hinhpath)) {
             </div>
             <div class="row mb10">
                 Hình <br>
-                <input type="file" name="productImage" id="">
+                <!-- <img src="" alt=""> -->
+                <input type="file" name="productImage" id="" value="">
                 <?= $productImage ?>
             </div>
             <div class="row mb10">
                 Mô tả <br>
                 <textarea name="productDesc" cols="50" rows="10" value="<?= $productDesc ?>"></textarea>
+            </div>
+            <div class="row mb10">
+                Thương hiệu <br>
+                <input type="text" name="productBrand" id="" value="<?= $productBrand ?>">
+            </div>
+            <div class="row mb10">
+                Dung tích <br>
+                <input type="text" name="productCapacity" id="" value="<?= $productCapacity ?>">
+
             </div>
             <div class="row mb10">
                 So luong <br>
