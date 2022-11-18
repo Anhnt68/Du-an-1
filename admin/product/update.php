@@ -3,7 +3,7 @@ if (is_array($product)) {
     extract($product);
 }
 
-$hinhpath = "../upload/" . $productImage;
+$hinhpath = "../uploads/" . $productImage;
 if (is_file($hinhpath)) {
     $productImage = "<img src = '" . $hinhpath . "' height='80'>";
 } else {

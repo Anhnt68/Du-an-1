@@ -1,7 +1,7 @@
 <?php
 
     extract($dm);
-    $hinhpath = "../upload/".$categoryImage;
+    $hinhpath = "../uploads/".$categoryImage;
     if(is_file($hinhpath)){
         $categoryImage="<img src='".$hinhpath."' height='80'";
     }else{
