@@ -21,6 +21,20 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'signIn':
             include "site/signIn.php";
             break;
+
+        case 'sanphamct':
+            if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
+                $id = $_GET["idsp"];
+                $pro_one = loadone_product($id);
+                extract($pro_one);
+                $categoryid =$pro_one["categoryId"];
+                $sp_cung_loai = load_product_cungloai($id, $categoryid);
+                extract($sp_cung_loai);
+            }
+
+            include "site/chitietsanpham.php";
+            break;
+
         default:
             include "site/home.php";
             break;

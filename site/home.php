@@ -140,7 +140,7 @@
       <div class="col-12 col-sm-6 col-md-3 p-2 mb-4">
       <div class="d-flex flex-column text-center border height100">
         <div>
-          <img src="' . $hinh . '" alt="" class="sp">
+          <a href="'.$linksp.'"><img src="' . $hinh . '" alt="" class="sp"></a>
         </div>
         <a href="' . $linksp . '" class="text-decoration-none fs-4 text-dark text-uppercase font-weight-bold">' . $productName . '</a>
         <p class="text-danger fs-5">$' . $productPrice . '</p>
