@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start bg-dark text-white">
+<footer class="container-fluid text-center text-lg-start bg-dark text-white">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
@@ -58,22 +58,22 @@
             Chính sách công ty
           </h6>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Điều khoản sử dụng.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Điều khoản sử dụng.</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo mật thông tin.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo mật thông tin.</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách vận chuyển, giao nhận kiểm hàng.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách vận chuyển, giao nhận kiểm hàng.</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo hành.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo hành.</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách đổi trả.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách đổi trả.</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo hành.</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Chính sách bảo hành.</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -85,16 +85,16 @@
             Trợ giúp
           </h6>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Hướng dẫn sử dụng nước hoa</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Hướng dẫn sử dụng nước hoa</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Hướng dẫn mua hàng</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Hướng dẫn mua hàng</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Phương thức thanh toán</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Phương thức thanh toán</a>
           </p>
           <p>
-            <i class="bi bi-circle-fill px-2" style = "font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Gói quà miễn phi</a>
+            <i class="bi bi-circle-fill px-2" style="font-size: 8px"></i><a href="#!" class="text-reset text-decoration-none">Gói quà miễn phi</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -124,7 +124,7 @@
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
-</div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
