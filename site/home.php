@@ -147,9 +147,9 @@
                           <div class="row btnaddtocart">
                             <form method="post" action="index.php?act=addtocart">
                                 <input type="hidden" name="id" value="' . $id . '"> 
-                                <input type="hidden" name="name" value="' . $productName . '"> 
-                                <input type="hidden" name="img" value="' . $productImage . '"> 
-                                <input type="hidden" name="price" value="' . $productPrice . '"> 
+                                <input type="hidden" name="productName" value="' . $productName . '"> 
+                                <input type="hidden" name="productImage" value="' . $productImage . '"> 
+                                <input type="hidden" name="productPrice" value="' . $productPrice . '"> 
                                 <input type="submit" name="addtocart" class="btn btn-danger border-0" value="Thêm vào giỏ hàng"> 
                             </form>
                           </div>
@@ -160,5 +160,6 @@
       $i += 1;
     }
     ?>
-
-    <!--  -->
+  </div>
+</div>
+<!--  -->

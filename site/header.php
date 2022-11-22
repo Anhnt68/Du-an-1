@@ -13,11 +13,11 @@
 </head>
 
 <body>
-  <div class="container position-relative">
+  <div class="container-fluid position-relative">
     <nav class="navbar bg-white">
-      <div class="container-fluid">
+      <div class="container">
         <a class="">
-          <img src="site/src/img/logo.png" class="logo position-absolute" style="z-index:2;width: 200px;height: 200px;">
+          <!-- <img src="site/src/img/logo.png" class="logo position-absolute" style="z-index:2;width: 200px;height: 200px;"> -->
         </a>
         <div class="d-flex justify-content-end align-items-center">
           <form class="d-flex px-2" role="search">
