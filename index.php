@@ -50,6 +50,24 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'bill':
             include "site/cart/bill.php";
             break;
+        case 'billconfirm':
+            if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+                if (isset($_SESSION['user'])) {
+                    $accountId = $_SESSION['user']['id'];
+                } else $id = 0;
+                $accountName = $_POST['accountName'];
+                $accountAddress = $_POST['accountAddress'];
+                $accountPhone = $_POST['accountPhone'];
+                $accountEmail = $_POST['accountEmail'];
+                $pttt = $_POST['check'];
+                $tongdonhang = tongdonhang();
+                $oderDate = date('d/m/Y');
+                $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $oderDate);
+            }
+            $bill = loadone_bill($idbill);
+
+            include "site/cart/billconfirm.php";
+            break;
         default:
             include "site/home.php";
             break;
