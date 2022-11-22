@@ -53,3 +53,25 @@ function viewcart($del)
     </tr>
         ';
 }
+function tongdonhang()
+{
+    $sum = 0;
+    
+    foreach ($_SESSION['mycart'] as $cart) {
+        $sumPrice = $cart[3] * $cart[4];
+        $sum += $sumPrice;
+    }
+    return $sum;
+}
+function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt,  $tongdonhang, $oderDate){
+    $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$oderDate')";
+    return pdo_execute_return_lastInsertId($sql);
+
+}
+function loadone_bill($id)
+{
+    $sql = "select * from bill where id =" . $id;
+    $bill = pdo_query_one($sql);
+    return $bill;
+}
+?>
