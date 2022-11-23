@@ -134,7 +134,7 @@
     $i = 0;
     foreach ($spnew as $sp) {
       extract($sp);
-      $linksp = "index.php?act=sanphamct&idsp=" . $id;
+      $linksp = "index.php?act=sanphamct&idsp=" . $sp[0];
       $hinh = $img_path . $productImage;
       echo '
       <div class="col-12 col-sm-6 col-md-3 p-2 mb-4">
