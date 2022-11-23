@@ -24,7 +24,7 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
-          <a class="" href=""><i class="bi bi-cart3 fs-3 text-dark"></i></a>
+          <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark"></i></a>
           <li><a href="index.php?act=mybill">Đơn hàng của tôi</a></li>
 
           <a class="btn btn-primary mx-2" href="index.php?act=signIn">Sign in</a>

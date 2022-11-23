@@ -4,7 +4,7 @@ if (!is_array($pro_one)) {
     echo "Khong co san pham";
 } else {
     $name_pro = $pro_one["productName"];
-    $name_img_pro =$pro_one["productImage"]; 
+    $name_img_pro = $pro_one["productImage"];
     $image_pro = $img_path . $pro_one["productImage"];
     if (is_file($image_pro)) {
         $image_pro = '<img src="' . $image_pro . '" class="rounded w-100" alt="" />';
@@ -13,10 +13,11 @@ if (!is_array($pro_one)) {
     }
 
     $id_pro = $pro_one["id"];
-  
+
     $price_pro = $pro_one["productPrice"];
     $desc_pro = $pro_one["productDesc"];
-    $brand_pro = $pro_one["productBrand"];
+    extract($dm_one);
+    // $brand_pro = $pro_one["productBrand"];
     // $category_name = $pro_one["categoryName"];
     // $categoryid = $dm_one["categoryName"];
 ?>
@@ -56,112 +57,113 @@ if (!is_array($pro_one)) {
 
 
                     <p>
-                        <span>✨</span> Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger"><?=$brand_pro?></a><br />
+                        <span>✨</span> Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger"><?= $categoryName ?></a><br />
 
                     </p>
 
 
-                    <p class="m-0"><strong>Số lượng:</strong></p>
+
                 </div>
 
-                <div class="area_order">
-                    <div class="quanlity">
-                        <span>
-                            <div class="buttons_added">
 
-                                <input id="this-item-quantity" aria-label="quantity" class="input-qty" max="10" min="1" name="quantity" type="number" value="1" required value="1" />
-
+                <!--<input type="number" name="quantity" required value="1" min=1>-->
+                <!-- <button type="button" name="product" value="275" class="buy_btn"> -->
+                <div class="row">
+                    <form method="POST" action="index.php?act=addtocart">
+                        <div class="area_order">
+                            <div class="quanlity">
+                                <span>
+                                    <div class="buttons_added">
+                                        <p class="m-0"><strong>Số lượng:</strong></p>
+                                        <input id="this-item-quantity" class="input-qty" max="10" min="1" name="productQuantity" type="number" value="1" required value="1" />
+                                    </div>
+                                </span>
                             </div>
-                        </span>
-                    </div>
-                    <!--<input type="number" name="quantity" required value="1" min=1>-->
-                    <!-- <button type="button" name="product" value="275" class="buy_btn"> -->
-                    <div class="row btn btn-danger border-0">
-                        <form method="POST" action="index.php?act=addtocart">
-                            <input type="hidden" name="id" value="<?=$id_pro?>">
-                            <input type="hidden" name="productName" value="<?=$name_pro?>">
-                            <input type="hidden" name="productImage" value="<?= $name_img_pro?>">
-                            <input type="hidden" name="productPrice" value="<?=$price_pro?>">
-                            <input type="hidden" name="categoryName" value="<?=$categoryid?>">
+                            <input type="hidden" name="id" value="<?= $id_pro ?>">
+                            <input type="hidden" name="productName" value="<?= $name_pro ?>">
+                            <input type="hidden" name="productImage" value="<?= $name_img_pro ?>">
+                            <input type="hidden" name="productPrice" value="<?= $price_pro ?>">
+                            <input type="hidden" name="categoryName" value="<?= $categoryid ?>">
+
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             <input type="submit" name="addtocart" class="border-0 w-75 btn btn-danger" value="Thêm vào giỏ hàng">
-                        </form>
-                    </div>
-                    <!-- </button> -->
-                    <a href="/user?wishlist&add=275" class="add-to-wishlist is-css">
-                        <span class="icon js-product-gift-icon" data-placement="bottom" data-toggle="tooltip" data-title="Thêm Vào Yêu Thích" data-original-title="" title="">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        </span>
-                    </a>
+                    </form>
                 </div>
-                <label class="text-secondary h6 my-3">Miễn Phí Giao Hàng Trên Toàn Quốc</label>
+                <!-- </button> -->
+                <a href="/user?wishlist&add=275" class="add-to-wishlist is-css">
+                    <span class="icon js-product-gift-icon" data-placement="bottom" data-toggle="tooltip" data-title="Thêm Vào Yêu Thích" data-original-title="" title="">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </span>
+                </a>
             </div>
+            <label class="text-secondary h6 my-3">Miễn Phí Giao Hàng Trên Toàn Quốc</label>
         </div>
-        <div class="menu-content" style="padding: 0; margin: 20px 0">
-            <!-- <ul class="menu-content d-flex justify-content-start">
+    </div>
+    <div class="menu-content" style="padding: 0; margin: 20px 0">
+        <!-- <ul class="menu-content d-flex justify-content-start">
             <li class="active">Chi tiết</li>
             <li class="active">Đánh giá</li>
             <li class="active">Hỏi đáp</li>
           </ul> -->
-            <div class="btn-group btn-group-md btn-mt">
-                <button type="button" class="btn btn-secondary">Chi tiết</button>
+        <div class="btn-group btn-group-md btn-mt">
+            <button type="button" class="btn btn-secondary">Chi tiết</button>
 
-            </div>
-            <div class="content tab-content" id="tab-1" style="
+        </div>
+        <div class="content tab-content" id="tab-1" style="
               display: block;
               background-color: #f3f4f6;
               padding: 10px 10px;
             ">
 
 
-                <p style="text-align: justify">
-                    <!-- mota -->
-                    <?= $desc_pro ?>
+            <p style="text-align: justify">
+                <!-- mota -->
+                <?= $desc_pro ?>
 
-                </p>
+            </p>
 
-            </div>
         </div>
-        <!----------------------------------- show comment----------------------------------- -->
-        <div class="product-rating fw-bold fs-2 my-3">
-            ĐÁNH GIÁ SẢN PHẨM
-        </div>
-        <!-- Media object -->
-        <div class="d-flex">
-            <!-- Image -->
-            <img src="../site/src/img/nuochoa.jpg" alt="ten anh" class="me-3 rounded-circle" style="width: 60px; height: 60px;" />
-            <!-- Media body -->
-            <div>
-                <h5 class="fw-normal">
-                    CONG TRAN
-                    <small class="text-muted fs-6">Posted on February 19, 2021</small>
-                </h5>
-                <p class="text-justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
-                </p>
-                <!-- Phản hồi bình luận -->
-                <i class="bi bi-arrow-return-right"></i><span><a href="#">Phản hồi</a></span>
-                <!-- Nested Media object -->
-                <div class="d-flex mt-4">
-                    <img src="../site/src/img/nuochoa.jpg" alt="ten anh" class="me-3 rounded-circle" style="width: 60px; height: 60px;" />
-                    <div>
-                        <h5 class="fw-normal ">
-                            ANH NGUYEN
-                            <small class="text-muted fs-6">Posted on February 19, 2021</small>
-                        </h5>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed do eiusmod tempor inci
-                        </p>
-                    </div>
+    </div>
+    <!----------------------------------- show comment----------------------------------- -->
+    <div class="product-rating fw-bold fs-2 my-3">
+        ĐÁNH GIÁ SẢN PHẨM
+    </div>
+    <!-- Media object -->
+    <div class="d-flex">
+        <!-- Image -->
+        <img src="../site/src/img/nuochoa.jpg" alt="ten anh" class="me-3 rounded-circle" style="width: 60px; height: 60px;" />
+        <!-- Media body -->
+        <div>
+            <h5 class="fw-normal">
+                CONG TRAN
+                <small class="text-muted fs-6">Posted on February 19, 2021</small>
+            </h5>
+            <p class="text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+            </p>
+            <!-- Phản hồi bình luận -->
+            <i class="bi bi-arrow-return-right"></i><span><a href="#">Phản hồi</a></span>
+            <!-- Nested Media object -->
+            <div class="d-flex mt-4">
+                <img src="../site/src/img/nuochoa.jpg" alt="ten anh" class="me-3 rounded-circle" style="width: 60px; height: 60px;" />
+                <div>
+                    <h5 class="fw-normal ">
+                        ANH NGUYEN
+                        <small class="text-muted fs-6">Posted on February 19, 2021</small>
+                    </h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor inci
+                    </p>
                 </div>
-                <!-- Nested Media object -->
             </div>
-            <!-- Media body -->
+            <!-- Nested Media object -->
         </div>
-        <!-- Media object -->
+        <!-- Media body -->
+    </div>
+    <!-- Media object -->
     </div>
 
     <div class="card-content">
@@ -255,9 +257,9 @@ if (!is_array($pro_one)) {
         ';
         }
         ?>
-       
-       
-        
+
+
+
     </div>
     </div>
 <?php } ?>
