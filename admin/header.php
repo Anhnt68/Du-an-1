@@ -55,7 +55,7 @@
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-cart-dash-fill fs-3 px-4 text-light"></i><a
-                            class="text-decoration-none fs-5 text-light" href="">Đơn
+                            class="text-decoration-none fs-5 text-light" href="index.php?act=listbill">Đơn
                             Hàng</a>
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i

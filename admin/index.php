@@ -2,7 +2,7 @@
 include "../dao/pdo.php";
 include "../dao/category_dao.php";
 include "../dao/product_dao.php";
-
+include "../dao/cart.php";
 include "header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -127,7 +127,23 @@ if (isset($_GET['act'])) {
             $listproduct = loadall_product("", 0);
             include "product/list.php";
             break;
-
+// phần admn đơn hàng
+case "listbill":
+    if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+        $kyw = $_POST['kyw'];
+    } else {
+        $kyw = "";
+    }
+    $listbill = loadAll_bill($kyw, 0);
+    include "bill/listbill.php";
+    break;
+    case 'xoadh' :
+        if ($_GET['id'] && $_GET['id'] > 0) {
+            delete_donhang($_GET['id']);
+          }
+          $listbill = loadall_bill2();
+          include "bill/listbill.php";
+        break;
         default:
             include "home.php";
             break;

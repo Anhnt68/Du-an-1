@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Polyperfume</title>
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="site/src/css/style.css">
@@ -25,6 +25,8 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
           <a class="" href=""><i class="bi bi-cart3 fs-3 text-dark"></i></a>
+          <li><a href="index.php?act=mybill">Đơn hàng của tôi</a></li>
+
           <a class="btn btn-primary mx-2" href="index.php?act=signIn">Sign in</a>
           <a class="btn btn-danger" href="#">sign Up</a>
         </div>
