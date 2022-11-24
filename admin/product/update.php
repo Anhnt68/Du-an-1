@@ -16,7 +16,7 @@ if (is_file($hinhpath)) {
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=updatepro" method="POST" enctype="multipart/form-data">
-            <div class="row mb10">
+            <div class="row col-4">
                 <select name="categoryid">
                     <option value="0" selected>Tất cả</option>
                     <?php
@@ -32,39 +32,37 @@ if (is_file($hinhpath)) {
             <?php
             extract($product);
             ?>
-            <div class="row mb10">
-                Tên sản phẩm <br>
-                <input type="text" name="productName" value="<?= $productName ?>">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Tên Sản Phẩm</label>
+                <input type="text" name="productName" class="form-control" id="exampleInputPassword1" value="<?= $productName ?>">
             </div>
-            <div class="row mb10">
-                Giá <br>
-                <input type="text" name="productPrice" value="<?= $productPrice ?>">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Giá</label>
+                <input type="text" name="productPrice" class="form-control" id="exampleInputPassword1" value="<?= $productPrice ?>">
             </div>
-            <div class="row mb10">
-                Hình <br>
-                <!-- <img src="" alt=""> -->
-                <input type="file" name="productImage" id="" value="">
-                <?= $productImage ?>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Ảnh</label>
+                <input type="file" name="productImage" class="form-control" id="exampleInputPassword1" value="<?= $productImage ?>">
             </div>
-            <div class="row mb10">
-                Mô tả <br>
-                <textarea name="productDesc" cols="50" rows="10" value="<?= $productDesc ?>"></textarea>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mô tả</label>
+                <textarea name="productDesc" style="resize: none;" class="form-control" id="exampleInputPassword1" cols="120" rows="8"></textarea>
             </div>
-           
-            <div class="row mb10">
-                Dung tích <br>
-                <input type="text" name="productCapacity" id="" value="<?= $productCapacity ?>">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Dung Tích</label>
+                <input type="text" name="productCapacity" class="form-control" id="exampleInputPassword1" value="<?= $productCapacity ?>">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Số Lượng</label>
+                <input type="text" name="quatity" class="form-control" id="exampleInputPassword1" value="<?= $quatity ?>">
+            </div>
 
-            </div>
-            <div class="row mb10">
-                So luong <br>
-                <input type="text" name="quatity" value="<?= $quatity ?>">
-            </div>
-            <div class="row mb10">
+         
+            <div class="mb-3">
                 <input type="hidden" name="id" value="<?= $id ?>">
-                <input type="submit" name="capnhat" value="CẬP NHẬT">
-                <input type="reset" value="NHẬP LẠI">
-                <a href="index.php?act=listpro"><input type="button" value="DANH SÁCH"></a>
+                <input type="submit" class="btn btn-primary" name="capnhat" value="capnhat">
+                <button type="reset" class="btn btn-primary">Nhập lại</button>
+                <a href="index.php?act=listpro"><button type="button" class="btn btn-primary">Danh sách</button></a>
             </div>
             <?php
             if (isset($thongbao) && ($thongbao != "")) {

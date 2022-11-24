@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1-dev+20220930.5d48e1006b
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 24, 2022 lúc 10:30 AM
--- Phiên bản máy phục vụ: 10.4.25-MariaDB
--- Phiên bản PHP: 7.4.30
+-- Thời gian đã tạo: Th10 24, 2022 lúc 05:27 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,7 +83,10 @@ INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `
 (43, 0, '', '', 0, '', 3, 0, 600, '23/11/2022', 5),
 (44, 0, '', '', 0, '', 2, 0, 600, '23/11/2022', 5),
 (45, 7, '', '', 0, '', 2, 0, 360, '23/11/2022', 3),
-(46, 0, '', '', 0, '', 3, 0, 4000000, '24/11/2022', 4);
+(46, 0, '', '', 0, '', 3, 0, 4000000, '24/11/2022', 4),
+(47, 7, '', '', 0, '', 2, 1, 0, '24/11/2022', 0),
+(48, 7, '', '', 0, '', 2, 0, 5600000, '24/11/2022', 2),
+(49, 7, '', '', 0, '', 2, 0, 5600000, '24/11/2022', 2);
 
 -- --------------------------------------------------------
 
@@ -106,7 +109,21 @@ INSERT INTO `billdetail` (`id`, `billId`, `productId`) VALUES
 (2, 43, 0),
 (3, 44, 0),
 (4, 45, 0),
-(5, 46, 0);
+(5, 46, 0),
+(6, 47, 0),
+(7, 47, 0),
+(8, 48, 0),
+(9, 48, 0),
+(10, 48, 0),
+(11, 48, 0),
+(12, 48, 0),
+(13, 48, 0),
+(14, 49, 0),
+(15, 49, 0),
+(16, 49, 0),
+(17, 49, 0),
+(18, 49, 0),
+(19, 49, 0);
 
 -- --------------------------------------------------------
 
@@ -118,7 +135,7 @@ CREATE TABLE `categorys` (
   `id` int(11) NOT NULL,
   `categoryName` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `categoryImage` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `categoryDesc` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `categoryDesc` varchar(500) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
@@ -128,9 +145,9 @@ CREATE TABLE `categorys` (
 INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) VALUES
 (1, 'YSL', 'cate1.jpg', ''),
 (2, 'CoCo Chanel', 'cate1.jpg', ''),
-(3, 'Gucci', 'cate1.jpg', ''),
-(4, 'Dior', 'cate1.jpg', ''),
-(5, 'Lelabo', 'cate1.jpg', ''),
+(3, 'Gucci', 'cate1.jpg', 'Nước hoa Gucci là dòng sản phẩm nước hoa của thương hiệu thời trang cùng tên hàng đầu nước Ý. Cũng như những siêu phẩm thời trang và phụ kiện đắt đỏ khác của hãng, sự thượng lưu, đẳng cấp và sang trọng là những màu sắc chủ đạo của dòng nước hoa Gucci.'),
+(4, 'Dior', 'cate1.jpg', 'Dior là thương hiệu xa xỉ nổi tiếng của Pháp, niềm tự hào trong licnh vực thời trang Pháp, thuộc quyền kiểm soát và điều hành bở tỷ phú Bernard Arnault - người đứng đầu tập đoàn hàng hiệu LVMH lớn nhất thế giới. Thương hiệu Dior được biết đến trên toàn thế giới qua những bộ sưu tập thời trang cùng những dòng nước hoa, mỹ phẩm cao cấp và xa xỉ.'),
+(5, 'Lelabo', 'cate1.jpg', 'Le LaBo trong tiếng Pháp có nghĩa là \"Phòng thí ngiệm\", được thành lập tại Pháp vào năm 2006 bởi Fabrice Penot và Edouard Roschi. \r\nVà thực sự nổi tiếng và được biết đến rộng rãi khi được phát triển tại New York.\"'),
 (6, 'Nartiso', 'cate1.jpg', ''),
 (8, 'Versace', 'cate1.jpg', '');
 
@@ -161,7 +178,6 @@ CREATE TABLE `products` (
   `productImage` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `productPrice` double NOT NULL,
   `productDesc` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `productBrand` varchar(11) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `productCapacity` int(11) NOT NULL,
   `quatity` int(11) NOT NULL,
   `productView` int(11) NOT NULL,
@@ -172,19 +188,19 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `productDesc`, `productBrand`, `productCapacity`, `quatity`, `productView`, `categoryId`) VALUES
-(11, 'Nước Hoa Versace Eros Man EDT 100ml', 'versace1.jpg', 4500000, '', '', 0, 100, 0, 8),
-(12, 'Nước Hoa Le Labo Rose 31 100ml', 'lelabo1.jpg', 5250000, '', '', 0, 100, 0, 5),
-(13, 'Nước Hoa Nữ Gucci Flora Gorgeous Gardenia 100ml', 'gucci1.jpg', 5950000, '', '', 0, 100, 0, 0),
-(14, 'Nước Hoa Nữ Versace Bright EDP, 90ml', 'versace2.jpg', 1680000, '', '', 0, 100, 0, 0),
-(15, 'Nước Hoa Nữ Chanel Gabrielle Essence EDP 100ml', 'chanel2.jpg', 3585000, '', '', 0, 100, 0, 2),
-(16, 'Nước Hoa Nữ Narciso Rodriguez EDP, 90ml', 'naciso1.jpg', 2190000, '', '', 0, 100, 0, 0),
-(17, 'Nước Hoa Gucci Memoire D’une EDP 100ml', 'gucci2.jpg', 2250000, '', '', 0, 100, 0, 0),
-(18, 'Nước Hoa Nam Dior Sauvage EDP 100ml', 'dior1.jpg', 2980000, '', '', 0, 100, 0, 4),
-(19, 'Nước Hoa Le Labo 13 Another 50ml', 'lelabo2.jpg', 7850000, '', '', 0, 100, 0, 5),
-(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '', '', 0, 100, 0, 2),
-(21, 'Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml', 'dior2.jpg', 2800000, '', '', 0, 100, 0, 4),
-(22, 'Nước Hoa Nữ Gucci Bloom EDP For Women 100ml', 'gucci3.jpg', 2900000, '', '', 0, 100, 0, 3);
+INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `productDesc`, `productCapacity`, `quatity`, `productView`, `categoryId`) VALUES
+(11, 'Nước Hoa Versace Eros Man EDT 100ml', 'versace1.jpg', 4500000, '', 0, 100, 0, 8),
+(12, 'Nước Hoa Le Labo Rose 31 100ml', 'lelabo1.jpg', 5250000, '', 0, 100, 0, 5),
+(13, 'Nước Hoa Nữ Gucci Flora Gorgeous Gardenia 100ml', 'gucci1.jpg', 5950000, '', 0, 100, 0, 0),
+(14, 'Nước Hoa Nữ Versace Bright EDP, 90ml', 'versace2.jpg', 1680000, '', 0, 100, 0, 0),
+(15, 'Nước Hoa Nữ Chanel Gabrielle Essence EDP 100ml', 'chanel2.jpg', 3585000, '', 0, 100, 0, 2),
+(16, 'Nước Hoa Nữ Narciso Rodriguez EDP, 90ml', 'naciso1.jpg', 2190000, '', 0, 100, 0, 0),
+(17, 'Nước Hoa Gucci Memoire D’une EDP 100ml', 'gucci2.jpg', 2250000, '', 0, 100, 0, 0),
+(18, 'Nước Hoa Nam Dior Sauvage EDP 100ml', 'dior1.jpg', 2980000, '', 0, 100, 0, 4),
+(19, 'Nước Hoa Le Labo 13 Another 50ml', 'lelabo2.jpg', 7850000, '', 0, 100, 0, 5),
+(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '', 0, 100, 0, 2),
+(21, 'Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml', 'dior2.jpg', 2800000, '', 0, 100, 0, 0),
+(22, 'Nước Hoa Nữ Gucci Bloom EDP For Women 100ml', 'gucci3.jpg', 2900000, '', 0, 100, 0, 3);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -240,13 +256,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `categorys`
@@ -264,7 +280,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

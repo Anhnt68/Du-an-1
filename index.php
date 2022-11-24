@@ -10,7 +10,6 @@ include "global.php";
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 $dsdm = loadAll_dm();
 $spnew = loadall_product_home();
-
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -23,6 +22,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'signIn':
             include "site/signIn.php";
             break;
+            case 'sanpham':
+                if(isset($_GET['idcat'])&&($_GET['idcat'])){
+                    $categoryId = $_GET['idcat'];
+                }else {
+                    $categoryId = 0;
+                }
+                $list_pro_cate = showpro($categoryId);
+
+                include "site/sanpham.php";
+                break;
+                
         case 'sanphamct':
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];
@@ -32,6 +42,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 // extract($dm_one);
                 $categoryid = $pro_one["categoryId"];
                 $sp_cung_loai = load_product_cungloai($id, $categoryid);
+                $ten = load_ten_category($categoryid);
                 extract($sp_cung_loai);
             }
 
