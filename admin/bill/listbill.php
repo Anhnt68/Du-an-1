@@ -34,7 +34,7 @@
             <br />" . $bill['billAddress'] . "
             <br />" . $bill['billPhone'];
 
-                $suadm = "index.php?act=suadm&id=" . $id;
+                $suadh = "index.php?act=suadh&id=" . $id;
                 $xoadh = "index.php?act=xoadh&id=" . $id;
                $ttdh = get_ttdh($bill['billStatus']);
                $tttt = get_tttt($bill['billPttt']);
@@ -52,7 +52,7 @@
             <td>' . $bill['oderDate'] . '</td>
             <td>' . $tttt . '</td>
 
-                      <td><a href="' . $suadm . '"><input type="button" value="Sửa" class="btn btn-primary"></a>
+                      <td><a href="' . $suadh . '"><input type="button" value="Sửa" class="btn btn-primary"></a>
                       <a href="' . $xoadh . '"> <input type="button" value="Xóa" class="btn btn-primary bg-danger"></a>
                       </td>
                     </tr>

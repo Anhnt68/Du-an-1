@@ -32,10 +32,6 @@
                 <textarea name="productDesc" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
             </div>
             <div class="row mb10">
-                Thương hiệu <br>
-                <input type="text" name="productBrand" id="">
-            </div>
-            <div class="row mb10">
                 Dung tích <br>
                 <input type="text" name="productCapacity" id="">
             </div>

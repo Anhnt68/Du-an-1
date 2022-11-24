@@ -27,7 +27,6 @@
                     <th>GIAS</th>
                     <th>ANH</th>
                     <th>MÔ TẢ</th>
-                    <th>THƯƠNG HIỆU</th>
                     <th>DUNG TÍCH</th>
                     <th>SỐ LƯỢNG</th>
                     <th>U/D</th>
@@ -50,7 +49,7 @@
                                         <td>' . $productPrice . '</td>
                                         <td>' . $productImage . '</td>
                                         <td>' . $productDesc . '</td>
-                                        <td>' . $productBrand . '</td>
+                                        
                                         <td>' . $productCapacity . '</td>
                                         <td>' . $quatity . '</td>
                                         <td><a  href="' . $suapro . '"><input type="button" value="Sửa" class="btn btn-primary"> </a> <a href="' . $xoapro . '"><input type="button" value="Xóa" class="btn btn-primary bg-danger"> </a></td>

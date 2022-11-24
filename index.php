@@ -29,7 +29,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $pro_one = loadone_product($id);
                 $dm_one = loadOne_dm($id);
                 extract($pro_one);
-                extract($dm_one);
+                // extract($dm_one);
                 $categoryid = $pro_one["categoryId"];
                 $sp_cung_loai = load_product_cungloai($id, $categoryid);
                 extract($sp_cung_loai);

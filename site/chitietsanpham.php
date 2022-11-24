@@ -16,7 +16,7 @@ if (!is_array($pro_one)) {
 
     $price_pro = $pro_one["productPrice"];
     $desc_pro = $pro_one["productDesc"];
-    extract($dm_one);
+    // extract($dm_one);
     // $brand_pro = $pro_one["productBrand"];
     // $category_name = $pro_one["categoryName"];
     // $categoryid = $dm_one["categoryName"];

@@ -50,10 +50,7 @@ if (is_file($hinhpath)) {
                 Mô tả <br>
                 <textarea name="productDesc" cols="50" rows="10" value="<?= $productDesc ?>"></textarea>
             </div>
-            <div class="row mb10">
-                Thương hiệu <br>
-                <input type="text" name="productBrand" id="" value="<?= $productBrand ?>">
-            </div>
+           
             <div class="row mb10">
                 Dung tích <br>
                 <input type="text" name="productCapacity" id="" value="<?= $productCapacity ?>">

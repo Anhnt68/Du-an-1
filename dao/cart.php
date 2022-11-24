@@ -51,7 +51,7 @@ function viewcart($del)
         <tr>
         <th colspan="4">Tổng đơn hàng</th>
         <th >' . $sum . '</th>
-        <th >' . $quantitysum . '</th>
+      
         ' . $delete . '
         <td></td>
     </tr>
@@ -80,7 +80,7 @@ function tongdonhang()
 }
 function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt,  $tongdonhang, $orderDate,$sodonhang)
 {
-    $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate,quatity) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$orderDate',$sodonhang)";
+    $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate,quatity) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$orderDate','$sodonhang')";
     return pdo_execute_return_lastInsertId($sql);
 }
 function insert_billdetail($billid)
@@ -126,24 +126,14 @@ function loadall_cart_quantity($billid)
 }
 function get_ttdh($n)
 {
-    switch ($n) {
-        case '0':
-            $status = "Đơn hàng đang được tiếp nhận";
-            break;
-        case '1':
-            $status = "Đóng gói";
-            break;
-        case '2':
-            $status = "Đơn hàng đang được giao";
-            break;
-        case '3':
-            $status = "Giao hàng thành công";
-            break;
-
-        default:
-            $status = "Đơn hàng đang được tiếp nhận";
-
-            break;
+    if ($n ==0){
+        $status= "Đơn hàng đang được tiếp nhận"; 
+    }else if ($n==1){
+        $status = "Đóng gói";
+    }else if ($n==2){
+        $status = "Đơn hàng đang được giao";
+    }else if ($n==3){
+        $status = "Giao thành công";
     }
     return $status;
 }
@@ -154,10 +144,10 @@ function get_tttt($x)
             $status = "Thanh toán khi nhận hàng";
             break;
         case '1':
-            $status = "Thanh toasn online";
+            $status = "Thanh toán online";
             break;
         case '2':
-            $status = "thanh toasn qua momo";
+            $status = "thanh tóan qua momo";
             break;
 
 
@@ -177,4 +167,9 @@ function loadall_bill2()
     $sql = "select * from bill order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
+}
+function update_bill($id,$billStatus){
+    $sql = "update bill set  billStatus='".$billStatus."' where id=".$id;
+
+pdo_execute($sql);
 }
