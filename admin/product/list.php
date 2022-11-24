@@ -59,9 +59,10 @@
 
             </table>
         </div>
-        <input type="button" value="Chọn tất cả">
-        <input type="button" value="Bỏ chọn tất cả">
-        <input type="button" value="Xoá các mục đã chọn">
-        <a href="index.php?act=addpro"><input type="button" value="Nhập thêm"></a>
+
+        <button type="submit" class="btn btn-primary">Chọn tất cả</button>
+        <button type="reset" class="btn btn-primary">Bỏ chọn tất cả</button>
+        <button type="reset" class="btn btn-primary">Xóa các mục đã chọn</button>
+        <a href="index.php?act=addpro"><button type="button" class="btn btn-primary">Thêm mới</button></a>
     </div>
 </div>

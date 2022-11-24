@@ -13,9 +13,9 @@ if (!is_array($pro_one)) {
     }
 
     $id_pro = $pro_one["id"];
-
     $price_pro = $pro_one["productPrice"];
     $desc_pro = $pro_one["productDesc"];
+
     // extract($dm_one);
     // $brand_pro = $pro_one["productBrand"];
     // $category_name = $pro_one["categoryName"];
@@ -30,13 +30,6 @@ if (!is_array($pro_one)) {
 
             </div>
             <div class="col-12 col-md-4 col-lg-5 border-left">
-                <!-- <p
-              class="ps-1 text-uppercase font-weight-bold h3 text-center text-danger">
-              NUOC HOA HONG VIP NHAT HIEN NAY
-            </p>
-            <div class="row">
-
-            </div> -->
                 <div class="row">
                     <h2 class="text-danger text-justify my-2">
                         <strong>
@@ -54,20 +47,10 @@ if (!is_array($pro_one)) {
                     </div>
                 </div>
                 <div class="cart-content__note row py-4">
-
-
                     <p>
-                        <span>✨</span> Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger"><?= $categoryName ?></a><br />
-
+                        <span>✨</span> Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger"><?= $ten ?></a><br />
                     </p>
-
-
-
                 </div>
-
-
-                <!--<input type="number" name="quantity" required value="1" min=1>-->
-                <!-- <button type="button" name="product" value="275" class="buy_btn"> -->
                 <div class="row">
                     <form method="POST" action="index.php?act=addtocart">
                         <div class="area_order">
@@ -86,7 +69,7 @@ if (!is_array($pro_one)) {
                             <input type="hidden" name="categoryName" value="<?= $categoryid ?>">
 
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <input type="submit" name="addtocart" class="border-0 w-75 btn btn-danger" value="Thêm vào giỏ hàng">
+                            <input type="submit" name="addtocart" class="border-0 w-30 btn btn-danger" value="Thêm vào giỏ hàng">
                     </form>
                 </div>
                 <!-- </button> -->
@@ -100,28 +83,18 @@ if (!is_array($pro_one)) {
         </div>
     </div>
     <div class="menu-content" style="padding: 0; margin: 20px 0">
-        <!-- <ul class="menu-content d-flex justify-content-start">
-            <li class="active">Chi tiết</li>
-            <li class="active">Đánh giá</li>
-            <li class="active">Hỏi đáp</li>
-          </ul> -->
         <div class="btn-group btn-group-md btn-mt">
             <button type="button" class="btn btn-secondary">Chi tiết</button>
-
         </div>
         <div class="content tab-content" id="tab-1" style="
               display: block;
               background-color: #f3f4f6;
               padding: 10px 10px;
             ">
-
-
             <p style="text-align: justify">
                 <!-- mota -->
                 <?= $desc_pro ?>
-
             </p>
-
         </div>
     </div>
     <!----------------------------------- show comment----------------------------------- -->
