@@ -4,6 +4,7 @@ include "dao/pdo.php";
 include "dao/product_dao.php";
 include "dao/category_dao.php";
 include "dao/cart.php";
+include "dao/accounts.php";
 include "site/header.php";
 include "global.php";
 
@@ -19,20 +20,51 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'lienhe':
             include "site/lienhe.php";
             break;
-        case 'signIn':
-            include "site/signIn.php";
-            break;
-            case 'sanpham':
-                if(isset($_GET['idcat'])&&($_GET['idcat'])){
-                    $categoryId = $_GET['idcat'];
-                }else {
-                    $categoryId = 0;
+        case 'dangnhap':
+            if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
+                $accountEmail = $_POST['accountEmail'];
+                $accountPass = $_POST['accountPass'];
+                if (is_array(checkUser($accountEmail, $accountPass))) {
+                    $_SESSION['accountEmail'] = checkUser($accountEmail, $accountPass);
+                    header('location: index.php');
+                    // $thongbao = "Dang nhap thanh cong";
+                } else {
+                    $thongbao = "Tai khoan khong ton tai";
                 }
-                $list_pro_cate = showpro($categoryId);
+            }
+            include "site/accounts/signIn.php";
+            break;
+        case 'dangky':
+            if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                $accountName = $_POST['accountName'];
+                $accountPass = $_POST['accountPass'];
+                $accountPhone = $_POST['accountPhone'];
+                $accountEmail = $_POST['accountEmail'];
+                $accountAddress = $_POST['accountAddress'];
+                insert_account($accountName, $accountPass, $accountPhone, $accountEmail, $accountAddress);
 
-                include "site/sanpham.php";
-                break;
-                
+                $thongbao = "Da dang ky thanh cong vui long dang nhap";
+            }
+
+            include "site/accounts/signUp.php";
+            break;
+
+        case 'thoat':
+            session_unset();
+            header('location: index.php');
+
+            break;
+        case 'sanpham':
+            if (isset($_GET['idcat']) && ($_GET['idcat'])) {
+                $categoryId = $_GET['idcat'];
+            } else {
+                $categoryId = 0;
+            }
+            $list_pro_cate = showpro($categoryId);
+
+            include "site/sanpham.php";
+            break;
+
         case 'sanphamct':
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];

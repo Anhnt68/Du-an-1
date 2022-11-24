@@ -13,23 +13,50 @@
 </head>
 
 <body>
-  <div class="container-fluid position-relative">
+  <div class="container-fluid p-0">
     <nav class="navbar bg-white">
       <div class="container">
         <a class="">
-          <!-- <img src="site/src/img/logo.png" class="logo position-absolute" style="z-index:2;width: 200px;height: 200px;"> -->
+          <img src="site/src/img/logo.png" class="logo">
         </a>
-        <div class="d-flex justify-content-end align-items-center">
-          <form class="d-flex px-2" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark"></i></a>
-          <li><a href="index.php?act=mybill">Đơn hàng của tôi</a></li>
 
-          <a class="btn btn-primary mx-2" href="index.php?act=signIn">Sign in</a>
-          <a class="btn btn-danger" href="#">sign Up</a>
-        </div>
+        <?php
+        if (isset($_SESSION['accountEmail'])) {
+          extract($_SESSION['accountEmail']);
+        ?>
+
+          <div class=" d-flex justify-content-end align-items-center">
+            <form class="d-flex px-2" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark m-2"></i></a>
+            <li><a href="index.php?act=mybill"><i class="bi bi-receipt-cutoff fs-3 text-dark m-2"></i></a></li>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?= $accountName ?>
+              </button>
+              <ul class="dropdown-menu">
+                <li class="border-top"><a href="" class="text-decoration-none fs-5 text-dark">Cập nhật</a></li>
+                <li class="border-top"><a href="index.php?act=thoat" class="text-decoration-none fs-5 text-dark ">Thoát</a></li>
+              </ul>
+            </div>
+
+          </div>
+        <?php } else {
+        ?>
+          <div class="d-flex justify-content-end align-items-center">
+            <form class="d-flex px-2" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark"></i></a>
+            <li><a href="index.php?act=mybill"><i class="bi bi-receipt-cutoff fs-3 text-dark m-2"></i></a></li>
+            <a class="btn btn-primary mx-2" href="index.php?act=dangnhap">Sign in</a>
+            <a class="btn btn-danger" href="index.php?act=dangky">sign Up</a>
+          </div>
+
+        <?php } ?>
       </div>
     </nav>
     <nav class="navbar navbar-expand-lg bg-white">

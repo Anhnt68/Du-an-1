@@ -143,7 +143,7 @@
           <img src="' . $hinh . '" alt="" class="sp">
         </div>
         <a href="' . $linksp . '" class="text-decoration-none fs-4 text-dark text-uppercase font-weight-bold">' . $productName . '</a>
-        <p class="text-danger fs-5">$' . $productPrice . '</p>
+        <p class="text-danger fs-5">' . $productPrice . '&nbsp;₫</p>
       </div>
     </div>
                    

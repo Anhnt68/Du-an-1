@@ -22,12 +22,11 @@ if (!is_array($pro_one)) {
     // $categoryid = $dm_one["categoryName"];
 ?>
     <div class="container-fluid">
-        <div class="col fs-2 text-danger">CHI TIET SAN PHAM</div>
 
-        <div class="cart row">
-            <div class="col-12 col-md-8 col-lg-7  text-center">
+
+        <div class="cart row m-auto justify-content-around pt-5">
+            <div class="col-12 col-md-8 col-lg-7 text-center" style="width: 600px;height: 600px;">
                 <?= $image_pro ?>
-
             </div>
             <div class="col-12 col-md-4 col-lg-5 border-left">
                 <div class="row">
@@ -54,13 +53,13 @@ if (!is_array($pro_one)) {
                 <div class="row">
                     <form method="POST" action="index.php?act=addtocart">
                         <div class="area_order">
-                            <div class="quanlity">
-                                <span>
-                                    <div class="buttons_added">
-                                        <p class="m-0"><strong>Số lượng:</strong></p>
-                                        <input id="this-item-quantity" class="input-qty" max="10" min="1" name="productQuantity" type="number" value="1" required value="1" />
-                                    </div>
-                                </span>
+                            <div class="quanlity mb-4">
+
+                                <div class="buttons_added">
+                                    <p class="m-0 d-inline-block"><strong>Số lượng:</strong></p>
+                                    <input id="this-item-quantity" class="input-qty" max="10" min="1" name="productQuantity" type="number" value="1" required value="1" />
+                                </div>
+
                             </div>
                             <input type="hidden" name="id" value="<?= $id_pro ?>">
                             <input type="hidden" name="productName" value="<?= $name_pro ?>">
@@ -69,7 +68,7 @@ if (!is_array($pro_one)) {
                             <input type="hidden" name="categoryName" value="<?= $categoryid ?>">
 
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            <input type="submit" name="addtocart" class="border-0 w-30 btn btn-danger" value="Thêm vào giỏ hàng">
+                            <input type="submit" name="addtocart" class="border-0 w-30 btn btn-danger p-2" value="Thêm vào giỏ hàng">
                     </form>
                 </div>
                 <!-- </button> -->
@@ -185,8 +184,8 @@ if (!is_array($pro_one)) {
                 grid-template-columns: repeat(4fr);
 
         </style> -->
-    <div class="row my-3">
-        <h2>Sản phẩm liên quan</h2>
+    <div class="product-rating fw-bold fs-2 my-3">
+        ĐÁNH GIÁ SẢN PHẨM
     </div>
     <div class="row ">
         <!-- <div class="col-12 col-lg-3 d-flex flex-column text-center">

@@ -26,7 +26,7 @@ function delete_product($id)
 
 function loadall_product_home()
 {
-    $sql = "select * from products where 1 order by id desc limit 0,9";
+    $sql = "select * from products where 1 order by id desc limit 0,12";
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
@@ -50,7 +50,7 @@ function loadone_product($id)
 }
 function load_product_cungloai($id, $categoryid)
 {
-    $sql = "select * from products where categoryid = " . $categoryid . " AND id <>" . $id;
+    $sql = "select * from products where categoryid = " . $categoryid . " AND id =" . $id;
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
@@ -63,16 +63,16 @@ function update_product($id, $categoryid, $productName, $productPrice, $productI
         $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' ,productCapacity = '" . $productCapacity . "', quatity = '" . $quatity . "' where id = " . $id;
     pdo_execute($sql);
 }
- function showpro($idcat){
+function showpro($idcat)
+{
     $sql = "select * from products where 1";
-    if($idcat>0){
-        $sql .=" AND categoryId=" .$idcat;
+    if ($idcat > 0) {
+        $sql .= " AND categoryId=" . $idcat;
     }
-    $sql.=" order by id desc";
+    $sql .= " order by id desc";
     $conn = pdo_get_connection();
-    $stmt = $conn -> prepare($sql);
-    $stmt -> execute();
-    $stmt -> setFetchMode(PDO::FETCH_ASSOC);
-    return $stmt -> fetch();
- }
- ?>
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmt->fetch();
+}

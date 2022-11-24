@@ -1,7 +1,7 @@
 <div class="container">
     <form action="index.php?act=billconfirm" method="post">
-        <div class="row">
-            <div class="col-xl-8 billform boxcontent m-auto">
+        <div class="row justify-content-between">
+            <div class="col-xl-6 billform boxcontent m-auto">
                 <p class="title text-center fs-3">Thông tin đặt hàng</p>
 
                 <table class="table ">
@@ -37,7 +37,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-xl-8 billform boxcontent m-auto">
+            <div class="col-xl-4 billform boxcontent m-auto">
                 <p class="title text-center fs-3">Phương thức thanh toán</p>
                 <div class="row flex-column justify-content-between">
                     <div class="form-check mt-3">
@@ -59,7 +59,9 @@
                             Thanh toán khi nhận hàng
                         </label>
                     </div>
-
+                    <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="site/cart/xulythanhtoanmomo_atm.php">
+                        <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+                    </form>
                 </div>
 
             </div>
@@ -79,8 +81,6 @@
         </div>
     </form>
     <div class="row m-auto col-2 mb-4">
-    <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="site/cart/xulythanhtoanmomo_atm.php">
-        <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
-    </form>
+
     </div>
 </div>
