@@ -21,7 +21,7 @@
                     <li class="nav-item d-flex flex-column mx-3"><i class="bi bi-house-door-fill fs-4 m-auto"></i> <a
                             href="../index.html" class="text-decoration-none text-dark">Home</a></li>
                     <li class="nav-item d-flex flex-column mx-3"><i
-                            class="bi bi-chat-left-dots-fill fs-4 m-auto"></i></i><a href=""
+                            class="bi bi-chat-left-dots-fill fs-4 m-auto"></i><a href=""
                             class="text-decoration-none text-dark">Thong
                             bao</a></li>
                     <li class="nav-item d-flex flex-column mx-3"><i class="bi bi-person-circle fs-4 m-auto"></i> <a

@@ -47,7 +47,7 @@
                         </label>
                     </div>
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="radio" name="check" value="3" id="defaultCheck1" checked>
+                        <input class="form-check-input" type="radio" name="check" value="2" id="defaultCheck1" checked>
                         <!-- <img src="../src/img/logo-momo-png-1.png" alt="" style="width: 20px;height: 20px;"> -->
                         <label class="form-check-label" for="defaultCheck1">
                             Thanh toán Momo

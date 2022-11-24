@@ -6,6 +6,8 @@
     <?php
     if (isset($bill) && (is_array($bill))) {
         extract($bill);
+        $tttt = get_tttt($bill['billPttt']);
+
     }
     ?>
     <div class="row text-center">
@@ -13,7 +15,7 @@
         <li class="list-group-item">- Mã đơn hàng:   DA1-<?= $bill['id']; ?></li>
         <li class="list-group-item">- Ngày đặt hàng:   <?= $bill['oderDate']; ?></li>
         <li class="list-group-item">- Tổng đơn hàng:   <?= $bill['billTotal']; ?></li>
-        <li class="list-group-item">- Phương thức thanh toán:   <?= $bill['billPttt']; ?></li> <br><br>
+        <li class="list-group-item">- Phương thức thanh toán:   <?= $tttt?></li> <br><br>
     </div>
 
 

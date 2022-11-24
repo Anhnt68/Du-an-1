@@ -11,10 +11,11 @@ if (isset($_GET['act'])) {
             //kiểm tra xem người dùng có click vào add danh mục k
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tenloai = $_POST['tenloai'];
+                $motaloai = $_POST['motaloai'];
                 $anhloai = $_FILES['anhloai']['name'];
                 $target_dir = "../uploads";
                 $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
-                insert_dm($tenloai, $anhloai);
+                insert_dm($tenloai,$motaloai,$anhloai);
                 $thongbao = "them thành công";
             }
             include "category/add.php";
@@ -42,10 +43,11 @@ if (isset($_GET['act'])) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['id'];
                 $tenloai = $_POST['tenloai'];
+                $motaloai = $_POST['motaloai'];
                 $anhloai = $_FILES['anhloai']['name'];
                 $target_dir = "../uploads";
                 $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
-                update_dm($id, $tenloai, $anhloai);
+                update_dm($id, $tenloai,$motaloai,$anhloai);
                 $thongbao = "cập nhật thành công";
             }
             $listdm = loadAll_dm();
@@ -59,7 +61,7 @@ if (isset($_GET['act'])) {
                 $productName = $_POST['productName'];
                 $productPrice = $_POST['productPrice'];
                 $productDesc = $_POST['productDesc'];
-                $productBrand = $_POST['productBrand'];
+                
                 $productCapacity = $_POST['productCapacity'];
                 $quatity = $_POST['quatity'];
                 $productImage = $_FILES['productImage']['name'];
@@ -68,7 +70,7 @@ if (isset($_GET['act'])) {
                 if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                 } else {
                 }
-                insert_product($productName, $productPrice, $productImage, $productDesc, $productCapacity, $productBrand, $quatity, $categoryid);
+                insert_product($productName, $productPrice, $productImage, $productDesc, $productCapacity, $quatity, $categoryid);
                 $thongbao = "Thêm thành công";
             }
             $listdm = loadAll_dm();
@@ -109,7 +111,7 @@ if (isset($_GET['act'])) {
                 $productName = $_POST['productName'];
                 $productPrice = $_POST['productPrice'];
                 $productDesc = $_POST['productDesc'];
-                $productBrand = $_POST['productBrand'];
+                
                 $productCapacity = $_POST['productCapacity'];
                 $productImage = $_FILES['productImage']['name'];
                 $quatity = $_POST['quatity'];
@@ -120,7 +122,7 @@ if (isset($_GET['act'])) {
                 } else {
                     //echo "Sorry, there was an error uploading your file.";
                 }
-                update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc, $productBrand, $productCapacity, $quatity);
+                update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc,  $productCapacity, $quatity);
                 $thongbao = "Cập nhật thành công";
             }
             $listdm = loadAll_dm();
@@ -144,10 +146,31 @@ case "listbill":
           $listbill = loadall_bill2();
           include "bill/listbill.php";
         break;
+        case 'suadh':
+            if ($_GET['id'] && $_GET['id'] > 0) {
+                $dh = loadone_bill($_GET['id']);
+            }
+            $listbill = loadall_bill2();
+            include "bill/update_bill.php";
+            break;
+           case 'updatebill':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $billStatus = $_POST['billStatus'];
+                $listbill =update_bill($id,$billStatus);
+            }
+            $listbill = loadall_bill2();
+
+
+            include "bill/listbill.php";
+
+            break;
+            break;
         default:
             include "home.php";
             break;
     }
+
 }
 include "home.php";
 include "footer.php";
