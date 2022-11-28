@@ -9,6 +9,7 @@
                         <th scope="col">Tên sản phẩm</th>
                         <th scope="col">Số lượng sản phẩm</th>
                         <th scope="col">Giá sản phẩm</th>
+                        <th scope="col">Tổng tiền sản phẩm</th>
                       </tr>
                       </thead>
                  
@@ -27,6 +28,7 @@
                       <td>'.$tensp.'</td>
                       <td>'.$soluong.'</td>
                       <td>'.$giasp.'</td>
+                      <td>'.$tongtien.'</td>
                       
                       
                     </tr>
@@ -34,7 +36,13 @@
                       }
                       ?>
                      </tbody>
-                  
+                     <tr>
+                     <th scope="col">Tổng tiền </th>
+
+        <th ><?= $tien ?></th>
+      
+  
+    </tr>
                   </table>
                  
             </div>
