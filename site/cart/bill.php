@@ -59,9 +59,7 @@
                             Thanh toán khi nhận hàng
                         </label>
                     </div>
-                    <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="site/cart/xulythanhtoanmomo_atm.php">
-                        <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
-                    </form>
+                    
                 </div>
 
             </div>
@@ -81,6 +79,8 @@
         </div>
     </form>
     <div class="row m-auto col-2 mb-4">
-
+        <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="index.php?act=thanhtoan">
+        <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+        </form>
     </div>
 </div>

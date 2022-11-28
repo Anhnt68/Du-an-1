@@ -23,15 +23,19 @@ function execPostRequest($url, $data)
 
 
 $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
-
+// $sum = 0;
+// foreach ($_SESSION['mycart'] as $cart) {
+//     $sumPrice = $cart[3] * $cart[4];
+//     $sum += $sumPrice;
+// }
 
 $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
 $orderInfo = "Thanh toán qua MoMo ATM";
-$amount = "10000";
-// $amount = $_POST['sum'];
+// $amount = "10000";
+ $amount = $gia;
 $orderId = time() ."";
 // $redirectUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
 $redirectUrl = "http://localhost/Du-an-1/index.php?act=bill";
@@ -63,5 +67,3 @@ $extraData = "";
     //Just a example, please check more in there
 
     header('Location: ' . $jsonResult['payUrl']);
-
-?>

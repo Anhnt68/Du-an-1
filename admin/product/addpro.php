@@ -39,11 +39,9 @@
                 Số lượng <br>
                 <input type="text" name="quatity">
             </div>
-            <div class="row mb-3">
                 <input type="submit" class="btn btn-primary" name="themmoi" value="them mới">
                 <button type="reset" class="btn btn-primary">Nhập lại</button>
                 <a href="index.php?act=listpro"><button type="button"  class="btn btn-primary" >Danh sách</button></a> 
-            </div>
             <?php
             if (isset($thongbao) && ($thongbao != "")) {
                 echo $thongbao;
