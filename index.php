@@ -122,41 +122,49 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'bill':
             include "site/cart/bill.php";
             break;
-        case 'billconfirm':
-            if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-                if (isset($_SESSION['user'])) {
-                    $accountId = $_SESSION['user']['id'];
-                } else $id = 0;
-                $accountName = $_POST['accountName'];
-                $accountAddress = $_POST['accountAddress'];
-                $accountPhone = $_POST['accountPhone'];
-                $accountEmail = $_POST['accountEmail'];
-                $pttt = $_POST['check'];
-                $sodonhang = tinhsoluong();
-                $tongdonhang = tongdonhang();
-                $orderDate = date('d/m/Y');
-
-
-                $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $orderDate, $sodonhang);
-                foreach ($_SESSION['mycart'] as $billdetail) {
-                    insert_billdetail($idbill);
+            case 'billconfirm':
+                if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
+                    if (isset($_SESSION['user'])) {
+                        $accountId = $_SESSION['user']['id'];
+                    } else $id = 0;
+                    $accountName = $_POST['accountName'];
+                    $accountAddress = $_POST['accountAddress'];
+                    $accountPhone = $_POST['accountPhone'];
+                    $accountEmail = $_POST['accountEmail'];
+                    $pttt = $_POST['check'];
+                    $sodonhang = tinhsoluong();
+                    $tongdonhang = tongdonhang();
+                    $orderDate = date('d/m/Y');
+    
+    
+                    $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $orderDate, $sodonhang);
+                   
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_billdetail($cart[0],$idbill,$cart[4]);
+                    }
+                    // // xoá session cart
+                    // $_SESSION['cart'] = [];
                 }
-                // // xoá session cart
-                // $_SESSION['cart'] = [];
+                $bill = loadone_bill($idbill);
+                $billct = loadall_billdeatil($idbill);
+                include "site/cart/billconfirm.php";
+                break;
+            case 'mybill':
+                $listbill = loadAll_bill($_SESSION['user']['id'], 0);
+                include "site/cart/mybill.php";
+                break;
+                case 'show':
+                    if ($_GET['id'] && $_GET['id'] > 0) {
+                        $showdh = Show_dh($_GET['id']);
+                    }
+                   
+                    include "site/cart/chitietbill.php";
+                    break;
+               
+    
+                }
+            } else {
+                include "site/home.php";
             }
-            $bill = loadone_bill($idbill);
-            $billct = loadall_billdeatil($idbill);
-            include "site/cart/billconfirm.php";
-            break;
-        case 'mybill':
-            $listbill = loadAll_bill($_SESSION['user']['id'], 0);
-            include "site/cart/mybill.php";
-            break;
-        default:
-            include "site/home.php";
-            break;
-    }
-} else {
-    include "site/home.php";
-}
-include "site/footer.php";
+            include "site/footer.php";
+            

@@ -3,6 +3,7 @@ include "../dao/pdo.php";
 include "../dao/category_dao.php";
 include "../dao/product_dao.php";
 include "../dao/cart.php";
+include "../dao/statistical_dao.php";
 include "header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
@@ -165,7 +166,30 @@ case "listbill":
             include "bill/listbill.php";
 
             break;
-            break;
+            // phần thống kê
+            case 'listtk':
+                $listthongke = loadAll_thongke();
+                include 'statistical/list.php';
+                break;
+                case 'bieudo':
+                    $listthongke = loadAll_thongke();
+                    include 'statistical/bieudo.php';
+                    break;
+                    case 'listtkk':
+                        $listthongkee = loadAll_thongkedt();
+                        include 'statistical/listdt.php';
+                        break;
+                        case 'bieudodt':
+                            $listthongkee = loadAll_thongkedt();
+                            include 'statistical/bieudodt.php';
+                            break;
+                            case 'show':
+                                if ($_GET['id'] && $_GET['id'] > 0) {
+                                    $showdh = Show_dh($_GET['id']);
+                                }
+                               
+                                include "bill/chitietbill_admin.php";
+                                break;
         default:
             include "home.php";
             break;

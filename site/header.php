@@ -17,7 +17,7 @@
     <nav class="navbar bg-white">
       <div class="container">
         <a class="">
-          <img src="site/src/img/logo.png" class="logo">
+          <img src="site/src/img/logo1.png" class="logo">
         </a>
 
         <?php
