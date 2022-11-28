@@ -13,6 +13,8 @@
                 <th scope="col">Tổng giá trị đơn hàng</th>
                 <th scope="col">Tình trạng đơn hàng</th>
                 <th scope="col">Tình trạng thanh toán đơn hàng</th>
+                <th scope="col"></th>
+
 
             </tr>
         </thead>
@@ -20,12 +22,17 @@
         <tbody>
             <?php
             if (is_array($listbill)) {
+
+
                 foreach ($listbill as $bill) {
                     extract($bill);
+                    $show="index.php?act=show&id=".$id;
+
                     $soluong = tinhsoluong($bill['quatity']);
                                         $countsp = loadall_cart_count($bill['id']);
                     $ttdh = get_ttdh($bill['billStatus']);
                     $tttt = get_tttt($bill['billPttt']);
+                 
 
                     echo '
             <tr>
@@ -37,6 +44,7 @@
         <td>' . $bill['billTotal'] . '</td>
         <td>' . $ttdh . '</td>
         <td>' . $tttt . '</td>
+        <td><a  href="'.$show.'"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>
 
        
     </tr>

@@ -22,6 +22,7 @@
                 <th scope="col">Ngày đặt hàng</th>
                 <th scope="col">Tình trạng thanh toán</th>
                 <th scope="col">Thao tác</th>
+                <th scope="col">Show đơn hàng</th>
 
             </tr>
         </thead>
@@ -39,7 +40,8 @@
                $ttdh = get_ttdh($bill['billStatus']);
                $tttt = get_tttt($bill['billPttt']);
                $countsp = loadall_cart_count($bill['id']);
-
+               $showdh="index.php?act=show&id=".$id;
+                  
                 echo '
                   <tr>
                       <td scope="row"><input type="checkbox" name="" id=""></td>
@@ -51,6 +53,7 @@
             <td>' . $ttdh. '</td>
             <td>' . $bill['oderDate'] . '</td>
             <td>' . $tttt . '</td>
+            <td><a href="'.$showdh.'"><input type="button" value="Show đơn hàng" class="btn btn-primary"></a></td>
 
                       <td><a href="' . $suadh . '"><input type="button" value="Sửa" class="btn btn-primary"></a>
                       <a href="' . $xoadh . '"> <input type="button" value="Xóa" class="btn btn-primary bg-danger"></a>

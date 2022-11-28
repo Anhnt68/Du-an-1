@@ -5,6 +5,7 @@ if (!is_array($pro_one)) {
 } else {
     $name_pro = $pro_one["productName"];
     $name_img_pro = $pro_one["productImage"];
+    $quantity = $pro_one["quatity"];
     $image_pro = $img_path . $pro_one["productImage"];
     if (is_file($image_pro)) {
         $image_pro = '<img src="' . $image_pro . '" class="rounded w-100" alt="" />';
@@ -36,7 +37,7 @@ if (!is_array($pro_one)) {
                             <?= $name_pro ?>
                         </strong>
                     </h2>
-
+     
 
                     <div class="price text-danger fs-3">
                         <span><strong>
@@ -45,12 +46,20 @@ if (!is_array($pro_one)) {
                             </strong></span><span><strong> Đ</strong></span>
                     </div>
                 </div>
-                <div class="cart-content__note row py-4">
+     <?php if ($quantity > 0) { ?>
+
+                <div class="cart-content__note row py-2">
                     <p>
                         <span>✨</span> Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger"><?= $ten ?></a><br />
                     </p>
                 </div>
+                <div class="cart-content__note row py-1">
+                    <p>
+                         Tồn kho:&nbsp;<a href="#" class="text-decoration-none text-danger"><?= $quantity ?></a><br />
+                    </p>
+                </div>
                 <div class="row">
+                
                     <form method="POST" action="index.php?act=addtocart">
                         <div class="area_order">
                             <div class="quanlity mb-4">
@@ -81,6 +90,9 @@ if (!is_array($pro_one)) {
             <label class="text-secondary h6 my-3">Miễn Phí Giao Hàng Trên Toàn Quốc</label>
         </div>
     </div>
+    <?php } else { ?>
+                        <span class="error">Hết hàng</span>
+                    <?php } ?>
     <div class="menu-content" style="padding: 0; margin: 20px 0">
         <div class="btn-group btn-group-md btn-mt">
             <button type="button" class="btn btn-secondary">Chi tiết</button>

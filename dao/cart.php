@@ -83,11 +83,12 @@ function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $
     $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate,quatity) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$orderDate','$sodonhang')";
     return pdo_execute_return_lastInsertId($sql);
 }
-function insert_billdetail($billid)
+function insert_billdetail($productId,$billid,$productQuantity)
 {
-    $sql = "insert into billdetail(billid) values('$billid')";
+    $sql = "insert into billdetail(billid,productId,productQuantity) values('$billid','$productId','$productQuantity')";
     return pdo_execute($sql);
 }
+
 
 function loadone_bill($id)
 {
@@ -172,4 +173,15 @@ function update_bill($id,$billStatus){
     $sql = "update bill set  billStatus='".$billStatus."' where id=".$id;
 
 pdo_execute($sql);
+}
+function Show_dh($id){
+    $sql = "select billdetail.id as masp, products.productName as tensp,products.productImage as anhsp,
+     products.productPrice as giasp,bill.billTotal as tongdh,billdetail.productQuantity as soluong";
+    $sql.=" from products INNER JOIN billdetail ON products.id = billdetail.productId INNER JOIN bill ON bill.id = billdetail.billId";
+    // $sql.=" where billdetail.billId=" .$id;
+    $sql.=" where bill.id=" .$id;
+    // $sql.=" and bill.id=" . $id;
+    // count(billdetail.productId) as countsp, 
+    $listtkk = pdo_query($sql);
+    return $listtkk;
 }

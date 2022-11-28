@@ -14,7 +14,9 @@
     <div class="container-fluid ">
         <div class="row my-2">
             <div class="col-xl-3">
-                <a class="navbar-brand order-1 fs-1 m-auto">Perfume</a>
+            <a class="">
+          <img src="../site/src/img/logo1.png" class="logo" style="width:100px ;">
+        </a>
             </div>
             <div class="col-xl-9">
                 <ul class="navbar-nav d-flex justify-content-end flex-row">
@@ -35,10 +37,19 @@
             <div class="col-xl-2 bg-secondary min-vh-100">
                 <ul class="list-group list-group-flush">
 
-                    <li class="list-group-item bg-secondary d-flex align-items-center"><i
-                            class="bi bi-speedometer fs-3 px-4 text-light"></i><a
-                            class="text-decoration-none fs-5 text-light" href="">Thống kê</a>
-                    </li>
+                <div class="btn-group list-group-item bg-secondary d-flex align-items-center">
+                                                <i class="bi bi-list-ul fs-3 px-4 text-light"></i>
+                                                <button class="btn btn-secondary dropdown-toggle text-decoration-none fs-5 text-light" type="button" data-bs-toggle="dropdown">
+                                                        Thống kê
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="index.php?act=bieudo">Thống kê sản phẩm</a></li>
+                                                        <li><a class="dropdown-item" href="index.php?act=bieudodt">Thống kê doanh thu </a></li>
+                                                 
+                                                </ul>
+                                        </div>
+
+                
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-list-ul fs-3 px-4 text-light"></i><a
                             class="text-decoration-none fs-5 text-light" href="index.php?act=listdm">Danh
@@ -51,7 +62,7 @@
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-people-fill fs-3 px-4 text-light"></i><a
-                            class="text-decoration-none fs-5 text-light" href="">Khách Hàng</a>
+                            class="text-decoration-none fs-5 text-light" href="index.php?act=listtkk">Khách Hàng</a>
                     </li>
                     <li class="list-group-item bg-secondary d-flex align-items-center"><i
                             class="bi bi-cart-dash-fill fs-3 px-4 text-light"></i><a
