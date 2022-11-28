@@ -176,7 +176,7 @@ pdo_execute($sql);
 }
 function Show_dh($id){
     $sql = "select billdetail.id as masp, products.productName as tensp,products.productImage as anhsp,
-     products.productPrice as giasp,bill.billTotal as tongdh,billdetail.productQuantity as soluong";
+     products.productPrice as giasp,bill.billTotal as tongdh,billdetail.productQuantity as soluong,billdetail.productQuantity * products.productPrice as tongtien,bill.billTotal as tien";
     $sql.=" from products INNER JOIN billdetail ON products.id = billdetail.productId INNER JOIN bill ON bill.id = billdetail.billId";
     // $sql.=" where billdetail.billId=" .$id;
     $sql.=" where bill.id=" .$id;
