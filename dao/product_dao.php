@@ -17,7 +17,16 @@ function loadall_product()
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
-
+function showpro($idcat)
+{
+    $sql = "select * from products where 1";
+    if ($idcat > 0) {
+        $sql .= " AND categoryId=" . $idcat;
+    }
+    $sql .= " order by id desc";
+    $listprocate = pdo_query($sql);
+    return $listprocate;
+}
 function delete_product($id)
 {
     $sql = "delete from products where id =" . $id;
@@ -63,16 +72,4 @@ function update_product($id, $categoryid, $productName, $productPrice, $productI
         $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' ,productCapacity = '" . $productCapacity . "', quatity = '" . $quatity . "' where id = " . $id;
     pdo_execute($sql);
 }
-function showpro($idcat)
-{
-    $sql = "select * from products where 1";
-    if ($idcat > 0) {
-        $sql .= " AND categoryId=" . $idcat;
-    }
-    $sql .= " order by id desc";
-    $conn = pdo_get_connection();
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    return $stmt->fetch();
-}
+
