@@ -53,8 +53,6 @@
                 <li class="border-top ps-3"><a href="index.php?act=thoat" class="text-decoration-none fs-5 text-dark ">Thoát</a></li>
               </ul>
             </div>
-
-
           </div>
         <?php } else {
         ?>
@@ -64,7 +62,6 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark"></i></a>
-            <li><a href="index.php?act=mybill"><i class="bi bi-receipt-cutoff fs-3 text-dark m-2"></i></a></li>
             <a class="btn btn-primary mx-2" href="index.php?act=dangnhap">Sign in</a>
             <a class="btn btn-danger" href="index.php?act=dangky">sign Up</a>
           </div>
