@@ -102,14 +102,15 @@ function loadall_billdeatil($billid)
     $bill = pdo_query($sql);
     return $bill;
 }
-function loadAll_bill($kyw = "", $iduser)
+function loadAll_bill($kyw="",$accountId)
 {
+    
     $sql = "select * from bill where 1";
-    if ($iduser > 0)
-        $sql .= " AND accountId =" . $iduser;
-    if ($kyw != "")
-        $sql .= " AND id like '%" . $kyw . "%'";
-    $sql .= " order by id desc";
+    if($accountId>0)
+    $sql.=" AND accountId =" . $accountId;
+    if($kyw!="")
+    $sql.=" AND id like '%".$kyw."%'";
+    $sql.=" order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
 }
