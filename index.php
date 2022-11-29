@@ -210,7 +210,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "site/cart/xulythanhtoanmomo_atm.php";
             break;
         case 'mybill':
-            $listbill = loadAll_bill($_SESSION['account']['id'], 0);
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            $listbill = loadAll_bill($kyw,$_SESSION['account']['id']);
             include "site/cart/mybill.php";
             break;
         case 'show':
