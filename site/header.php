@@ -15,14 +15,14 @@
 <body>
   <div class="container-fluid p-0">
     <nav class="navbar bg-white">
-      <div class="container">
+      <div class="container d-flex justify-content-between">
         <a class="">
           <img src="site/src/img/logo1.png" class="logo">
         </a>
 
         <?php
-        if (isset($_SESSION['accountEmail'])) {
-          extract($_SESSION['accountEmail']);
+        if (isset($_SESSION['account'])) {
+          extract($_SESSION['account']);
         ?>
 
           <div class=" d-flex justify-content-end align-items-center">
@@ -34,13 +34,26 @@
             <li><a href="index.php?act=mybill"><i class="bi bi-receipt-cutoff fs-3 text-dark m-2"></i></a></li>
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <?php
+                if (isset($accountImage)) {
+                  echo '<img src="../uploads/' . $accountImage . '" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+                } else {
+                  echo '<img src="src/img/trend-avatar-1.png" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+                }
+                ?>
                 <?= $accountName ?>
               </button>
-              <ul class="dropdown-menu">
-                <li class="border-top"><a href="" class="text-decoration-none fs-5 text-dark">Cập nhật</a></li>
-                <li class="border-top"><a href="index.php?act=thoat" class="text-decoration-none fs-5 text-dark ">Thoát</a></li>
+              <ul class="dropdown-menu w-100">
+                <li class="border-top ps-3"><a href="index.php?act=updateAccount" class="text-decoration-none fs-5 text-dark">Cập nhật</a></li>
+                <?php if ($role == 1) { ?>
+                  <li class="border-top ps-3">
+                    <a href="admin/index.php" class="text-decoration-none fs-5 text-dark">Đăng nhập Admin</a>
+                  </li>
+                <?php } ?>
+                <li class="border-top ps-3"><a href="index.php?act=thoat" class="text-decoration-none fs-5 text-dark ">Thoát</a></li>
               </ul>
             </div>
+
 
           </div>
         <?php } else {

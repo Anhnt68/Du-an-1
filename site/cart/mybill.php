@@ -1,4 +1,4 @@
-<div class="col-xl-10">
+<div class="col-xl-10 m-auto">
     <hr>
     <h2 class="text-center">
         Đơn hàng của bạn
@@ -26,13 +26,13 @@
 
                 foreach ($listbill as $bill) {
                     extract($bill);
-                    $show="index.php?act=show&id=".$id;
+                    $show = "index.php?act=show&id=" . $id;
 
                     $soluong = tinhsoluong($bill['quatity']);
-                                        $countsp = loadall_cart_count($bill['id']);
+                    $countsp = loadall_cart_count($bill['id']);
                     $ttdh = get_ttdh($bill['billStatus']);
                     $tttt = get_tttt($bill['billPttt']);
-                 
+
 
                     echo '
             <tr>
@@ -44,7 +44,7 @@
         <td>' . $bill['billTotal'] . '</td>
         <td>' . $ttdh . '</td>
         <td>' . $tttt . '</td>
-        <td><a  href="'.$show.'"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>
+        <td><a  href="' . $show . '"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>
 
        
     </tr>
