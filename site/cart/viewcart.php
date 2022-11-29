@@ -36,8 +36,19 @@
 
         </table>
     </div>
-    <div class="text-center m-3">
-        <a href="index.php?act=bill"><input type="button" class="btn btn-primary mx-3" value="Tiếp tục đặt hàng"></a>
-        <a href="index.php?delcart"><input type="button" class="btn btn-danger" value="Xóa Giỏ Hàng"></a>
-    </div>
+    <?php
+    if (isset($_SESSION['account'])) {
+        extract($_SESSION['account']);
+    ?>
+        <div class="text-center m-3">
+            <a href="index.php?act=bill"><input type="button" class="btn btn-primary mx-3" value="Tiếp tục đặt hàng"></a>
+
+        </div>
+    <?php } else {
+    ?>
+        <div class="text-center m-3">
+            <a href="index.php?act=dangnhap"><input type="button" class="btn btn-primary mx-3" value="Đăng nhập để tiếp tục đặt hàng"></a>
+
+        </div>
+    <?php } ?>
 </div>
