@@ -106,7 +106,7 @@ function loadAll_bill($kyw = "", $iduser)
 {
     $sql = "select * from bill where 1";
     if ($iduser > 0)
-        $sql .= " AND iduser =" . $iduser;
+        $sql .= " AND accountId =" . $iduser;
     if ($kyw != "")
         $sql .= " AND id like '%" . $kyw . "%'";
     $sql .= " order by id desc";
