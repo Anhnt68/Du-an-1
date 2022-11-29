@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 04:55 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 29, 2022 lúc 02:59 PM
+-- Phiên bản máy phục vụ: 10.4.25-MariaDB
+-- Phiên bản PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `duan1`
+-- Cơ sở dữ liệu: `duan1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accounts`
+-- Cấu trúc bảng cho bảng `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -39,17 +39,16 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `accounts`
+-- Đang đổ dữ liệu cho bảng `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `accountName`, `accountPass`, `accountPhone`, `accountEmail`, `accountImage`, `accountAddress`, `role`) VALUES
-(1, 'thinh1420', 'ducthinh1420.', 0, '', '', '', 0),
-(2, 'thinh1420', 'ducthinh1420.', 0, 'thinh1420003@gmail.com', '', '', 0);
+(4, 'Nguyễn Tuấn Anh', 'anhnt683', 346237897, 'anhntph27773@gmail.com', 'naciso1.jpg', 'Ninh Bình', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bill`
+-- Cấu trúc bảng cho bảng `bill`
 --
 
 CREATE TABLE `bill` (
@@ -67,17 +66,26 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `bill`
+-- Đang đổ dữ liệu cho bảng `bill`
 --
 
 INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `billEmail`, `billPttt`, `billStatus`, `billTotal`, `oderDate`, `quatity`) VALUES
 (78, 0, '', '', 0, '', 2, 0, 37550000, '28/11/2022', 8),
-(79, 0, 'Nguyễn Đức Thịnh', 'Nam Định', 915220156, 'thinh1420003@gmail.com', 0, 0, 41240000, '28/11/2022', 9);
+(79, 0, 'Nguyễn Đức Thịnh', 'Nam Định', 915220156, 'thinh1420003@gmail.com', 0, 0, 41240000, '28/11/2022', 9),
+(80, 0, '', '', 0, '', 2, 0, 2800000, '29/11/2022', 1),
+(81, 0, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 2800000, '29/11/2022', 1),
+(82, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 2800000, '29/11/2022', 1),
+(83, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 14000000, '29/11/2022', 5),
+(84, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 26680000, '29/11/2022', 8),
+(85, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 0, 0, 33960000, '29/11/2022', 13),
+(86, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 48720000, '29/11/2022', 17),
+(87, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 29100000, '29/11/2022', 8),
+(88, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 43860000, '29/11/2022', 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `billdetail`
+-- Cấu trúc bảng cho bảng `billdetail`
 --
 
 CREATE TABLE `billdetail` (
@@ -88,7 +96,7 @@ CREATE TABLE `billdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `billdetail`
+-- Đang đổ dữ liệu cho bảng `billdetail`
 --
 
 INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
@@ -111,12 +119,27 @@ INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
 (59, 78, 21, 5),
 (60, 79, 19, 3),
 (61, 79, 21, 5),
-(62, 79, 20, 1);
+(62, 79, 20, 1),
+(63, 80, 21, 1),
+(64, 81, 21, 1),
+(65, 82, 21, 1),
+(66, 83, 21, 5),
+(67, 84, 20, 4),
+(68, 84, 18, 4),
+(69, 85, 21, 9),
+(70, 85, 16, 4),
+(71, 86, 21, 9),
+(72, 86, 16, 4),
+(73, 86, 20, 4),
+(74, 87, 20, 4),
+(75, 87, 15, 4),
+(76, 88, 20, 8),
+(77, 88, 15, 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorys`
+-- Cấu trúc bảng cho bảng `categorys`
 --
 
 CREATE TABLE `categorys` (
@@ -127,7 +150,7 @@ CREATE TABLE `categorys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `categorys`
+-- Đang đổ dữ liệu cho bảng `categorys`
 --
 
 INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) VALUES
@@ -143,7 +166,7 @@ INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Cấu trúc bảng cho bảng `comments`
 --
 
 CREATE TABLE `comments` (
@@ -158,7 +181,7 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -174,7 +197,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `productDesc`, `productCapacity`, `quatity`, `productView`, `categoryId`) VALUES
@@ -192,81 +215,81 @@ INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `pr
 (22, 'Nước Hoa Nữ Gucci Bloom EDP For Women 100ml', 'gucci3.jpg', 2900000, '', 0, 0, 0, 3);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `accounts`
+-- Chỉ mục cho bảng `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `bill`
+-- Chỉ mục cho bảng `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `billdetail`
+-- Chỉ mục cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categorys`
+-- Chỉ mục cho bảng `categorys`
 --
 ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comments`
+-- Chỉ mục cho bảng `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `accounts`
+-- AUTO_INCREMENT cho bảng `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `bill`
+-- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT for table `billdetail`
+-- AUTO_INCREMENT cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- AUTO_INCREMENT for table `categorys`
+-- AUTO_INCREMENT cho bảng `categorys`
 --
 ALTER TABLE `categorys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;

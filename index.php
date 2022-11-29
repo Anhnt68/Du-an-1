@@ -7,7 +7,6 @@ include "dao/cart.php";
 include "dao/accounts.php";
 include "site/header.php";
 include "global.php";
-
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 $dsdm = loadAll_dm();
 $spnew = loadall_product_home();
@@ -25,11 +24,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $accountEmail = $_POST['accountEmail'];
                 $accountPass = $_POST['accountPass'];
                 if (is_array(checkUser($accountEmail, $accountPass))) {
-                    $_SESSION['accountEmail'] = checkUser($accountEmail, $accountPass);
+                    $_SESSION['account'] = checkUser($accountEmail, $accountPass);
                     header('location: index.php');
-                    // $thongbao = "Dang nhap thanh cong";
                 } else {
-                    $thongbao = "Tai khoan khong ton tai";
+                    $error = [];
+                    $error['Email'] = "Email không hợp lệ";
+                    $error['Password'] = "Mật khẩu không hợp lệ";
                 }
             }
             include "site/accounts/signIn.php";
@@ -40,31 +40,87 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $accountPass = $_POST['accountPass'];
                 $accountPhone = $_POST['accountPhone'];
                 $accountEmail = $_POST['accountEmail'];
+                $accountPass1 = $_POST['accountPass1'];
                 $accountAddress = $_POST['accountAddress'];
-                insert_account($accountName, $accountPass, $accountPhone, $accountEmail, $accountAddress);
+                $email_exit2 = customer_check_email($accountEmail);
 
-                $thongbao = "Da dang ky thanh cong vui long dang nhap";
+                $accountImage = $_FILES['accountImage']['name'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["accountImage"]["name"]);
+                if (move_uploaded_file($_FILES["accountImage"]["tmp_name"], $target_file)) {
+                } else {
+                }
+                $errors = [];
+                if (!filter_var($accountEmail, FILTER_VALIDATE_EMAIL)) {
+                    $errors['accountEmail'] = "Email không hợp lệ";
+                }
+                if ($email_exit2) {
+                    $errors['accountEmail'] = "Email đã được sử dụng";
+                }
+                if ($accountName == "") {
+                    $errors['accountName'] = "Họ tên không được để trống";
+                }
+                if (strlen($accountPhone) != 10) {
+                    $errors['accountPhone'] = "Số điện thoại phải đủ 10 kí tự";
+                }
+                if ($accountPhone == "") {
+                    $errors['accountPhone'] = "Số điện thoại không hợp lệ";
+                }
+                if ($accountAddress == "") {
+                    $errors['accountAddress'] = "Địa chỉ không được để trống";
+                }
+                if (strlen($accountPass) < 8) {
+                    $errors['accountPass'] = "Mật khẩu không được dưới 8 kí tự";
+                }
+                if ($accountPass1 != $accountPass) {
+                    $errors['accountPass1'] = "Mật khẩu không đúng";
+                }
+                if (!$errors) {
+                    insert_account($accountName, $accountPass, $accountPhone, $accountEmail, $accountAddress, $accountImage);
+                    header('location:index.php?act=dangnhap');
+                }
             }
 
             include "site/accounts/signUp.php";
             break;
-
+        case 'updateAccount':
+            if (isset($_POST['update']) && $_POST['update']) {
+                $id = $_POST['id'];
+                $accountName = $_POST['accountName'];
+                $accountPass = $_POST['accountPass'];
+                $accountPhone = $_POST['accountPhone'];
+                $accountEmail = $_POST['accountEmail'];
+                $accountAddress = $_POST['accountAddress'];
+                $accountImage = $_FILES['accountImage']['name'];
+                $target_dir = "../uploads/";
+                $target_file = $target_dir . basename($_FILES["accountImage"]["name"]);
+                if (move_uploaded_file($_FILES["accountImage"]["tmp_name"], $target_file)) {
+                    //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                } else {
+                    //echo "Sorry, there was an error uploading your file.";
+                }
+                updateAccount($id, $accountName, $accountPass, $accountPhone, $accountEmail, $accountAddress, $accountImage);
+                $_SESSION['account'] = checkUser($accountEmail, $accountPass);
+                header('location: index.php');
+            }
+            include "site/accounts/update.php";
+            break;
         case 'thoat':
             session_unset();
             header('location: index.php');
 
             break;
-            case 'sanpham':
-                if (isset($_GET['idcat']) && ($_GET['idcat'] > 0)) {
-                    $categoryId = $_GET['idcat'];
-                } else {
-                    $categoryId = 0;
-                }
-                $list_pro_cate = showpro($categoryId);
-                $ten = load_ten_category($categoryId);
-                include "site/sanpham.php";
-                break;
-    
+        case 'sanpham':
+            if (isset($_GET['idcat']) && ($_GET['idcat'] > 0)) {
+                $categoryId = $_GET['idcat'];
+            } else {
+                $categoryId = 0;
+            }
+            $list_pro_cate = showpro($categoryId);
+            $ten = load_ten_category($categoryId);
+            include "site/sanpham.php";
+            break;
+
         case 'sanphamct':
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];
@@ -124,8 +180,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
         case 'billconfirm':
             if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-                if (isset($_SESSION['user'])) {
-                    $accountId = $_SESSION['user']['id'];
+                if (isset($_SESSION['account'])) {
+                    $accountId = $_SESSION['account']['id'];
                 } else $id = 0;
                 $accountName = $_POST['accountName'];
                 $accountAddress = $_POST['accountAddress'];
@@ -154,7 +210,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "site/cart/xulythanhtoanmomo_atm.php";
             break;
         case 'mybill':
-            $listbill = loadAll_bill($_SESSION['user']['id'], 0);
+            $listbill = loadAll_bill($_SESSION['account']['id'], 0);
             include "site/cart/mybill.php";
             break;
         case 'show':

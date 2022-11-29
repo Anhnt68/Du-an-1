@@ -6,11 +6,11 @@
 
                 <table class="table ">
                     <?php
-                    if (isset($_SESSION['user'])) {
-                        $accountName = $_SESSION['user']['accountName'];
-                        $accountPhone = $_SESSION['user']['accountPhone'];
-                        $accountEmail = $_SESSION['user']['accountEmail'];
-                        $accountAddress = $_SESSION['user']['accountAddress'];
+                    if (isset($_SESSION['account'])) {
+                        $accountName = $_SESSION['account']['accountName'];
+                        $accountPhone = $_SESSION['account']['accountPhone'];
+                        $accountEmail = $_SESSION['account']['accountEmail'];
+                        $accountAddress = $_SESSION['account']['accountAddress'];
                     } else {
                         $accountName = "";
                         $accountPhone = "";
@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td class="fs-5 pl-1">Số điện thoại</td>
-                        <td><input type="text" class="w-100 rounded" name="accountPhone" value="<?= $accountPhone ?>"></td>
+                        <td><input type="text" class="w-100 rounded" name="accountPhone" value="0<?= $accountPhone ?>"></td>
                     </tr>
                     <tr>
                         <td class="fs-5 pl-1">Email</td>
@@ -59,7 +59,7 @@
                             Thanh toán khi nhận hàng
                         </label>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -80,7 +80,7 @@
     </form>
     <div class="row m-auto col-2 mb-4">
         <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="index.php?act=thanhtoan">
-        <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+            <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
         </form>
     </div>
 </div>
