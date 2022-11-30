@@ -17,10 +17,9 @@ if (!is_array($pro_one)) {
     $price_pro = $pro_one["productPrice"];
     $desc_pro = $pro_one["productDesc"];
 
-    // extract($dm_one);
-    // $brand_pro = $pro_one["productBrand"];
-    // $category_name = $pro_one["categoryName"];
-    // $categoryid = $dm_one["categoryName"];
+    
+    // tăng view
+    update_view($id);
 ?>
     <div class="container-fluid">
 
@@ -33,7 +32,6 @@ if (!is_array($pro_one)) {
                 <div class="row">
                     <h2 class="text-danger text-justify my-2">
                         <strong>
-                            <!-- NƯỚC HOA NỮ CHARME IN LOVE 100ML -->
                             <?= $name_pro ?>
                         </strong>
                     </h2>
@@ -41,7 +39,6 @@ if (!is_array($pro_one)) {
 
                     <div class="price text-danger fs-3">
                         <span><strong>
-                                <!-- gia -->
                                 <?= $price_pro ?>
                             </strong></span><span><strong> Đ</strong></span>
                     </div>

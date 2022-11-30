@@ -111,15 +111,17 @@
         <p class="text-nowrap m-auto fs-2">Sản phẩm nổi bật</p>
       </div>
       <div class="row">
-        <div class="col-4 col-sm-4">
-          <img src="site/src/img/spnb.jpg" alt="" class="spnb">
-        </div>
-        <div class="col-4 col-sm-4">
-          <img src="site/src/img/spnb.jpg" alt="" class="spnb">
-        </div>
-        <div class="col-4 col-sm-4">
-          <img src="site/src/img/spnb.jpg" alt="" class="spnb">
-        </div>
+      <?php
+        foreach($proview as $view){
+          extract($view);
+          $productImage = $img_path . $productImage;
+          $linksp = "index.php?act=sanphamct&idsp=" . $id;
+          echo '  <div class="col-4 col-sm-4">
+          <a href="' . $linksp . '"><img src="'.$productImage.'" alt="" class="spnb"></a>
+                  </div>';
+        }
+      ?>
+      
       </div>
     </div>
   </div>

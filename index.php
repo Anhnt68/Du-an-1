@@ -10,6 +10,8 @@ include "global.php";
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 $dsdm = loadAll_dm();
 $spnew = loadall_product_home();
+$proview = loadall_pro_view();
+
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
