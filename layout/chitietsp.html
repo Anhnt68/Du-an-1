@@ -1,519 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
-      crossorigin="anonymous" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
 
-  <body>
-    <div class="container">
-      <style>
-        li {
-          list-style-type: none;
-        }
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+</head>
 
-        .star {
-          cursor: pointer;
-        }
+<body>
+  <div class="container">
+    <style>
+      li {
+        list-style-type: none;
+      }
 
-        .area_order {
-          display: flex;
-          align-items: center;
-          margin: 20px 0px;
-        }
+      .star {
+        cursor: pointer;
+      }
 
-        .buy_btn {
-          background: #fc0001;
-          color: #fff;
-          margin-left: 5px;
-          border: none;
-          border-radius: 4px;
-          line-height: 35px;
-        }
+      .area_order {
+        display: flex;
+        align-items: center;
+        margin: 20px 0px;
+      }
 
-        .fa-shopping-cart {
-          margin-right: 10px;
-        }
+      .buy_btn {
+        background: #fc0001;
+        color: #fff;
+        margin-left: 5px;
+        border: none;
+        border-radius: 4px;
+        line-height: 35px;
+      }
 
-        .btn-secondary {
-          background-color: #f3f4f6;
-          font-weight: bold;
-          color: #000;
-          border: none;
-        }
+      .fa-shopping-cart {
+        margin-right: 10px;
+      }
 
-        .btn-mt {
-          margin-top: 20px;
-        }
+      .btn-secondary {
+        background-color: #f3f4f6;
+        font-weight: bold;
+        color: #000;
+        border: none;
+      }
 
-        @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
+      .btn-mt {
+        margin-top: 20px;
+      }
 
-        html,
-        body {
-          height: 100%;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
 
-        body {
-          display: grid;
-          place-items: center;
-          font-family: "Manrope", sans-serif;
-        }
+      html,
+      body {
+        height: 100%;
+      }
 
-        .card-content {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          min-width: 0;
-          padding: 20px 0;
+      body {
+        display: grid;
+        place-items: center;
+        font-family: "Manrope", sans-serif;
+      }
 
-          word-wrap: break-word;
-          background-color: #fff;
-          background-clip: border-box;
-          border-radius: 6px;
-          -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
-        }
+      .card-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        padding: 20px 0;
 
-        .comment-box {
-        }
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border-radius: 6px;
+        -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+      }
 
-        .comment-area textarea {
-          width: 100%;
-          resize: none;
-          border: 1px solid #ad9f9f;
-        }
+      .comment-box {}
 
-        .form-control:focus {
-          color: #495057;
-          background-color: #fff;
-          border-color: #ffffff;
-          outline: 0;
-          box-shadow: 0 0 0 1px rgb(255, 0, 0) !important;
-        }
+      .comment-area textarea {
+        width: 100%;
+        resize: none;
+        border: 1px solid #ad9f9f;
+      }
 
-        .send {
-          color: #fff;
-          background-color: #ff0000;
-          border-color: #ff0000;
-        }
+      .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #ffffff;
+        outline: 0;
+        box-shadow: 0 0 0 1px rgb(255, 0, 0) !important;
+      }
 
-        .send:hover {
-          color: #fff;
-          background-color: #f50202;
-          border-color: #f50202;
-        }
+      .send {
+        color: #fff;
+        background-color: #ff0000;
+        border-color: #ff0000;
+      }
 
-        .rating {
-          display: flex;
-          margin-top: -10px;
-          flex-direction: row-reverse;
-          margin-left: -4px;
-          float: left;
-        }
+      .send:hover {
+        color: #fff;
+        background-color: #f50202;
+        border-color: #f50202;
+      }
 
-        .rating > input {
-          display: none;
-        }
+      .rating {
+        display: flex;
+        margin-top: -10px;
+        flex-direction: row-reverse;
+        margin-left: -4px;
+        float: left;
+      }
 
-        .rating > label {
-          position: relative;
-          width: 19px;
-          font-size: 25px;
-          color: #ff0000;
-          cursor: pointer;
-        }
+      .rating>input {
+        display: none;
+      }
 
-        .rating > label::before {
-          content: "\2605";
-          position: absolute;
-          opacity: 0;
-        }
+      .rating>label {
+        position: relative;
+        width: 19px;
+        font-size: 25px;
+        color: #ff0000;
+        cursor: pointer;
+      }
 
-        .rating > label:hover:before,
-        .rating > label:hover ~ label:before {
-          opacity: 1 !important;
-        }
+      .rating>label::before {
+        content: "\2605";
+        position: absolute;
+        opacity: 0;
+      }
 
-        .rating > input:checked ~ label:before {
-          opacity: 1;
-        }
+      .rating>label:hover:before,
+      .rating>label:hover~label:before {
+        opacity: 1 !important;
+      }
 
-        .rating:hover > input:checked ~ label:before {
-          opacity: 0.4;
-        }
-        .name-user {
-          margin: 5px 0;
-        }
-      </style>
-      <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand">Perfume</a>
-          <div class="d-flex justify-content-end align-items-center">
-            <form class="d-flex px-2" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-            <a class="" href=""><i class="bi bi-cart3 fs-3"></i></a>
-            <a class="btn btn-primary btn-sm mx-2" href="#">Sign in</a>
-            <a class="btn btn-danger" href="#">sign Up</a>
-          </div>
-        </div>
-      </nav>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-          <button
-            class="navbar-toggler ms-auto"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon ms-auto"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav m-auto">
-              <li class="nav-item px-4">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Trang chủ</a
-                >
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link" href="#">Giới thiệu</a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link" href="#">Tin tức</a>
-              </li>
-              <li class="nav-item px-4">
-                <a class="nav-link" href="#">Liên hệ</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      .rating>input:checked~label:before {
+        opacity: 1;
+      }
 
+      .rating:hover>input:checked~label:before {
+        opacity: 0.4;
+      }
+
+      .name-user {
+        margin: 5px 0;
+      }
+    </style>
+    <nav class="navbar bg-light">
       <div class="container-fluid">
-        <div class="col fs-2 text-danger">CHI TIET SAN PHAM</div>
+        <a class="navbar-brand">Perfume</a>
+        <div class="d-flex justify-content-end align-items-center">
+          <form class="d-flex px-2" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+          <a class="" href=""><i class="bi bi-cart3 fs-3"></i></a>
+          <a class="btn btn-primary btn-sm mx-2" href="#">Sign in</a>
+          <a class="btn btn-danger" href="#">sign Up</a>
+        </div>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon ms-auto"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav m-auto">
+            <li class="nav-item px-4">
+              <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link" href="#">Giới thiệu</a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link" href="#">Tin tức</a>
+            </li>
+            <li class="nav-item px-4">
+              <a class="nav-link" href="#">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <div class="cart row">
-          <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center">
-            <a href="#"
-              ><img src="./img/nuochoa.jpg" class="rounded" alt=""
-            /></a>
-            <div class="row text-center w-50 mx-auto">
-              <div class="col-4 cart-img-img__sm">
-                <img src="./img/nuochoa.jpg" class="rounded" alt="" />
-              </div>
-              <div class="col-4 cart-img-img__sm">
-                <img src="./img/nuochoa7.jpg" class="rounded" alt="" />
-              </div>
-              <div class="col-4 cart-img-img__sm">
-                <img src="./img/nuochoa7.jpg" class="rounded" alt="" />
-              </div>
+    <div class="container-fluid">
+      <div class="col fs-2 text-danger">CHI TIET SAN PHAM</div>
+
+      <div class="cart row">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 text-center">
+          <a href="#"><img src="./img/nuochoa.jpg" class="rounded" alt="" /></a>
+          <div class="row text-center w-50 mx-auto">
+            <div class="col-4 cart-img-img__sm">
+              <img src="./img/nuochoa.jpg" class="rounded" alt="" />
+            </div>
+            <div class="col-4 cart-img-img__sm">
+              <img src="./img/nuochoa7.jpg" class="rounded" alt="" />
+            </div>
+            <div class="col-4 cart-img-img__sm">
+              <img src="./img/nuochoa7.jpg" class="rounded" alt="" />
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-6 col-xl-6 border-left">
-            <!-- <p
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-6 border-left">
+          <!-- <p
               class="ps-1 text-uppercase font-weight-bold h3 text-center text-danger">
               NUOC HOA HONG VIP NHAT HIEN NAY
             </p>
             <div class="row">
 
             </div> -->
-            <div class="row">
-              <h2 class="text-danger text-justify my-2">
-                <strong>NƯỚC HOA NỮ CHARME IN LOVE 100ML</strong>
-              </h2>
-              <div class="ratingresult my-1 border-bottom">
-                <span class="star"><i class="bi bi-star"></i></span>
-                <span class="star"><i class="bi bi-star"></i></span>
-                <span class="star"><i class="bi bi-star"></i></span>
-                <span class="star"><i class="bi bi-star"></i></span>
-                <span class="star"><i class="bi bi-star"></i></span>
-                <a href="#" class="text-decoration-none text-warning"
-                  >(0 đánh giá)</a
-                >
-              </div>
-              <div class="thuonghieu">
-                <span>Thương hiệu: </span
-                ><a href="#" class="text-decoration-none text-danger">Xmen</a>
-              </div>
-              <div class="price text-danger fs-3">
-                <span><strong>20000</strong></span
-                ><span><strong> Đ</strong></span>
-              </div>
+          <div class="row">
+            <h2 class="text-danger text-justify my-2">
+              <strong>NƯỚC HOA NỮ CHARME IN LOVE 100ML</strong>
+            </h2>
+            <div class="ratingresult my-1 border-bottom">
+              <span class="star"><i class="bi bi-star"></i></span>
+              <span class="star"><i class="bi bi-star"></i></span>
+              <span class="star"><i class="bi bi-star"></i></span>
+              <span class="star"><i class="bi bi-star"></i></span>
+              <span class="star"><i class="bi bi-star"></i></span>
+              <a href="#" class="text-decoration-none text-warning">(0 đánh giá)</a>
             </div>
-            <div class="cart-content__note row">
-              <p>
-                Nước hoa Charme Lavish dành cho nam từ 18 tuổi trở lên mang
-                phong cách quý tộc, người giàu sang, thể hiện là người hào
-                phóng, thông thái phong nhã phù hợp phong cách ông chủ, doanh
-                nhân, trưởng phòng, các vị lãnh đạo.
-              </p>
+            <div class="thuonghieu">
+              <span>Thương hiệu: </span><a href="#" class="text-decoration-none text-danger">Xmen</a>
+            </div>
+            <div class="price text-danger fs-3">
+              <span><strong>20000</strong></span><span><strong> Đ</strong></span>
+            </div>
+          </div>
+          <div class="cart-content__note row">
+            <p>
+              Nước hoa Charme Lavish dành cho nam từ 18 tuổi trở lên mang
+              phong cách quý tộc, người giàu sang, thể hiện là người hào
+              phóng, thông thái phong nhã phù hợp phong cách ông chủ, doanh
+              nhân, trưởng phòng, các vị lãnh đạo.
+            </p>
 
-              <p>
-                ✫ Thương hiệu:&nbsp;<a
-                  href="#"
-                  class="text-decoration-none text-danger"
-                  >Xmen</a
-                ><br />
-                ✫ Dòng sản phẩm:&nbsp;GOOD PERFUME<br />
-                ✫ TÊN SẢN PHẨM:&nbsp;LAVISH (xa hoa)<br />
-                ✫&nbsp;Dung tích: 100ml<br />
-                ✫ Phong cách: Qúy tộc, Sang trọng và Hiện đại<br />
-                ✫ Xuất xứ:&nbsp;Việt Nam
-              </p>
+            <p>
+              ✫ Thương hiệu:&nbsp;<a href="#" class="text-decoration-none text-danger">Xmen</a><br />
+              ✫ Dòng sản phẩm:&nbsp;GOOD PERFUME<br />
+              ✫ TÊN SẢN PHẨM:&nbsp;LAVISH (xa hoa)<br />
+              ✫&nbsp;Dung tích: 100ml<br />
+              ✫ Phong cách: Qúy tộc, Sang trọng và Hiện đại<br />
+              ✫ Xuất xứ:&nbsp;Việt Nam
+            </p>
 
-              <!-- ✫ Thương hiệu: CHARME ✫ Dòng sản phẩm:
+            <!-- ✫ Thương hiệu: CHARME ✫ Dòng sản phẩm:
               GOOD PERFUME ✫ TÊN SẢN PHẨM: LAVISH (xa hoa) ✫ Dung tích: 100ml ✫
               Phong cách: Qúy tộc, Sang trọng và hiện đại ✫ Xuất xứ: Pháp – Việt -->
-              <p class="m-0"><strong>Số lượng:</strong></p>
-            </div>
-
-            <div class="area_order">
-              <div class="quanlity">
-                <span>
-                  <div class="buttons_added">
-                    <input class="minus is-form" type="button" value="-" />
-                    <input
-                      id="this-item-quantity"
-                      aria-label="quantity"
-                      class="input-qty"
-                      max="10"
-                      min="1"
-                      name="quantity"
-                      type="number"
-                      value="1"
-                      required
-                      value="1" />
-                    <input class="plus is-form" type="button" value="+" />
-                  </div>
-                </span>
-              </div>
-              <!--<input type="number" name="quantity" required value="1" min=1>-->
-              <button
-                type="button"
-                onclick=""
-                name="product"
-                value="275"
-                class="buy_btn">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i
-                ><span>Chọn mua</span>
-              </button>
-              <a href="/user?wishlist&add=275" class="add-to-wishlist is-css">
-                <span
-                  class="icon js-product-gift-icon"
-                  data-placement="bottom"
-                  data-toggle="tooltip"
-                  data-title="Thêm Vào Yêu Thích"
-                  data-original-title=""
-                  title="">
-                  <i class="fa fa-heart-o" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-            <label class="text-secondary h6 my-3"
-              >Miễn Phí Giao Hàng Trên Toàn Quốc</label
-            >
+            <p class="m-0"><strong>Số lượng:</strong></p>
           </div>
+
+          <div class="area_order">
+            <div class="quanlity">
+              <span>
+                <div class="buttons_added">
+                  <input class="minus is-form" type="button" value="-" />
+                  <input id="this-item-quantity" aria-label="quantity" class="input-qty" max="10" min="1"
+                    name="quantity" type="number" value="1" required value="1" />
+                  <input class="plus is-form" type="button" value="+" />
+                </div>
+              </span>
+            </div>
+            <!--<input type="number" name="quantity" required value="1" min=1>-->
+            <button type="button" onclick="" name="product" value="275" class="buy_btn">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Chọn mua</span>
+            </button>
+            <a href="/user?wishlist&add=275" class="add-to-wishlist is-css">
+              <span class="icon js-product-gift-icon" data-placement="bottom" data-toggle="tooltip"
+                data-title="Thêm Vào Yêu Thích" data-original-title="" title="">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+          <label class="text-secondary h6 my-3">Miễn Phí Giao Hàng Trên Toàn Quốc</label>
         </div>
-        <div class="menu-content" style="padding: 0; margin: 20px 0">
-          <!-- <ul class="menu-content d-flex justify-content-start">
+      </div>
+      <div class="menu-content" style="padding: 0; margin: 20px 0">
+        <!-- <ul class="menu-content d-flex justify-content-start">
             <li class="active">Chi tiết</li>
             <li class="active">Đánh giá</li>
             <li class="active">Hỏi đáp</li>
           </ul> -->
-          <div class="btn-group btn-group-md btn-mt">
-            <button type="button" class="btn btn-secondary">Chi tiết</button>
-            <button type="button" class="btn btn-secondary">Đánh giá</button>
-            <button type="button" class="btn btn-secondary">Hỏi đáp</button>
-          </div>
-          <div
-            class="content tab-content"
-            id="tab-1"
-            style="
+        <div class="btn-group btn-group-md btn-mt">
+          <button type="button" class="btn btn-secondary">Chi tiết</button>
+          <button type="button" class="btn btn-secondary">Đánh giá</button>
+          <button type="button" class="btn btn-secondary">Hỏi đáp</button>
+        </div>
+        <div class="content tab-content" id="tab-1" style="
               display: block;
               background-color: #f3f4f6;
               padding: 10px 10px;
             ">
-            <p style="text-align: justify">
-              <strong
-                ><a href="https://charmeperfume.com/">NƯỚC HOA CHARME</a> IN
-                LOVE 100ML</strong
-              >
-            </p>
+          <p style="text-align: justify">
+            <strong><a href="https://charmeperfume.com/">NƯỚC HOA CHARME</a> IN
+              LOVE 100ML</strong>
+          </p>
 
-            <p style="text-align: justify">
-              Lấy cảm hứng từ sự kết hợp các hương hoa yêu thích
-              <a href="#"><strong>nước hoa Charme In Love</strong></a>
-              mang đến một mùi hương tươi mới với sự kết hợp hài hòa của các
-              thành phần hương như quả chanh, hoa lan nam phi,hoa Tiare bên cạnh
-              đó còn có thành phần hương ấm áp của gỗ tuyết tùng Virginia, đậu
-              Tonka
-            </p>
+          <p style="text-align: justify">
+            Lấy cảm hứng từ sự kết hợp các hương hoa yêu thích
+            <a href="#"><strong>nước hoa Charme In Love</strong></a>
+            mang đến một mùi hương tươi mới với sự kết hợp hài hòa của các
+            thành phần hương như quả chanh, hoa lan nam phi,hoa Tiare bên cạnh
+            đó còn có thành phần hương ấm áp của gỗ tuyết tùng Virginia, đậu
+            Tonka
+          </p>
 
-            <p style="text-align: justify">
-              Mẫu chai được thiết kế với t&ocirc;ng m&agrave;u hồng&nbsp;trẻ
-              trung c&ugrave;ng những đường n&eacute;t đầy tinh tế, gợi
-              l&ecirc;n n&eacute;t gợi cảm v&agrave; ngọt ng&agrave;o giống như
-              m&ugrave;i hương.
-              <strong
-                ><a href="https://charmeperfume.com/nuoc-hoa-nu"
-                  >Nước hoa nữ Charme</a
-                >&nbsp;In Love</strong
-              >
-              mang đến mùi hương cực kỳ gợi cảm và thu hút, và chắc chắn sẽ
-              không bao giờ phải làm bạn thất vọng. Chai nước hoa sẽ là một món
-              quà tuyệt vời và tinh tế vì hương thơm tươi mát, sảng khoái, có
-              chút cổ điển pha lẫn bí ẩn mà chính bạn có thể “tự thưởng” cho bản
-              thân mình.
-            </p>
+          <p style="text-align: justify">
+            Mẫu chai được thiết kế với t&ocirc;ng m&agrave;u hồng&nbsp;trẻ
+            trung c&ugrave;ng những đường n&eacute;t đầy tinh tế, gợi
+            l&ecirc;n n&eacute;t gợi cảm v&agrave; ngọt ng&agrave;o giống như
+            m&ugrave;i hương.
+            <strong><a href="https://charmeperfume.com/nuoc-hoa-nu">Nước hoa nữ Charme</a>&nbsp;In Love</strong>
+            mang đến mùi hương cực kỳ gợi cảm và thu hút, và chắc chắn sẽ
+            không bao giờ phải làm bạn thất vọng. Chai nước hoa sẽ là một món
+            quà tuyệt vời và tinh tế vì hương thơm tươi mát, sảng khoái, có
+            chút cổ điển pha lẫn bí ẩn mà chính bạn có thể “tự thưởng” cho bản
+            thân mình.
+          </p>
 
-            <p style="text-align: justify">
-              <u
-                ><strong
-                  ><a href="#">PERFUME</a> CAM KẾT ĐẾN NGƯỜI TIÊU DÙNG:</strong
-                ></u
-              >
-            </p>
+          <p style="text-align: justify">
+            <u><strong><a href="#">PERFUME</a> CAM KẾT ĐẾN NGƯỜI TIÊU DÙNG:</strong></u>
+          </p>
 
-            <p style="text-align: justify">
-              - Giấy phép lưu hành, chất lượng sản phẩm được Bộ y Tế kiểm
-              nghiệm.
-            </p>
+          <p style="text-align: justify">
+            - Giấy phép lưu hành, chất lượng sản phẩm được Bộ y Tế kiểm
+            nghiệm.
+          </p>
 
-            <p style="text-align: justify">
-              - Tem chống hàng giả của bộ Công An.
-            </p>
+          <p style="text-align: justify">
+            - Tem chống hàng giả của bộ Công An.
+          </p>
 
-            <p style="text-align: justify">
-              -Hương liệu cao cấp được nhập khẩu chính ngạch từ Pháp.
-            </p>
+          <p style="text-align: justify">
+            -Hương liệu cao cấp được nhập khẩu chính ngạch từ Pháp.
+          </p>
 
-            <p style="text-align: justify">
-              - Công nghệ và dây chuyền sản xuất đạt tiêu chuẩn Châu Âu.
-            </p>
+          <p style="text-align: justify">
+            - Công nghệ và dây chuyền sản xuất đạt tiêu chuẩn Châu Âu.
+          </p>
 
-            <p style="text-align: justify">
-              + Dung tích: 100ml.<br />
-              + Hạn sử dụng: 5 năm kể từ ngày sản xuất.<br />
-              + Cách sử dụng: Giữ chai thẳng đứng, nhấn nút và xịt vào vùng cổ
-              và cổ tay. <br />
-              + Bảo quản: Để nơi khô ráo, thoáng mát. Tránh tiếp xúc trực tiếp
-              với mắt và tránh xa tầm tay trẻ em.<br />
-            </p>
+          <p style="text-align: justify">
+            + Dung tích: 100ml.<br />
+            + Hạn sử dụng: 5 năm kể từ ngày sản xuất.<br />
+            + Cách sử dụng: Giữ chai thẳng đứng, nhấn nút và xịt vào vùng cổ
+            và cổ tay. <br />
+            + Bảo quản: Để nơi khô ráo, thoáng mát. Tránh tiếp xúc trực tiếp
+            với mắt và tránh xa tầm tay trẻ em.<br />
+          </p>
+        </div>
+      </div>
+      <!----------------------------------- show comment----------------------------------- -->
+
+      <div class="media">
+        <img class="mr-3 col-1" src="img/nuochoa.jpg" alt="Generic placeholder image" />
+        <div class="media-body">
+          <h5 class="mt-0">Pham Van Hoang</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+          scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+          vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+          <div class="media mt-3 ">
+            <a class="pr-3 col-1" href="#">
+              <img src="img/nuochoa7.jpg" alt="Generic placeholder image" />
+            </a>
+            <div class="media-body">
+              <h5 class="mt-0">Tran Van Cong</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
+              scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+              vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi vulputate fringilla. Donec lacinia congue felis in
+              faucibus.
+            </div>
           </div>
         </div>
-        <!----------------------------------- show comment----------------------------------- -->
+      </div>
 
-        <div class="media">
-          <img class="mr-3 col-1" src="img/nuochoa.jpg" alt="Generic placeholder image" />
-          <div class="media-body">
-            <h5 class="mt-0">Pham Van Hoang</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-            scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-            vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-            vulputate fringilla. Donec lacinia congue felis in faucibus.
+      <div class="card-content">
+        <div class="row" style="width: 100%">
+          <div class="col-1">
+            <img src="img/nuochoa7.jpg" width="70" class="rounded-circle mt-2" />
+          </div>
 
-            <div class="media mt-3 ">
-              <a class="pr-3 col-1" href="#">
-                <img src="img/nuochoa7.jpg" alt="Generic placeholder image" />
-              </a>
-              <div class="media-body">
-                <h5 class="mt-0">Tran Van Cong</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                nisi vulputate fringilla. Donec lacinia congue felis in
-                faucibus.
+          <div class="col-11">
+            <div class="comment-box ml-2">
+              <h4>Add a comment</h4>
+
+              <div class="rating">
+                <input type="radio" name="rating" value="5" id="5" /><label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4" /><label for="4">☆</label>
+                <input type="radio" name="rating" value="3" id="3" /><label for="3">☆</label>
+                <input type="radio" name="rating" value="2" id="2" /><label for="2">☆</label>
+                <input type="radio" name="rating" value="1" id="1" /><label for="1">☆</label>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="card-content">
-          <div class="row" style="width: 100%">
-            <div class="col-1">
-              <img
-                src="img/nuochoa7.jpg"
-                width="70"
-                class="rounded-circle mt-2" />
-            </div>
+              <div class="comment-area">
+                <textarea class="form-control" placeholder="what is your view?" rows="4" cols="12"></textarea>
+              </div>
 
-            <div class="col-11">
-              <div class="comment-box ml-2">
-                <h4>Add a comment</h4>
+              <div class="comment-btns mt-2">
+                <div class="d-flex justify-content-end">
+                  <div class="pull-left mx-3">
+                    <button class="btn btn-success btn-sm" type="reset">
+                      Cancel
+                    </button>
+                  </div>
 
-                <div class="rating">
-                  <input type="radio" name="rating" value="5" id="5" /><label
-                    for="5"
-                    >☆</label
-                  >
-                  <input type="radio" name="rating" value="4" id="4" /><label
-                    for="4"
-                    >☆</label
-                  >
-                  <input type="radio" name="rating" value="3" id="3" /><label
-                    for="3"
-                    >☆</label
-                  >
-                  <input type="radio" name="rating" value="2" id="2" /><label
-                    for="2"
-                    >☆</label
-                  >
-                  <input type="radio" name="rating" value="1" id="1" /><label
-                    for="1"
-                    >☆</label
-                  >
-                </div>
-
-                <div class="comment-area">
-                  <textarea
-                    class="form-control"
-                    placeholder="what is your view?"
-                    rows="4"
-                    cols="12"></textarea>
-                </div>
-
-                <div class="comment-btns mt-2">
-                  <div class="d-flex justify-content-end">
-                    <div class="pull-left mx-3">
-                      <button class="btn btn-success btn-sm" type="reset">
-                        Cancel
-                      </button>
-                    </div>
-
-                    <div class="pull-right">
-                      <button class="btn btn-success send btn-sm" type="submit">
-                        Send <i class="fa fa-long-arrow-right ml-1"></i>
-                      </button>
-                    </div>
+                  <div class="pull-right">
+                    <button class="btn btn-success send btn-sm" type="submit">
+                      Send <i class="fa fa-long-arrow-right ml-1"></i>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -521,144 +435,139 @@
           </div>
         </div>
       </div>
-
-      <!-- footer -->
-
-      <footer class="text-center text-lg-start bg-white text-muted">
-        <!-- Section: Social media -->
-        <section
-          class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <!-- Left -->
-          <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-          </div>
-          <!-- Left -->
-
-          <!-- Right -->
-          <div>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-          <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-
-        <!-- Section: Links  -->
-        <section class="">
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3 text-secondary"></i>Company name
-                </h6>
-                <p>
-                  Here you can use rows and columns to organize your footer
-                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.
-                </p>
-              </div>
-              <!-- Grid column -->
-
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                <p>
-                  <a href="#!" class="text-reset">Angular</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">React</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Vue</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Laravel</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                <p>
-                  <a href="#!" class="text-reset">Pricing</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Settings</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Help</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                <p>
-                  <i class="fas fa-home me-3 text-secondary"></i> New York, NY
-                  10012, US
-                </p>
-                <p>
-                  <i class="fas fa-envelope me-3 text-secondary"></i>
-                  danger@example.com
-                </p>
-                <p>
-                  <i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567
-                  88
-                </p>
-                <p>
-                  <i class="fas fa-print me-3 text-secondary"></i> + 01 234 567
-                  89
-                </p>
-              </div>
-              <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-          </div>
-        </section>
-        <!-- Section: Links  -->
-
-        <!-- Copyright -->
-        <div
-          class="text-center p-4"
-          style="background-color: rgba(0, 0, 0, 0.025)">
-          © 2021 Copyright:
-          <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
-            >MDBootstrap.com</a
-          >
-        </div>
-        <!-- Copyright -->
-      </footer>
-      <!-- Footer -->
     </div>
-  </body>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+    <!-- footer -->
+
+    <footer class="text-center text-lg-start bg-white text-muted">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 link-secondary">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3 text-secondary"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer
+                content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+              <p>
+                <a href="#!" class="text-reset">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p>
+                <i class="fas fa-home me-3 text-secondary"></i> New York, NY
+                10012, US
+              </p>
+              <p>
+                <i class="fas fa-envelope me-3 text-secondary"></i>
+                danger@example.com
+              </p>
+              <p>
+                <i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567
+                88
+              </p>
+              <p>
+                <i class="fas fa-print me-3 text-secondary"></i> + 01 234 567
+                89
+              </p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025)">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
 </html>

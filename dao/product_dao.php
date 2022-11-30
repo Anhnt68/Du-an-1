@@ -72,4 +72,14 @@ function update_product($id, $categoryid, $productName, $productPrice, $productI
         $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' ,productCapacity = '" . $productCapacity . "', quatity = '" . $quatity . "' where id = " . $id;
     pdo_execute($sql);
 }
-
+// view
+function update_view($id){
+    $sql = "UPDATE products SET productView = productView+1 WHERE id=".$id;
+    pdo_execute($sql);
+}
+function loadall_pro_view()
+{
+    $sql = "select * from products where 1 order by productView desc limit 0,3";
+    $list_pro_view = pdo_query($sql);
+    return $list_pro_view;
+}
