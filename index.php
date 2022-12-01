@@ -6,6 +6,7 @@ include "dao/category_dao.php";
 include "dao/cart.php";
 include "dao/accounts.php";
 include "site/header.php";
+include "dao/comment.php";
 include "global.php";
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 $dsdm = loadAll_dm();
@@ -123,23 +124,46 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "site/sanpham.php";
             break;
 
+        // case 'sanphamct':
+        //     if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
+        //         $id = $_GET["idsp"];
+        //         $pro_one = loadone_product($id);
+        //         $dm_one = loadOne_dm($id);
+        //         extract($pro_one);
+        //         // extract($dm_one);
+        //         $categoryid = $pro_one["categoryId"];
+        //         $sp_cung_loai = load_product_cungloai($id, $categoryid);
+        //         $ten = load_ten_category($categoryid);
+        //         extract($sp_cung_loai);
+        //     }
+
+
+        //     include "site/chitietsanpham.php";
+        //     break;
         case 'sanphamct':
+                
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];
+                
                 $pro_one = loadone_product($id);
                 $dm_one = loadOne_dm($id);
                 extract($pro_one);
-                // extract($dm_one);
+                
                 $categoryid = $pro_one["categoryId"];
-                $sp_cung_loai = load_product_cungloai($id, $categoryid);
+               
+                
+                $dsbl = loadall_comment($id);
+                $all_comment_theoIdsp =load_bl_theo_idsp($id);
+                extract($dsbl);
+                $sp_cung_loai = load_product_cungloai($categoryid);
                 $ten = load_ten_category($categoryid);
-                extract($sp_cung_loai);
+           
             }
 
-
+            
             include "site/chitietsanpham.php";
+           
             break;
-
         case 'addtocart':
             if (isset($_POST['addtocart']) && $_POST['addtocart']) {
                 $id = $_POST['id'];

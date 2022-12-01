@@ -6,6 +6,7 @@ include "../dao/accounts.php";
 include "../dao/cart.php";
 include "../dao/statistical_dao.php";
 include "header.php";
+include "../dao/comment.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -202,6 +203,12 @@ if (isset($_GET['act'])) {
             $listtaikhoan = loadall_taikhoan("", 0);
             include "accounts/list.php";
             break;
+
+        case 'dsbl':
+            $listbinhluan = loadall_comment(0);
+            include "binhluan/list_binhluan.php";
+            break;
+        
         default:
             include "home.php";
             break;
