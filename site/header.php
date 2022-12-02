@@ -35,11 +35,19 @@
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <?php
-                if (isset($accountImage)) {
-                  echo '<img src="../uploads/' . $accountImage . '" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+                $hinhpath = "./uploads/" . $accountImage;
+                if (is_file($hinhpath)) {
+                  $accountImage = '<img src=' . $hinhpath . ' style="width: 50px; height: 50px; background-image: cover" class="rounded-circle">';
                 } else {
-                  echo '<img src="src/img/trend-avatar-1.png" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+                  $accountImage = '<img src="./uploads/account.png" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">';
                 }
+                echo '<td>' . $accountImage . '</td>';
+                // if (isset($accountImage)) {
+
+                //   ">';
+                // } else {
+                //   echo '<img src="../uploads/trend-avatar-1.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+                // }
                 ?>
                 <?= $accountName ?>
               </button>

@@ -100,7 +100,7 @@
 
 <!--  sp nổi bật -->
 
-<div class="container text-center mt-5 mb-5 bg-light">
+<div class="container-fluid text-center mt-5 mb-5 bg-light">
 
   <div class="row">
     <div class="col-sm-3">
@@ -111,24 +111,24 @@
         <p class="text-nowrap m-auto fs-2">Sản phẩm nổi bật</p>
       </div>
       <div class="row">
-      <?php
-        foreach($proview as $view){
+        <?php
+        foreach ($proview as $view) {
           extract($view);
           $productImage = $img_path . $productImage;
           $linksp = "index.php?act=sanphamct&idsp=" . $id;
           echo '  <div class="col-4 col-sm-4">
-          <a href="' . $linksp . '"><img src="'.$productImage.'" alt="" class="spnb"></a>
+          <a href="' . $linksp . '"><img src="' . $productImage . '" alt="" class="spnb"></a>
                   </div>';
         }
-      ?>
-      
+        ?>
+
       </div>
     </div>
   </div>
 </div>
 
 <!-- product -->
-<div class="container-fluid">
+<div class="container">
   <h5>Sản phẩm dành cho bạn</h5>
   <div class="row d-inline-flex">
     <!-- Gallery Item 1 -->
@@ -140,12 +140,12 @@
       $hinh = $img_path . $productImage;
       echo '
       <div class="col-12 col-sm-6 col-md-3 p-2 mb-4">
-      <div class="d-flex flex-column text-center border height100">
+      <div class="d-flex flex-column text-center border h-100">
         <div>
-          <img src="' . $hinh . '" alt="" class="sp">
+        <a href="' . $linksp . '""><img src="' . $hinh . '" alt="" class="sp" style="width:200px;height:200px"></a>
         </div>
-        <a href="' . $linksp . '" class="text-decoration-none fs-4 text-dark text-uppercase font-weight-bold">' . $productName . '</a>
-        <p class="text-danger fs-5">' . $productPrice . '&nbsp;₫</p>
+        <a href="' . $linksp . '" class="text-decoration-none fs-6 text-dark text-uppercase font-weight-bold px-2 pb-3" style="font-weight:bold">' . $productName . '</a>
+        <p class="text-danger fs-5 font-weight-bold mt-auto" style="font-weight:bold">' . number_format($productPrice, 0, '', ',') . '&nbsp;₫</p>  
       </div>
     </div>
                    

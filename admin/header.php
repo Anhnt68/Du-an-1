@@ -22,16 +22,15 @@
                         </div>
                         <div class="col-xl-9">
                                 <?php
-                                
+
                                 if (isset($_SESSION['account']))
                                         extract($_SESSION['account']);
-                                     
+
                                 ?>
                                 <ul class="navbar-nav d-flex justify-content-end flex-row">
                                         <li class="nav-item d-flex flex-column mx-3"><i class="bi bi-house-door-fill fs-4 m-auto"></i> <a href="../index.php" class="text-decoration-none text-dark">Home</a></li>
-                                        <li class="nav-item d-flex flex-column mx-3"><i class="bi bi-chat-left-dots-fill fs-4 m-auto"></i><a href="" class="text-decoration-none text-dark">Thong
-                                                        bao</a></li>
-                                        <li class="nav-item d-flex flex-column mx-3"><i class="bi bi-person-circle fs-4 m-auto"></i> <a href="" class="text-decoration-none text-dark"><?= $accountName?></a>
+
+
                                         </li>
                                 </ul>
                         </div>
@@ -39,10 +38,9 @@
                 <div class="row">
                         <div class="col-xl-2 bg-secondary min-vh-100">
                                 <ul class="list-group list-group-flush">
-
                                         <div class="btn-group list-group-item bg-secondary d-flex align-items-center">
-                                                <i class="bi bi-list-ul fs-3 px-4 text-light"></i>
-                                                <button class="btn btn-secondary dropdown-toggle text-decoration-none fs-5 text-light" type="button" data-bs-toggle="dropdown">
+                                                <i class="bi bi-speedometer2 fs-3 px-4 text-light"></i>
+                                                <button class="btn btn-secondary dropdown-toggle text-decoration-none fs-5 text-light p-0 m-0" type="button" data-bs-toggle="dropdown">
                                                         Thống kê
                                                 </button>
                                                 <ul class="dropdown-menu">
@@ -66,6 +64,6 @@
                                         </li>
                                         <li class="list-group-item bg-secondary d-flex align-items-center"><i class="bi bi-chat-dots-fill fs-3 px-4 text-light"></i><a class="text-decoration-none fs-5 text-light" href="index.php?act=dsbl">Bình Luận</a>
                                         </li>
-                                        z
+
                                 </ul>
                         </div>

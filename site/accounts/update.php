@@ -31,8 +31,10 @@
                     <?= isset($errors['accountPass']) ? $errors['accountPass'] : '' ?>
                 </span><br>
             </div>
-
-            <input type="file" name="accountImage" id="input-form " class="border border-0 border-bottom w-100 form-control">
+            <div class="form-input">
+                <input type="file" name="accountImage" id="input-form " class="border border-0 border-bottom w-100 form-control">
+                <?= $accountImage ?>
+            </div>
 
             <div class="form-input">
                 <label for="" class="labeltitle fs-5 ms-2">Địa chỉ</label><br>

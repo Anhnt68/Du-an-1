@@ -42,13 +42,17 @@
     ?>
         <div class="text-center m-3">
             <a href="index.php?act=bill"><input type="button" class="btn btn-primary mx-3" value="Tiếp tục đặt hàng"></a>
-
+        </div>
+    <?php } else if (sizeof($_SESSION['mycart']) > 0) { ?>
+        ?>
+        <div class="text-center m-3">
+            <a href="index.php"><input type="button" class="btn btn-primary mx-3" value="Đăng nhập để tiếp tục đặt hàng"></a>
         </div>
     <?php } else {
     ?>
-        <div class="text-center m-3">
-            <a href="index.php?act=dangnhap"><input type="button" class="btn btn-primary mx-3" value="Đăng nhập để tiếp tục đặt hàng"></a>
 
-        </div>
-    <?php } ?>
+
+    <?php
+    } ?>
+
 </div>

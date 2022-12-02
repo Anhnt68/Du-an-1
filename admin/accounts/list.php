@@ -16,7 +16,7 @@
         foreach ($listtaikhoan as $taikhoan) {
             extract($taikhoan);
             $xoatk = "index.php?act=xoatk&id=" . $id;
-
+            $update = "index.php?act=suaAccount&id=" . $id;
             echo '<tr>
                         <td>' . $id . '</td>
                         <td>' . $accountName . '</td>
@@ -26,7 +26,8 @@
                         <td>' . $accountPhone . '</td>
                         <td>' . $role . '</td>
                         <td>
-                        <a href = "' . $xoatk . '"><input type = "button" value = "Xoá"></a>
+                        <a href = "' . $xoatk . '"><input type = "button" value = "Xoá" class="btn btn-danger"></a>
+                        <a href = "' . $update . '"><input type = "button" value = "Cập nhật"class="btn btn-primary"></a>
                         </td>
                         </tr>';
         }
