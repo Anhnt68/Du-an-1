@@ -95,7 +95,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $accountEmail = $_POST['accountEmail'];
                 $accountAddress = $_POST['accountAddress'];
                 $accountImage = $_FILES['accountImage']['name'];
-                $target_dir = "../uploads/";
+                $target_dir = "uploads/";
                 $target_file = $target_dir . basename($_FILES["accountImage"]["name"]);
                 if (move_uploaded_file($_FILES["accountImage"]["tmp_name"], $target_file)) {
                     //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -124,45 +124,44 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "site/sanpham.php";
             break;
 
-        // case 'sanphamct':
-        //     if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
-        //         $id = $_GET["idsp"];
-        //         $pro_one = loadone_product($id);
-        //         $dm_one = loadOne_dm($id);
-        //         extract($pro_one);
-        //         // extract($dm_one);
-        //         $categoryid = $pro_one["categoryId"];
-        //         $sp_cung_loai = load_product_cungloai($id, $categoryid);
-        //         $ten = load_ten_category($categoryid);
-        //         extract($sp_cung_loai);
-        //     }
+            // case 'sanphamct':
+            //     if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
+            //         $id = $_GET["idsp"];
+            //         $pro_one = loadone_product($id);
+            //         $dm_one = loadOne_dm($id);
+            //         extract($pro_one);
+            //         // extract($dm_one);
+            //         $categoryid = $pro_one["categoryId"];
+            //         $sp_cung_loai = load_product_cungloai($id, $categoryid);
+            //         $ten = load_ten_category($categoryid);
+            //         extract($sp_cung_loai);
+            //     }
 
 
-        //     include "site/chitietsanpham.php";
-        //     break;
+            //     include "site/chitietsanpham.php";
+            //     break;
         case 'sanphamct':
-                
+
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];
-                
+
                 $pro_one = loadone_product($id);
                 $dm_one = loadOne_dm($id);
                 extract($pro_one);
-                
+
                 $categoryid = $pro_one["categoryId"];
-               
-                
+
+
                 $dsbl = loadall_comment($id);
-                $all_comment_theoIdsp =load_bl_theo_idsp($id);
+                $all_comment_theoIdsp = load_bl_theo_idsp($id);
                 extract($dsbl);
                 $sp_cung_loai = load_product_cungloai($categoryid);
                 $ten = load_ten_category($categoryid);
-           
             }
 
-            
+
             include "site/chitietsanpham.php";
-           
+
             break;
         case 'addtocart':
             if (isset($_POST['addtocart']) && $_POST['addtocart']) {
@@ -171,11 +170,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $productImage = $_POST['productImage'];
                 $productPrice = $_POST['productPrice'];
                 $quantity = $_POST['productQuantity'];
+                $productCapacity = $_POST['dungtich'];
                 $sumPrice = $productPrice * $quantity;
                 // kiem tra san pham co trong gio hang hay khong
                 $check = 0;
                 for ($i = 0; $i < sizeof($_SESSION['mycart']); $i++) {
-                    if ($_SESSION['mycart'][$i][1] == $productName) {
+                    if ($_SESSION['mycart'][$i][1] == $productName && $_SESSION['mycart'][$i][6] == $productCapacity) {
                         $check = 1;
                         $quantitynew = $quantity + $_SESSION['mycart'][$i][4];
                         $_SESSION['mycart'][$i][4] = $quantitynew;
@@ -183,7 +183,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     }
                 }
                 if ($check == 0) {
-                    $spadd = [$id, $productName, $productImage, $productPrice, $quantity, $sumPrice];
+                    $spadd = [$id, $productName, $productImage, $productPrice, $quantity, $sumPrice, $productCapacity];
                     $_SESSION['mycart'][] = $spadd;
                     // var_dump($_SESSION['mycart']);
                 }
@@ -233,6 +233,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
         case 'thanhtoan':
             $gia = tongdonhang();
+            header('location: index.php?act=billconfirm');
             include "site/cart/xulythanhtoanmomo_atm.php";
             break;
         case 'mybill':
@@ -241,7 +242,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             } else {
                 $kyw = "";
             }
-            $listbill = loadAll_bill($kyw,$_SESSION['account']['id']);
+            $listbill = loadAll_bill($kyw, $_SESSION['account']['id']);
             include "site/cart/mybill.php";
             break;
         case 'show':

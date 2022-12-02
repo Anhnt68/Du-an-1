@@ -80,7 +80,20 @@
     </form>
     <div class="row m-auto col-2 mb-4">
         <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="index.php?act=thanhtoan">
-            <input type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+            <input id="momo-btn" type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
         </form>
     </div>
 </div>
+
+<!-- <script>
+    // alert("xxxxx")
+    var momoBtn = document.querySelector("#momo-btn");z
+    momoBtn.onclick = function() {
+        fetch("http://localhost/du-an-1/index.php?act=thanhtoan", {
+            method: "POST",
+            content_Type: "application/x-www-form-urlencoded",
+            target: "_blank",
+            mode: 'no-cors'
+        })
+    }
+</script> -->
