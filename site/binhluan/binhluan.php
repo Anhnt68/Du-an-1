@@ -24,10 +24,12 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
         $accountId = $_SESSION['account']['id'];
         $accountName = $_SESSION['account']['accountName'];
         $commentDate = date('G:i:s A d/m/Y');
-
-        $content = $_POST['content'];
+     
+        
         $productId = $_POST['productId'];
-
+        if(empty($content)){
+           $content = $_POST['content']; 
+        }
         insert_comments($content, $productId, $accountId, $accountName, $commentDate);
         header("location:" . $_SERVER['HTTP_REFERER']);
     }
@@ -38,41 +40,41 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
     <!DOCTYPE html>
     <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    <body>
-        <div class="boxcontent2 binhluan">
-            <table border="1">
-                <tr>
-                    <th>Ten khach hang</th>
-                    <th>Noi dung</th>
-                    <th>Ngày bình luận</th>
+<body>
+    <div class="boxcontent2 binhluan">
+        <table border="1">
+            <tr>
+                <th>Ten khach hang</th>
+                <th>Noi dung</th>
+                <th>Ngày bình luận</th>
 
-                </tr>
-                <?php
-                foreach ($dsbl as $bl) {
-                    extract($bl);
-                    echo '<tr><td>' . $accountName . '</td>';
-                    echo '<td>' . $content . '</td>';
-                    echo '<td>' . $commentDate . '</td></tr>';
-                }
-                ?>
-            </table>
-        </div>
-        <form action="binhluan.php" method="post">
+            </tr>
+            <?php
+    foreach ($dsbl as $bl) {
+        extract($bl);
+        echo '<tr><td>' . $accountName . '</td>';
+        echo '<td>' . $content . '</td>';
+        echo '<td>' . $commentDate . '</td></tr>';
+    }
+            ?>
+        </table>
+    </div>
+    <form action="binhluan.php" method="post">
 
-            <input type="text" name="content" required class="noidung">
-            <input type="hidden" name="productId" value="<?= $_GET['idsp'] ?>">
-            <input type="hidden" name="accountId" id="" value="<?= $accountId ?>">
-            <input type="hidden" name="accountName" id="" value="<?= $accountName ?>">
-            <input type="hidden" name="commentDate" value="<?= $commentDate ?>">
-            <input type="submit" name="guibl" class="guibinhluan" value="Gui">
-        </form>
+        <input type="text" name="content" required class="noidung">
+        <input type="hidden" name="productId" value="<?= $_GET['idsp'] ?>">
+        <input type="hidden" name="accountId" id="" value="<?= $accountId ?>">
+        <input type="hidden" name="accountName" id="" value="<?= $accountName ?>">
+        <input type="hidden" name="commentDate" value="<?= $commentDate ?>">
+        <input type="submit" name="guibl" class="guibinhluan" value="Gui">
+    </form>
 
     </body>
 
