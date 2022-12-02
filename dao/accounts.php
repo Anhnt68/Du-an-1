@@ -39,3 +39,19 @@ function delete_taikhoan($id)
     $sql = "delete from accounts where id =" . $id;
     pdo_execute($sql);
 }
+
+function update_account($id, $role)
+{
+    $sql = "update accounts set role='" . $role . "' where id=" . $id;
+
+    pdo_execute($sql);
+}
+
+
+
+function loadone_Account($id)
+{
+    $sql = "select * from accounts where id =" . $id;
+    $bill1 = pdo_query_one($sql);
+    return $bill1;
+}

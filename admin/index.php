@@ -208,7 +208,23 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_comment(0);
             include "binhluan/list_binhluan.php";
             break;
-        
+        case 'suaAccount':
+            if ($_GET['id'] && $_GET['id'] > 0) {
+                $tk = loadone_Account($_GET['id']);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "accounts/updateRole.php";
+            break;
+        case 'updateAccount':
+            if (isset($_POST['capnhattaikhoan']) && ($_POST['capnhattaikhoan'])) {
+                $id = $_POST['id'];
+                $accountRole = $_POST['accountRole'];
+                $listAccount = update_account($id, $accountRole);
+            }
+            $listtaikhoan = loadall_taikhoan();
+            include "accounts/list.php";
+
+            break;
         default:
             include "home.php";
             break;
