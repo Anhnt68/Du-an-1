@@ -26,7 +26,7 @@ function load_bl_theo_idsp($pid){
 //     return $listcomment;
 // }
 function loadall_comment($idpro){
-    $sql = "select * from comments where 1";
+    $sql = "select * from comments  where 1";
     if($idpro>0) 
     $sql.=" AND productId = '".$idpro."'";
     $sql.=" order by id desc";
@@ -38,9 +38,9 @@ function delete_binhluan($id){
     pdo_execute($delete);
 }
 
-// function takeAll_U_P(){
-//     $sql = "SELECT * FROM products JOIN comments ON products.id=comments.productId WHERE 1;";
-//     $listall = pdo_query($sql);
-//     return $listall;
-// }
+function takeAll_U_P($idpro){
+    $sql = "SELECT accounts.accountName,accounts.accountImage,comments.content,comments.commentDate FROM accounts JOIN comments ON accounts.id=comments.accountId WHERE 1 AND comments.productId =".$idpro;
+    $listall = pdo_query($sql);
+    return $listall;
+}
 ?>

@@ -37,7 +37,7 @@
                 <?php
                 $hinhpath = "./uploads/" . $accountImage;
                 if (is_file($hinhpath)) {
-                  $accountImage = '<img src=' . $hinhpath . ' style="width: 50px; height: 50px; background-image: cover" class="rounded-circle">';
+                  $accountImage = '<img src="' . $hinhpath . '" style="width: 60px; height: 50px; background-image: cover" class="rounded-circle">';
                 } else {
                   $accountImage = '<img src="./uploads/account.png" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">';
                 }

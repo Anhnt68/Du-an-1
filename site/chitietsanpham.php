@@ -131,7 +131,13 @@ if (!is_array($pro_one)) {
     <div class="product-rating fw-bold fs-2 my-3">
         ĐÁNH GIÁ SẢN PHẨM
 
-        <iframe src="site/binhluan/binhluan.php?idsp=<?= $id ?>" frameborder="0" width="100%" height="400px"></iframe>
+        <iframe src="site/binhluan/binhluan.php?idsp=<?= $id ?>" frameborder="0" width="100%" height="300px" ></iframe>
+        <style>
+            iframe{
+                overflow-y: scroll;
+                overflow-x: scroll;
+            }
+        </style>
     </div>
 
 
@@ -139,7 +145,7 @@ if (!is_array($pro_one)) {
 
     <!-- Thư viện jquery -->
 
-=
+
 
 
     </div>
