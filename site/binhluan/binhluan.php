@@ -21,7 +21,7 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
     if (isset($_POST['guibl']) && ($_POST['guibl'])) {
         $accountId = $_SESSION['account']['id'];
         $accountName = $_SESSION['account']['accountName'];
-        $commentDate = date('G:i:s A d/m/Y');
+        $commentDate = date('d/m/Y');
 
 
         $productId = $_POST['productId'];

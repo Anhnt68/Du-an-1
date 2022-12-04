@@ -17,10 +17,21 @@
                     <th>NGÀY BÌNH LUẬN</th>
                     <th>Delete</th>
                 </tr>
+                <script>
+                    function myFunction() {
+                        let text = "Ban muon xoa?";
+                        if (confirm(text) == true) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+
+                    }
+                </script>
                 <?php
                 foreach ($listbinhluan as $binhluan) {
                     extract($binhluan);
-                   
+
                     $xoabl = "index.php?act=xoabl&idsp=" . $id;
                     echo '<tr >
                            
@@ -30,7 +41,7 @@
                             <td> ' . $accountName . ' </td>
                             <td>' . $productId . '</td>
                             <td>' . $commentDate . '</td>
-                            <td>  <a href="'.$xoabl.'"><input type="button"  value="Xóa" class="xoa btn btn-danger"> </a></td>
+                            <td>  <a href="' . $xoabl . '"><input type="button" value="Xóa" class="xoa btn btn-danger" id="demo" onclick="return myFunction()"> </a></td>
                       
                         </tr>';
                 }

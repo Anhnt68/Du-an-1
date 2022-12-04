@@ -132,12 +132,7 @@ if (!is_array($pro_one)) {
         ĐÁNH GIÁ SẢN PHẨM
 
         <iframe src="site/binhluan/binhluan.php?idsp=<?= $id ?>" frameborder="0" width="100%" height="300px" ></iframe>
-        <style>
-            iframe{
-                overflow-y: scroll;
-                overflow-x: scroll;
-            }
-        </style>
+        
     </div>
 
 
