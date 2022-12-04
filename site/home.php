@@ -24,10 +24,10 @@
     foreach ($dsdm as $dm) {
       extract($dm);
       $hinh = $img_path . $categoryImage;
-      $linkdm = "index.php?act=sanpham&idcat=" . $id;
+      $linkdm = "index.php?act=sanpham&categoryid=" . $id;
       echo ' 
       <div class="col-12 col-md-6 col-xl-3 w-20 mb-5 d-flex justify-content-around align-items-center">
-      <a href=""><img src="' . $hinh . '" alt=""></a>
+      <a href="" ><img src="' . $hinh . '" alt="" style="width: 70px; height: 70px;"></a>
       <a class="list-group-item" href=" ' . $linkdm . '">
         <p class="fs-4">' . $categoryName . '</p>
       </a>

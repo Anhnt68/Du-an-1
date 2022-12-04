@@ -20,10 +20,8 @@ if (!is_array($pro_one)) {
     $desc_pro = $pro_one["productDesc"];
 
 
-
-    // $brand_pro = $pro_one["productBrand"];
-    // $category_name = $pro_one["categoryName"];
-    // $categoryid = $dm_one["categoryName"];
+    // tăng view
+    update_view($id);
 ?>
     <div class="container-fluid">
 

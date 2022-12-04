@@ -41,20 +41,14 @@
                 <p class="title text-center fs-3">Phương thức thanh toán</p>
                 <div class="row flex-column justify-content-between">
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="radio" value="1" name="check" id="defaultCheck1">
+                        <input class="form-check-input" id="check2" type="radio" value="1" name="check" checked>
                         <label class="form-check-label" for="defaultCheck1">
-                            Thanh toán Online
+                        Thanh toán Momo
                         </label>
                     </div>
+
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="radio" name="check" value="2" id="defaultCheck1" checked>
-                        <!-- <img src="../src/img/logo-momo-png-1.png" alt="" style="width: 20px;height: 20px;"> -->
-                        <label class="form-check-label" for="defaultCheck1">
-                            Thanh toán Momo
-                        </label>
-                    </div>
-                    <div class="form-check mt-3">
-                        <input class="form-check-input" type="radio" name="check" value="0" id="defaultCheck1">
+                        <input class="form-check-input" id="check3" type="radio" name="check" value="0">
                         <label class="form-check-label" for="defaultCheck1">
                             Thanh toán khi nhận hàng
                         </label>
@@ -73,27 +67,14 @@
                 </table>
             </div>
             <div class="row m-auto col-2 mb-4">
-                <input type="submit" class="btn btn-primary mx-3" name="dongydathang" value="Đồng ý đặt hàng">
+                <input type="submit" class="btn btn-primary" name="dongydathang" value="Đồng ý đặt hàng">
 
             </div>
         </div>
     </form>
     <div class="row m-auto col-2 mb-4">
         <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="index.php?act=thanhtoan">
-            <input id="momo-btn" type="submit" name="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
+            <input type="submit" id="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
         </form>
     </div>
 </div>
-
-<!-- <script>
-    // alert("xxxxx")
-    var momoBtn = document.querySelector("#momo-btn");z
-    momoBtn.onclick = function() {
-        fetch("http://localhost/du-an-1/index.php?act=thanhtoan", {
-            method: "POST",
-            content_Type: "application/x-www-form-urlencoded",
-            target: "_blank",
-            mode: 'no-cors'
-        })
-    }
-</script> -->

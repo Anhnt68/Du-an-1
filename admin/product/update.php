@@ -16,8 +16,8 @@ if (is_file($hinhpath)) {
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=updatepro" method="POST" enctype="multipart/form-data">
-            <div class="row col-4">
-                <select name="categoryid">
+            <div class="mb-3">
+                <select name="categoryid" class="form-select">
                     <option value="0" selected>Tất cả</option>
                     <?php
                     foreach ($listdm as $dm) {
@@ -60,7 +60,7 @@ if (is_file($hinhpath)) {
          
             <div class="mb-3">
                 <input type="hidden" name="id" value="<?= $id ?>">
-                <input type="submit" class="btn btn-primary" name="capnhat" value="capnhat">
+                <input type="submit" class="btn btn-primary" name="capnhat" value="Cập nhật">
                 <button type="reset" class="btn btn-primary">Nhập lại</button>
                 <a href="index.php?act=listpro"><button type="button" class="btn btn-primary">Danh sách</button></a>
             </div>

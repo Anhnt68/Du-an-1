@@ -189,10 +189,7 @@ function get_tttt($x)
             $status = "Thanh toán khi nhận hàng";
             break;
         case '1':
-            $status = "Thanh toán online";
-            break;
-        case '2':
-            $status = "thanh tóan qua momo";
+            $status = "Thanh toán qua momo";
             break;
 
 

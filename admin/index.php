@@ -81,15 +81,15 @@ if (isset($_GET['act'])) {
             break;
 
         case 'listpro':
-            // if (isset($_POST['listok']) && ($_POST['listok'])) {
-            //     $kyw = $_POST['kyw'];
-            //     $categoryid = $_POST['categoryid'];
-            // } else {
-            //     $kyw = '';
-            //     $categoryid = 0;
-            // }
+            if (isset($_POST['listok']) && ($_POST['listok'])) {
+                $kyw = $_POST['kyw'];
+                $categoryid = $_POST['categoryid'];
+            } else {
+                $kyw = '';
+                $categoryid = 0;
+            }
             $listdm = loadAll_dm();
-            $listproduct = loadall_product();
+            $listproduct = loadall_product($kyw, $categoryid);
             include "product/list.php";
             break;
         case 'xoapro':
@@ -209,7 +209,7 @@ if (isset($_GET['act'])) {
             include "binhluan/list_binhluan.php";
             break;
 
-            case 'xoabl';
+        case 'xoabl';
             if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 delete_binhluan($_GET['idsp']);
             }

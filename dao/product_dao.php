@@ -4,29 +4,38 @@ function insert_product($productName, $productPrice, $productImage, $productDesc
     $sql = "insert into products(productName, productPrice, productImage, productDesc,productCapacity, quatity, categoryid) values('$productName', '$productPrice', '$productImage', '$productDesc','$productCapacity', '$quatity', '$categoryid')";
     pdo_execute($sql);
 }
-function loadall_product()
+function loadall_product($kyw, $categoryid)
 {
-    $sql = "select * from products where 1 order by id desc";
-    // if ($kyw != "") {
-    //     $sql .= " and name like '%" . $kyw . "%'";
-    // }
-    // if ($categoryid > 0) {
-    //     $sql .= " and categoryid = '" . $categoryid . "'";
-    // }
-    // $sql .= ' order by id desc';
+    $sql = "select * from products where 1";
+     if ($kyw != "") {
+         $sql .= " and productName like '%" . $kyw . "%'";
+     }
+     if ($categoryid > 0) {
+         $sql .= " and categoryId = '" . $categoryid . "'";
+     }
+     $sql .= ' order by id desc';
     $listproduct = pdo_query($sql);
     return $listproduct;
 }
-function showpro($idcat)
-{
+function search_pro($tukhoa){
     $sql = "select * from products where 1";
-    if ($idcat > 0) {
-        $sql .= " AND categoryId=" . $idcat;
+    if ($tukhoa != "") {
+        $sql .= " and productName like '%" . $tukhoa . "%'";
     }
-    $sql .= " order by id desc";
-    $listprocate = pdo_query($sql);
-    return $listprocate;
+    $sql .= ' order by id desc';
+    $searchpro = pdo_query($sql);
+    return $searchpro;
 }
+// function showpro($idcat)
+// {
+//     $sql = "select * from products where 1";
+//     if ($idcat > 0) {
+//         $sql .= " AND categoryId=" . $idcat;
+//     }
+//     $sql .= " order by id desc";
+//     $listprocate = pdo_query($sql);
+//     return $listprocate;
+// }
 function delete_product($id)
 {
     $sql = "delete from products where id =" . $id;

@@ -1,13 +1,9 @@
 <footer class="container-fluid text-center text-lg-start bg-dark text-white">
-  <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
+    <!-- <div class="me-5 d-none d-lg-block">
       <span>Get connected with us on social networks:</span>
     </div>
-    <!-- Left -->
 
-    <!-- Right -->
     <div>
       <a href="" class="me-4 link-secondary">
         <i class="fab fa-facebook-f"></i>
@@ -27,8 +23,7 @@
       <a href="" class="me-4 link-secondary">
         <i class="fab fa-github"></i>
       </a>
-    </div>
-    <!-- Right -->
+    </div> -->
   </section>
   <!-- Section: Social media -->
 
@@ -46,7 +41,7 @@
             </i>
           </h6>
           <p>
-            Copyright © 2008 Công ty Cổ Phần Thương Mại THẾ GIỚI NƯỚC HOA & MỸ PHẨM.
+            Copyright © 2022 Công ty Cổ Phần Thương Mại THẾ GIỚI NƯỚC HOA & MỸ PHẨM.
           </p>
         </div>
         <!-- Grid column -->
@@ -120,7 +115,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-4 border-top" style="background-color: rgba(0, 0, 0, 0.025);">
-    Copyright © 2008 Công ty Cổ Phần Thương Mại THẾ GIỚI NƯỚC HOA & MỸ PHẨM.
+    Copyright © 2022 Công ty Cổ Phần Thương Mại THẾ GIỚI NƯỚC HOA & MỸ PHẨM.
     <!-- Copyright -->
 </footer>
 <!-- Footer -->
@@ -130,7 +125,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
+<script src="site/src/js/radio.js"></script>
 <!-- Initialize Swiper -->
 <script>
   var swiper = new Swiper(".mySwiper", {

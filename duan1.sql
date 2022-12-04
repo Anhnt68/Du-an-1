@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1-dev+20220930.5d48e1006b
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2022 lúc 02:59 PM
--- Phiên bản máy phục vụ: 10.4.25-MariaDB
--- Phiên bản PHP: 7.4.30
+-- Thời gian đã tạo: Th12 04, 2022 lúc 04:42 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `accountName`, `accountPass`, `accountPhone`, `accountEmail`, `accountImage`, `accountAddress`, `role`) VALUES
-(4, 'Nguyễn Tuấn Anh', 'anhnt683', 346237897, 'anhntph27773@gmail.com', 'naciso1.jpg', 'Ninh Bình', 1);
+(4, 'Nguyễn Tuấn Anh', 'anhnt683', 346237897, 'anhntph27773@gmail.com', 'Screenshot 2022-11-30 181623.png', 'Ninh Bình', 1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE `bill` (
   `billAddress` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `billPhone` int(11) NOT NULL,
   `billEmail` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `billPttt` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0. Thanh toán khi nhận hàng 1. Thanh toán online 2. Thanh toán qua Momo',
+  `billPttt` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0. Thanh toán khi nhận hàng 1. Thanh toán qua Momo',
   `billStatus` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0. Đơn hàng đang tiếp nhận 1. Đóng gói 2. Đang giao 3. Giao hàng thành công',
   `billTotal` int(11) NOT NULL,
   `oderDate` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
@@ -80,7 +80,11 @@ INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `
 (85, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 0, 0, 33960000, '29/11/2022', 13),
 (86, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 48720000, '29/11/2022', 17),
 (87, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 29100000, '29/11/2022', 8),
-(88, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 43860000, '29/11/2022', 12);
+(88, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 43860000, '29/11/2022', 12),
+(89, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 18450000, '04/12/2022', 5),
+(90, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 2, 0, 18450000, '04/12/2022', 5),
+(91, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 0, 0, 22140000, '04/12/2022', 6),
+(92, 4, 'Nguyễn Tuấn Anh', 'Ninh Bình', 346237897, 'anhntph27773@gmail.com', 1, 0, 22140000, '04/12/2022', 6);
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,11 @@ INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
 (74, 87, 20, 4),
 (75, 87, 15, 4),
 (76, 88, 20, 8),
-(77, 88, 15, 4);
+(77, 88, 15, 4),
+(78, 89, 20, 5),
+(79, 90, 20, 5),
+(80, 91, 20, 6),
+(81, 92, 20, 6);
 
 -- --------------------------------------------------------
 
@@ -154,14 +162,14 @@ CREATE TABLE `categorys` (
 --
 
 INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) VALUES
-(1, 'YSL', 'cate1.jpg', ''),
-(2, 'CoCo Chanel', 'cate1.jpg', ''),
-(3, 'Gucci', 'cate1.jpg', ''),
-(4, 'Dior', 'cate1.jpg', ''),
-(5, 'Lelabo', 'cate1.jpg', ''),
-(6, 'Nartiso', 'cate1.jpg', ''),
-(8, 'Versace', 'cate1.jpg', ''),
-(9, 'Dolce', 'cate1.jpg', '');
+(1, 'YSL', 'cate2.jpg', '\"'),
+(2, 'CoCo Chanel', 'chanel2.jpg', '\"'),
+(3, 'Gucci', 'gucci1.jpg', '\"'),
+(4, 'Dior', 'dior2.jpg', '\"'),
+(5, 'Lelabo', 'catelelabo.jpg', '\"'),
+(6, 'Nartiso', 'catenatiso.jpg', '\"'),
+(8, 'Versace', 'versace2.jpg', '\"\"\"'),
+(9, 'Dolce', 'cate4.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -177,6 +185,16 @@ CREATE TABLE `comments` (
   `accountName` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `commentDate` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `productId`, `accountId`, `accountName`, `commentDate`) VALUES
+(1, 'fewfsfs', 16, 23, 'cong', '04/12/2022'),
+(2, 'dsdsds', 20, 4, 'Nguyễn Tuấn Anh', '04/12/2022'),
+(3, 'good', 20, 4, 'Nguyễn Tuấn Anh', '04/12/2022'),
+(4, 'good\r\n', 16, 4, 'Nguyễn Tuấn Anh', '04/12/2022');
 
 -- --------------------------------------------------------
 
@@ -204,13 +222,13 @@ INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `pr
 (11, 'Nước Hoa Versace Eros Man EDT 100ml', 'versace1.jpg', 4500000, '', 0, 100, 0, 8),
 (12, 'Nước Hoa Le Labo Rose 31 100ml', 'lelabo1.jpg', 5250000, '', 0, 100, 0, 5),
 (13, 'Nước Hoa Nữ Gucci Flora Gorgeous Gardenia 100ml', 'gucci1.jpg', 5950000, '', 0, 5, 0, 3),
-(14, 'Nước Hoa Nữ Versace Bright EDP, 90ml', 'versace2.jpg', 1680000, '', 0, 100, 0, 3),
-(15, 'Nước Hoa Nữ Chanel Gabrielle Essence EDP 100ml', 'chanel2.jpg', 3585000, '', 0, 100, 0, 2),
-(16, 'Nước Hoa Nữ Narciso Rodriguez EDP, 90ml', 'naciso1.jpg', 2190000, '', 0, 100, 0, 6),
+(14, 'Nước Hoa Nữ Versace Bright EDP, 90ml', 'versace2.jpg', 1680000, '', 0, 100, 0, 8),
+(15, 'Nước Hoa Nữ Chanel Gabrielle Essence EDP 100ml', 'chanel2.jpg', 3585000, '', 0, 100, 1, 2),
+(16, 'Nước Hoa Nữ Narciso Rodriguez EDP, 90ml', 'naciso1.jpg', 2190000, '', 0, 100, 9, 6),
 (17, 'Nước Hoa Gucci Memoire D’une EDP 100ml', 'gucci2.jpg', 2250000, '', 0, 100, 0, 3),
 (18, 'Nước Hoa Nam Dior Sauvage EDP 100ml', 'dior1.jpg', 2980000, '', 0, 100, 0, 4),
-(19, 'Nước Hoa Le Labo 13 Another 50ml', 'lelabo2.jpg', 7850000, '', 0, 100, 0, 5),
-(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '', 0, 100, 0, 2),
+(19, 'Nước Hoa Le Labo 13 Another 50ml', 'lelabo2.jpg', 7850000, '', 0, 100, 1, 5),
+(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '', 0, 100, 8, 2),
 (21, 'Nước Hoa Nữ Dior Hypnotic Poison EDT 100ml', 'dior2.jpg', 2800000, '', 0, 5, 0, 4),
 (22, 'Nước Hoa Nữ Gucci Bloom EDP For Women 100ml', 'gucci3.jpg', 2900000, '', 0, 0, 0, 3);
 
@@ -268,13 +286,13 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT cho bảng `billdetail`
 --
 ALTER TABLE `billdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT cho bảng `categorys`
@@ -286,7 +304,7 @@ ALTER TABLE `categorys`
 -- AUTO_INCREMENT cho bảng `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
