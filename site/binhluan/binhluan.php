@@ -21,7 +21,8 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
     if (isset($_POST['guibl']) && ($_POST['guibl'])) {
         $accountId = $_SESSION['account']['id'];
         $accountName = $_SESSION['account']['accountName'];
-        $commentDate = date('d/m/Y');
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $commentDate = date(' H:i:s - d/m/Y');
 
 
         $productId = $_POST['productId'];
@@ -96,7 +97,7 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
                             ' . $hinhpath1 . '
                             <div class="d-flex flex-column justify-content-start ml-2"><span
                                     class="d-block font-weight-bold name">' . $accountName . '</span><span
-                                    class="date text-black-50">' . $commentDate . '</span></div>
+                                    class="date text-black-50 "><small>' . $commentDate . '</small></span></div>
                         </div>
                         <div class="mt-2">
                             <p class="comment-text">' . $content . '</p>
