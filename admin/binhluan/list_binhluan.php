@@ -7,21 +7,21 @@
         <div class="row1 mb10 frmdsloai">
             <table class="table text-center">
                 <tr>
-                    
+
                     <th>ID</th>
-               
+
                     <th>NỘI DUNG BÌNH LUẬN</th>
-                  
+
                     <th>HỌ TÊN</th>
                     <th>ID SẢN PHẨM</th>
                     <th>NGÀY BÌNH LUẬN</th>
-                    
+                    <th>Delete</th>
                 </tr>
                 <?php
                 foreach ($listbinhluan as $binhluan) {
                     extract($binhluan);
-              
                    
+                    $xoabl = "index.php?act=xoabl&idsp=" . $id;
                     echo '<tr >
                            
                             <td>' . $id . '</td>
@@ -30,7 +30,8 @@
                             <td> ' . $accountName . ' </td>
                             <td>' . $productId . '</td>
                             <td>' . $commentDate . '</td>
-                         
+                            <td>  <a href="'.$xoabl.'"><input type="button"  value="Xóa" class="xoa btn btn-danger"> </a></td>
+                      
                         </tr>';
                 }
                 ?>
@@ -39,7 +40,7 @@
 
             </table>
         </div>
-    
+
     </div>
 </div>
 </div>

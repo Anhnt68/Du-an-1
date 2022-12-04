@@ -208,6 +208,17 @@ if (isset($_GET['act'])) {
             $listbinhluan = loadall_comment(0);
             include "binhluan/list_binhluan.php";
             break;
+
+            case 'xoabl';
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
+                delete_binhluan($_GET['idsp']);
+            }
+
+            $listbinhluan = loadall_comment(0);
+            include "binhluan/list_binhluan.php";
+            break;
+
+
         case 'suaAccount':
             if ($_GET['id'] && $_GET['id'] > 0) {
                 $tk = loadone_Account($_GET['id']);
