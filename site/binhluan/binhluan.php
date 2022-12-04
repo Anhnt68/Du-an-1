@@ -116,10 +116,6 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
 
 
     <form action="binhluan.php" method="post" class="d-flex">
-
-
-
-
         </div>
         <?= $accountImage1 ?>
             <!-- <img src="../../uploads/gucci1.jpg" alt=""> -->
@@ -132,12 +128,7 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
             <input type="submit" name="guibl" class="guibinhluan btn btn-danger" value="Gui">
     </form>
     <!-- end bl -->
-
-
-
-
 </body>
-
 </html>
 <?php } else {
     $link = 'http://localhost/du-an-1/index.php?act=dangnhap';

@@ -6,19 +6,19 @@
     <div class="">
 
         <div class="">
-            <!-- <form action="index.php?act=listpro" method="POST">
-                        <input type="text" name="kyw">
-                        <select name="categoryid" >
-                            <option value="0" selected>Tất cả</option>
-                            <?php
-                            foreach ($lisdm as $dm) {
-                                extract($dm);
-                                echo '<option value="' . $id . '">' . $categoryName . '</option>';
-                            }
-                            ?>
-                        </select>
-                        <input type="submit" name = "listok" value="GO">
-                    </form> -->
+            <form action="index.php?act=listpro" method="POST">
+                <input type="text" name="kyw" style="width: 200px; height: 25px; border-radius: 3px; " placeholder="Search" aria-label="Search">
+                <select name="categoryid">
+                    <option value="0" selected style="height:60px;">Tất cả</option>
+                    <?php
+                    foreach ($listdm as $dm) {
+                        extract($dm);
+                        echo '<option value="' . $id . '">' . $categoryName . '</option>';
+                    }
+                    ?>
+                </select>
+                <input type="submit" name="listok" value="Tìm" style="width: 50px; background: teal; color: white; ">
+            </form>
             <table table class="table mw-100">
                 <tr>
                     <th>MÃ SP</th>

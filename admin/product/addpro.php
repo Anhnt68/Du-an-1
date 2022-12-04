@@ -4,9 +4,9 @@
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=addpro" method="POST" enctype="multipart/form-data">
-            <div class="row mb10">
+            <div class="mb-3">
                 Danh mục <br>
-                <select name="categoryid">
+                <select name="categoryid" class="form-select">
                     <?php
                     foreach ($listdm as $dm) {
                         extract($dm);
@@ -15,33 +15,35 @@
                     ?>
                 </select>
             </div>
-            <div class="row mb-3">
-                Tên sản phẩm <br>
-                <input type="text" name="productName">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Tên sản phẩm</label>
+                <input type="text" name="productName" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="row mb-3">
-                Giá <br>
-                <input type="text" name="productPrice">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Giá</label>
+                <input type="text" name="productPrice" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="row mb-3">
-                Hình <br>
-                <input type="file" name="productImage" id="">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Hình</label>
+                <input type="file" name="productImage" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="row mb-3">
-                Mô tả <br>
-                <textarea name="productDesc" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Mô tả</label>
+                <textarea name="productDesc" class="form-control" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
             </div>
-            <div class="row mb-3">
-                Dung tích <br>
-                <input type="text" name="productCapacity" id="">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Dung tích</label>
+                <input type="text" name="productCapacity" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="row mb-3">
-                Số lượng <br>
-                <input type="text" name="quatity">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Số lượng</label>
+                <input type="text" name="quatity" class="form-control" id="exampleInputPassword1">
             </div>
-                <input type="submit" class="btn btn-primary" name="themmoi" value="them mới">
-                <button type="reset" class="btn btn-primary">Nhập lại</button>
-                <a href="index.php?act=listpro"><button type="button"  class="btn btn-primary" >Danh sách</button></a> 
+
+
+            <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm mới">
+            <button type="reset" class="btn btn-primary">Nhập lại</button>
+            <a href="index.php?act=listpro"><button type="button" class="btn btn-primary">Danh sách</button></a>
             <?php
             if (isset($thongbao) && ($thongbao != "")) {
                 echo $thongbao;

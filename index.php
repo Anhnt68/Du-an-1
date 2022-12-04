@@ -114,15 +114,21 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
             break;
         case 'sanpham':
-            if (isset($_GET['idcat']) && ($_GET['idcat'] > 0)) {
-                $categoryId = $_GET['idcat'];
+            if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            if (isset($_GET['categoryid']) && ($_GET['categoryid'] > 0)) {
+                $categoryId = $_GET['categoryid'];
             } else {
                 $categoryId = 0;
             }
-            $list_pro_cate = showpro($categoryId);
+            $list_pro_cate = loadall_product($kyw, $categoryId);
             $ten = load_ten_category($categoryId);
             include "site/sanpham.php";
             break;
+
 
             // case 'sanphamct':
             //     if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
@@ -144,22 +150,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
             if (isset($_GET["idsp"]) && ($_GET["idsp"] > 0)) {
                 $id = $_GET["idsp"];
-
                 $pro_one = loadone_product($id);
                 $dm_one = loadOne_dm($id);
                 extract($pro_one);
-
                 $categoryid = $pro_one["categoryId"];
-
-
                 $dsbl = loadall_comment($id);
                 $all_comment_theoIdsp = load_bl_theo_idsp($id);
                 extract($dsbl);
                 $sp_cung_loai = load_product_cungloai($categoryid);
                 $ten = load_ten_category($categoryid);
             }
-
-
             include "site/chitietsanpham.php";
 
             break;
@@ -233,7 +233,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
         case 'thanhtoan':
             $gia = tongdonhang();
-            header('location: index.php?act=billconfirm');
             include "site/cart/xulythanhtoanmomo_atm.php";
             break;
         case 'mybill':

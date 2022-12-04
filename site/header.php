@@ -26,9 +26,9 @@
         ?>
 
           <div class=" d-flex justify-content-end align-items-center">
-            <form class="d-flex px-2" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex px-2" role="search" action="index.php?act=sanpham" method="POST">
+              <input class="form-control me-2" type="text" name="kyw" placeholder="Tên sản phẩm..." aria-label="Search">
+              <button class="btn btn-outline-success" name="search" type="submit">Tìm</button>
             </form>
             <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark m-2"></i></a>
             <li><a href="index.php?act=mybill"><i class="bi bi-receipt-cutoff fs-3 text-dark m-2"></i></a></li>
@@ -65,9 +65,9 @@
         <?php } else {
         ?>
           <div class="d-flex justify-content-end align-items-center">
-            <form class="d-flex px-2" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex px-2" role="search" action="index.php?act=sanpham" method="POST">
+              <input class="form-control me-2" type="text" name="kyw" placeholder="Tên sản phẩm..." aria-label="Search">
+              <button class="btn btn-outline-success" name="search" type="submit">Tìm</button>
             </form>
             <a class="" href="index.php?act=viewcart"><i class="bi bi-cart3 fs-3 text-dark"></i></a>
             <a class="btn btn-primary mx-2" href="index.php?act=dangnhap">Sign in</a>

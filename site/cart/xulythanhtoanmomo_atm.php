@@ -23,11 +23,7 @@ function execPostRequest($url, $data)
 
 
 $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
-// $sum = 0;
-// foreach ($_SESSION['mycart'] as $cart) {
-//     $sumPrice = $cart[3] * $cart[4];
-//     $sum += $sumPrice;
-// }
+
 
 $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
