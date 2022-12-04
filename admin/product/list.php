@@ -21,16 +21,15 @@
                     </form> -->
             <table table class="table mw-100">
                 <tr>
-                    <th></th>
                     <th>MÃ SP</th>
                     <th>TÊN SẢN PHẨM</th>
-                    <th>GIAS</th>
-                    <th>ANH</th>
+                    <th>GIÁ</th>
+                    <th>ẢNH</th>
                     <th>MÔ TẢ</th>
-                    <th>THƯƠNG HIỆU</th>
                     <th>DUNG TÍCH</th>
                     <th>SỐ LƯỢNG</th>
-                    <th>U/D</th>
+                    <th> <a href="index.php?act=addpro"><button type="button" class="btn btn-primary">Thêm mới</button></a>
+                    </th>
                 </tr>
                 <?php
                 foreach ($listproduct as $product) {
@@ -44,13 +43,12 @@
                         $productImage = "no photo";
                     }
                     echo '<tr>
-                                        <td><input type="checkbox" name="" id=""></td>
                                         <td>' . $id . '</td>
                                         <td>' . $productName . '</td>
-                                        <td>' . $productPrice . '</td>
+                                        <td>' . number_format($productPrice, 0, '', ',') . '</td>
                                         <td>' . $productImage . '</td>
                                         <td>' . $productDesc . '</td>
-                                        <td>' . $productBrand . '</td>
+                                        
                                         <td>' . $productCapacity . '</td>
                                         <td>' . $quatity . '</td>
                                         <td><a  href="' . $suapro . '"><input type="button" value="Sửa" class="btn btn-primary"> </a> <a href="' . $xoapro . '"><input type="button" value="Xóa" class="btn btn-primary bg-danger"> </a></td>
@@ -60,9 +58,6 @@
 
             </table>
         </div>
-        <input type="button" value="Chọn tất cả">
-        <input type="button" value="Bỏ chọn tất cả">
-        <input type="button" value="Xoá các mục đã chọn">
-        <a href="index.php?act=addpro"><input type="button" value="Nhập thêm"></a>
+
     </div>
 </div>

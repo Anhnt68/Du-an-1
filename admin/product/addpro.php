@@ -15,39 +15,33 @@
                     ?>
                 </select>
             </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Tên sản phẩm <br>
                 <input type="text" name="productName">
             </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Giá <br>
                 <input type="text" name="productPrice">
             </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Hình <br>
                 <input type="file" name="productImage" id="">
             </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Mô tả <br>
                 <textarea name="productDesc" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
             </div>
-            <div class="row mb10">
-                Thương hiệu <br>
-                <input type="text" name="productBrand" id="">
-            </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Dung tích <br>
                 <input type="text" name="productCapacity" id="">
             </div>
-            <div class="row mb10">
+            <div class="row mb-3">
                 Số lượng <br>
                 <input type="text" name="quatity">
             </div>
-            <div class="row mb10">
-                <input type="submit" name="themmoi" value="THÊM MỚI">
-                <input type="reset" value="NHẬP LẠI">
-                <a href="index.php?act=listpro"><input type="button" value="DANH SÁCH"></a>
-            </div>
+                <input type="submit" class="btn btn-primary" name="themmoi" value="them mới">
+                <button type="reset" class="btn btn-primary">Nhập lại</button>
+                <a href="index.php?act=listpro"><button type="button"  class="btn btn-primary" >Danh sách</button></a> 
             <?php
             if (isset($thongbao) && ($thongbao != "")) {
                 echo $thongbao;

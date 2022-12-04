@@ -2,6 +2,7 @@
 function viewcart($del)
 {
     $sum = 0;
+    $stt1 = 0;
     $i = 0;
     $quantitysum = 0;
     if ($del == 1) {
@@ -12,82 +13,125 @@ function viewcart($del)
         $delete = "";
     }
     echo '
-        <tr class="bg-secondary text-light" style="height:30px">
+        <tr class="bg-secondary text-light" style="height:30px;width:100%">
+            <th>STT</th>
             <th>Image</th>
             <th>Name</th>
+            <th>Dung tích</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Thành tiền</th>
             ' . $deleteProduct_th . '
         </tr>
     ';
-    foreach ($_SESSION['mycart'] as $cart) {
-        global $img_path;
+    if (sizeof($_SESSION['mycart']) > 0) {
 
-        $image = $img_path . $cart[2];
-        $sumPrice = $cart[3] * $cart[4];
-        $sum += $sumPrice;
-        $quantitysum += $cart[4];
-        if ($del == 1) {
-            $deleteProduct_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa" class="btn btn-danger"></a></td>';
-        } else {
-            $deleteProduct_td = "";
-        }
-        echo '
+        foreach ($_SESSION['mycart'] as $cart) {
+            global $img_path;
+            $stt1 += 1;
+            $pricenew = 0;
+            $image = $img_path . $cart[2];
+
+            $quantitysum += $cart[4];
+
+            switch ($cart[6]) {
+                case '10':
+                    $pricenew = $cart[3] * 0.1;
+                    break;
+                case '50':
+                    $pricenew = $cart[3] * 0.5;
+                    break;
+                case '100':
+                    $pricenew = $cart[3];
+                    break;
+
+                default:
+                    $pricenew = $cart[3];
+                    break;
+            }
+
+            $sumPrice =  $pricenew * $cart[4];
+            $sum += $sumPrice;
+            if ($del == 1) {
+                $deleteProduct_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa" class="btn btn-danger"></a></td>';
+            } else {
+                $deleteProduct_td = "";
+            }
+            echo '
        
                 <tr>
+                    <td>' . $stt1 . '</td>
                     <td><img src="' . $image . '" alt="" style="height:100px"></td>
                     <td>' . $cart[1] . '</td>
-                    <td>' . $cart[3] . '</td>
+                    <td>' . $cart[6] . '</td>
+                    <td>' . number_format($pricenew, 0, '', ',') . '</td>
                     <td>' . $cart[4] . '</td>
-                    <td>' . $sumPrice . '</td>
+                    <td>' . number_format($sumPrice, 0, '', ',') . '</td>
                     ' . $deleteProduct_td . '
+                  
                  </tr>
                 
                 ';
-        $i += 1;
-    }
-    echo '
+            $i += 1;
+        }
+
+        echo '
         <tr>
+    
         <th colspan="4">Tổng đơn hàng</th>
-        <th >' . $sum . '</th>
-        <th >' . $quantitysum . '</th>
+        <th >' . number_format($sum, 0, '', ',') . '</th>
+    
         ' . $delete . '
         <td></td>
     </tr>
         ';
+    }
 }
-function tinhsoluong(){
+function tinhsoluong()
+{
     $quantitysum = 0;
     foreach ($_SESSION['mycart'] as $cart) {
         $quantitysum += $cart[4];
-  
-
     }
-  return $quantitysum;
-    
+    return $quantitysum;
 }
 function tongdonhang()
 {
     $sum = 0;
+    $pricenew = 0;
 
     foreach ($_SESSION['mycart'] as $cart) {
-        $sumPrice = $cart[3] * $cart[4];
+        switch ($cart[6]) {
+            case '10':
+                $pricenew = $cart[3] * 0.1;
+                break;
+            case '50':
+                $pricenew = $cart[3] * 0.5;
+                break;
+            case '100':
+                $pricenew = $cart[3];
+                break;
+
+            default:
+                $pricenew = $cart[3];
+                break;
+        }
+        $sumPrice = $pricenew * $cart[4];
         $sum += $sumPrice;
     }
     return $sum;
-   
 }
-function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt,  $tongdonhang, $orderDate,$sodonhang)
+function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt,  $tongdonhang, $orderDate, $sodonhang)
 {
-    $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate,quatity) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$orderDate',$sodonhang)";
+    $sql = "insert into bill(accountId,billName, billAddress, billPhone, billEmail, billPttt, billTotal, oderDate,quatity) values('$accountId','$accountName', '$accountAddress', '$accountPhone', '$accountEmail', '$pttt', '$tongdonhang', '$orderDate','$sodonhang')";
     return pdo_execute_return_lastInsertId($sql);
 }
-function insert_billdetail($billid)
+function insert_billdetail($productId, $billid, $productQuantity)
 {
-    $sql = "insert into billdetail(billid) values('$billid')";
+    $sql = "insert into billdetail(billid,productId,productQuantity) values('$billid','$productId','$productQuantity')";
     return pdo_execute($sql);
 }
+
 
 function loadone_bill($id)
 {
@@ -101,11 +145,12 @@ function loadall_billdeatil($billid)
     $bill = pdo_query($sql);
     return $bill;
 }
-function loadAll_bill($kyw = "", $iduser)
+function loadAll_bill($kyw = "", $accountId)
 {
+
     $sql = "select * from bill where 1";
-    if ($iduser > 0)
-        $sql .= " AND iduser =" . $iduser;
+    if ($accountId > 0)
+        $sql .= " AND accountId =" . $accountId;
     if ($kyw != "")
         $sql .= " AND id like '%" . $kyw . "%'";
     $sql .= " order by id desc";
@@ -126,24 +171,14 @@ function loadall_cart_quantity($billid)
 }
 function get_ttdh($n)
 {
-    switch ($n) {
-        case '0':
-            $status = "Đơn hàng đang được tiếp nhận";
-            break;
-        case '1':
-            $status = "Đóng gói";
-            break;
-        case '2':
-            $status = "Đơn hàng đang được giao";
-            break;
-        case '3':
-            $status = "Giao hàng thành công";
-            break;
-
-        default:
-            $status = "Đơn hàng đang được tiếp nhận";
-
-            break;
+    if ($n == 0) {
+        $status = "Đơn hàng đang được tiếp nhận";
+    } else if ($n == 1) {
+        $status = "Đóng gói";
+    } else if ($n == 2) {
+        $status = "Đơn hàng đang được giao";
+    } else if ($n == 3) {
+        $status = "Giao thành công";
     }
     return $status;
 }
@@ -154,10 +189,10 @@ function get_tttt($x)
             $status = "Thanh toán khi nhận hàng";
             break;
         case '1':
-            $status = "Thanh toasn online";
+            $status = "Thanh toán online";
             break;
         case '2':
-            $status = "thanh toasn qua momo";
+            $status = "thanh tóan qua momo";
             break;
 
 
@@ -177,4 +212,22 @@ function loadall_bill2()
     $sql = "select * from bill order by id desc";
     $listbill = pdo_query($sql);
     return $listbill;
+}
+function update_bill($id, $billStatus)
+{
+    $sql = "update bill set  billStatus='" . $billStatus . "' where id=" . $id;
+
+    pdo_execute($sql);
+}
+function Show_dh($id)
+{
+    $sql = "select billdetail.id as masp, products.productName as tensp,products.productImage as anhsp,
+     products.productPrice as giasp,bill.billTotal as tongdh,billdetail.productQuantity as soluong,billdetail.productQuantity * products.productPrice as tongtien,bill.billTotal as tien";
+    $sql .= " from products INNER JOIN billdetail ON products.id = billdetail.productId INNER JOIN bill ON bill.id = billdetail.billId";
+    // $sql.=" where billdetail.billId=" .$id;
+    $sql .= " where bill.id=" . $id;
+    // $sql.=" and bill.id=" . $id;
+    // count(billdetail.productId) as countsp, 
+    $listtkk = pdo_query($sql);
+    return $listtkk;
 }

@@ -17,6 +17,10 @@
                     <label for="exampleInputPassword1" class="form-label">Thêm ảnh</label>
                     <input type="file" name="anhloai" class="form-control" id="exampleInputPassword1">
                   </div>
+                  <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Mô Tả</label> <br>
+                 <textarea name="motaloai" id="" cols="80" rows="10"></textarea>
+                </div>
                 <input type="submit" class="btn btn-primary" name="themmoi" value="them mới">
                 <button type="reset" class="btn btn-primary">Nhập lại</button>
                 <a href="index.php?act=listdm"><button type="button"  class="btn btn-primary" >Danh sách</button></a> 
