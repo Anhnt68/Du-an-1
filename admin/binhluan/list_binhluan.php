@@ -19,7 +19,7 @@
                 </tr>
                 <script>
                     function myFunction() {
-                        let text = "Press a button!\nEither OK or Cancel.";
+                        let text = "Ban muon xoa?";
                         if (confirm(text) == true) {
                             return true;
                         } else {
