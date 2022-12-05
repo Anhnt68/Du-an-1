@@ -183,12 +183,11 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $productImage = $_POST['productImage'];
                 $productPrice = $_POST['productPrice'];
                 $quantity = $_POST['productQuantity'];
-                $productCapacity = $_POST['dungtich'];
                 $sumPrice = $productPrice * $quantity;
                 // kiem tra san pham co trong gio hang hay khong
                 $check = 0;
                 for ($i = 0; $i < sizeof($_SESSION['mycart']); $i++) {
-                    if ($_SESSION['mycart'][$i][1] == $productName && $_SESSION['mycart'][$i][6] == $productCapacity) {
+                    if ($_SESSION['mycart'][$i][1] == $productName) {
                         $check = 1;
                         $quantitynew = $quantity + $_SESSION['mycart'][$i][4];
                         $_SESSION['mycart'][$i][4] = $quantitynew;
@@ -196,7 +195,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     }
                 }
                 if ($check == 0) {
-                    $spadd = [$id, $productName, $productImage, $productPrice, $quantity, $sumPrice, $productCapacity];
+                    $spadd = [$id, $productName, $productImage, $productPrice, $quantity, $sumPrice,];
                     $_SESSION['mycart'][] = $spadd;
                     // var_dump($_SESSION['mycart']);
                 }

@@ -32,8 +32,6 @@
                     $countsp = loadall_cart_count($bill['id']);
                     $ttdh = get_ttdh($bill['billStatus']);
                     $tttt = get_tttt($bill['billPttt']);
-
-
                     echo '
             <tr>
             <td>DAM ' . $bill['id'] . '</td>

@@ -76,24 +76,7 @@ if (!is_array($pro_one)) {
                             <input type="hidden" name="productName" value="<?= $name_pro ?>">
                             <input type="hidden" name="productImage" value="<?= $name_img_pro ?>">
                             <input type="hidden" name="productPrice" value="<?= $price_pro ?>">
-                            <div class="form-check mt-3">
-                                <input class="form-check-input" type="radio" value="10" name="dungtich" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    10ml
-                                </label>
-                            </div>
-                            <div class="form-check mt-3">
-                                <input class="form-check-input" type="radio" name="dungtich" value="50" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    50ml
-                                </label>
-                            </div>
-                            <div class="form-check mt-3">
-                                <input class="form-check-input" type="radio" name="dungtich" value="100" id="defaultCheck1" checked>
-                                <label class="form-check-label" for="defaultCheck1">
-                                    100ml
-                                </label>
-                            </div>
+
                             <input type="hidden" name="categoryName" value="<?= $categoryid ?>">
 
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>

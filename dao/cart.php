@@ -17,7 +17,6 @@ function viewcart($del)
             <th>STT</th>
             <th>Image</th>
             <th>Name</th>
-            <th>Dung tích</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Thành tiền</th>
@@ -29,29 +28,12 @@ function viewcart($del)
         foreach ($_SESSION['mycart'] as $cart) {
             global $img_path;
             $stt1 += 1;
-            $pricenew = 0;
             $image = $img_path . $cart[2];
+            $priceSum = $cart[3] * $cart[4];
+            $quantitysum += $priceSum;
 
-            $quantitysum += $cart[4];
 
-            switch ($cart[6]) {
-                case '10':
-                    $pricenew = $cart[3] * 0.1;
-                    break;
-                case '50':
-                    $pricenew = $cart[3] * 0.5;
-                    break;
-                case '100':
-                    $pricenew = $cart[3];
-                    break;
 
-                default:
-                    $pricenew = $cart[3];
-                    break;
-            }
-
-            $sumPrice =  $pricenew * $cart[4];
-            $sum += $sumPrice;
             if ($del == 1) {
                 $deleteProduct_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa" class="btn btn-danger"></a></td>';
             } else {
@@ -63,10 +45,9 @@ function viewcart($del)
                     <td>' . $stt1 . '</td>
                     <td><img src="' . $image . '" alt="" style="height:100px"></td>
                     <td>' . $cart[1] . '</td>
-                    <td>' . $cart[6] . '</td>
-                    <td>' . number_format($pricenew, 0, '', ',') . '</td>
+=                    <td>' . number_format($cart[3], 0, '', ',') . '</td>
                     <td>' . $cart[4] . '</td>
-                    <td>' . number_format($sumPrice, 0, '', ',') . '</td>
+                    <td>' . number_format($priceSum, 0, '', ',') . '</td>
                     ' . $deleteProduct_td . '
                   
                  </tr>
@@ -79,7 +60,7 @@ function viewcart($del)
         <tr>
     
         <th colspan="4">Tổng đơn hàng</th>
-        <th >' . number_format($sum, 0, '', ',') . '</th>
+        <th >' . number_format($quantitysum, 0, '', ',') . '</th>
     
         ' . $delete . '
         <td></td>
