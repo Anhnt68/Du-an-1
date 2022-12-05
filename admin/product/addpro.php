@@ -31,10 +31,7 @@
                 <label for="exampleInputPassword1" class="form-label">Mô tả</label>
                 <textarea name="productDesc" class="form-control" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Dung tích</label>
-                <input type="text" name="productCapacity" class="form-control" id="exampleInputPassword1">
-            </div>
+
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Số lượng</label>
                 <input type="text" name="quatity" class="form-control" id="exampleInputPassword1">

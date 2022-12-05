@@ -23,7 +23,7 @@ if (!is_array($pro_one)) {
     // tăng view
     update_view($id);
 ?>
-    <div class="container-fluid">
+    <div class="container">
 
 
         <div class="cart row m-auto justify-content-around pt-5">
@@ -110,11 +110,11 @@ if (!is_array($pro_one)) {
             <label class="text-secondary h6 my-3">Miễn Phí Giao Hàng Trên Toàn Quốc</label>
         </div>
     </div>
-    <div class="menu-content" style="padding: 0; margin: 20px 0">
+    <div class="container" style="padding: 0; margin: 20px 0">
         <div class="btn-group btn-group-md btn-mt">
             <button type="button" class="btn btn-secondary">Chi tiết</button>
         </div>
-        <div class="content tab-content" id="tab-1" style="
+        <div class="content tab-content fs-5" id="tab-1" style="
               display: block;
               background-color: #f3f4f6;
               padding: 10px 10px;
@@ -129,8 +129,8 @@ if (!is_array($pro_one)) {
     <div class="product-rating fw-bold fs-2 my-3">
         ĐÁNH GIÁ SẢN PHẨM
 
-        <iframe src="site/binhluan/binhluan.php?idsp=<?= $id ?>" frameborder="0" width="100%" height="300px" ></iframe>
-        
+        <iframe src="site/binhluan/binhluan.php?idsp=<?= $id ?>" frameborder="0" width="100%" height="300px"></iframe>
+
     </div>
 
 
@@ -141,7 +141,7 @@ if (!is_array($pro_one)) {
 
 
 
-    </div>
+
     <!-- <style>
             .row{ display: grid;
                 grid-template-columns: repeat(4fr);
@@ -186,13 +186,14 @@ if (!is_array($pro_one)) {
             echo '
         <div class="col-12 col-lg-3 d-flex flex-column text-center">
             <a href="' . $linksp . '">' . $image_pro3 . '</a>
-            <div class="price text-danger fs-3">
+            <a href="' . $linksp . '" class="text-decoration-none fs-4 fw-bold text-danger mb-3">' . $sp_cung_loai_1[1] . '</a>
+            <div class="price text-danger fs-4 mt-auto">
                         <span >
                                 <!-- gia -->
-                                ' . $sp_cung_loai_1[3] . '
+                                ' . number_format($sp_cung_loai_1[3], 0, '', ',') . '
                            </span><span class="fs-4">Đ</span>
                     </div>
-            <a href="' . $linksp . '" class="text-decoration-none  fs-2 fw-bold text-danger">' . $sp_cung_loai_1[1] . '</a>
+            
         </div>
         ';
         }

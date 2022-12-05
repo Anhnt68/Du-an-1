@@ -36,59 +36,58 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
     $dsbl = loadall_comment($_GET["idsp"]);
     $take_all_theo_idsp = takeAll_U_P($_GET["idsp"]);
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Document</title>
+    </head>
 
-<body>
-    <!-- binh luan -->
-    <?php
+    <body>
+        <!-- binh luan -->
+        <?php
 
-    if (isset($_SESSION['account'])) {
-        extract($_SESSION['account']);
+        if (isset($_SESSION['account'])) {
+            extract($_SESSION['account']);
 
-        $hinhpath = "../../uploads/" . $accountImage;
-        if (is_file($hinhpath)) {
-            // echo '<img src="'.$hinhpath.'" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">
-            // ';
+            $hinhpath = "../../uploads/" . $accountImage;
+            if (is_file($hinhpath)) {
+                // echo '<img src="'.$hinhpath.'" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">
+                // ';
 
-            $accountImage1 = '<img src="' . $hinhpath . '" style="width: 65px; height: 50px; background-image: cover" class="rounded-circle">';
+                $accountImage1 = '<img src="' . $hinhpath . '" style="width: 65px; height: 50px; background-image: cover" class="rounded-circle">';
+            } else {
+                $accountImage1 = '<img src="../../uploads/account.png" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">';
+            }
 
-        } else {
-            $accountImage1 = '<img src="../../uploads/account.png" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">';
-        }
+            // if (isset($accountImage)) {
 
-        // if (isset($accountImage)) {
-
-        //   ">';
-        // } else {
-        //   echo '<img src="../uploads/trend-avatar-1.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
-        // }
-
+            //   ">';
+            // } else {
+            //   echo '<img src="../uploads/trend-avatar-1.jpg" alt="" class="rounded-circle" style="width: 50px; height: 50px;">';
+            // }
 
 
-        foreach ($take_all_theo_idsp as $bl) {
-            extract($bl);
-            $link = "../../uploads/" . $accountImage;
 
-            $hinhpath1 = '<img src="' . $link . '" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">
+            foreach ($take_all_theo_idsp as $bl) {
+                extract($bl);
+                $link = "../../uploads/" . $accountImage;
+
+                $hinhpath1 = '<img src="' . $link . '" alt="" class="rounded-circle" style="width: 50px; height: 50px; bg-cover">
             ';
 
 
-            // echo '<pre>';
-            // var_dump($take_all_theo_idsp);
-            // echo '</pre>';
-            echo '
+                // echo '<pre>';
+                // var_dump($take_all_theo_idsp);
+                // echo '</pre>';
+                echo '
             <div class="d-flex row">
             <div class="col-md-8">
                 <div class="d-flex flex-column comment-section">
@@ -110,15 +109,15 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
             
             
             ';
+            }
         }
-    }
 
-    ?>
+        ?>
 
 
-    <form action="binhluan.php" method="post" class="d-flex">
-        </div>
-        <?= $accountImage1 ?>
+        <form action="binhluan.php" method="post" class="d-flex">
+            <!-- </div> -->
+            <?= $accountImage1 ?>
             <!-- <img src="../../uploads/gucci1.jpg" alt=""> -->
             <textarea class="form-control ml-1 shadow-none textarea" name="content" required></textarea>
             <!-- <input type="text" name="content" required class="noidung"> -->
@@ -126,11 +125,12 @@ if (isset($_SESSION['account']['id']) && $_SESSION['account']['id'] > 0) {
             <input type="hidden" name="accountId" id="" value="<?= $accountId ?>">
             <input type="hidden" name="accountName" id="" value="<?= $accountName ?>">
             <input type="hidden" name="commentDate" value="<?= $commentDate ?>">
-            <input type="submit" name="guibl" class="guibinhluan btn btn-danger" value="Gui">
-    </form>
-    <!-- end bl -->
-</body>
-</html>
+            <input type="submit" name="guibl" class="guibinhluan btn btn-danger" value="Gửi">
+        </form>
+        <!-- end bl -->
+    </body>
+
+    </html>
 <?php } else {
     $link = 'http://localhost/du-an-1/index.php?act=dangnhap';
     echo "<a href='$link' target='_parent'>Vui long dang nhap</a>";

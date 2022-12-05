@@ -57,7 +57,7 @@ if (is_file($hinhpath)) {
                 <input type="text" name="quatity" class="form-control" id="exampleInputPassword1" value="<?= $quatity ?>">
             </div>
 
-         
+
             <div class="mb-3">
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <input type="submit" class="btn btn-primary" name="capnhat" value="Cập nhật">
