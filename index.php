@@ -108,6 +108,19 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include "site/accounts/update.php";
             break;
+        case 'quenmk':
+            if (isset($_POST['forgetpass']) && ($_POST['forgetpass'])) {
+                $accountEmail = $_POST['accountEmail'];
+                $email_exit2 = customer_check_email($accountEmail);
+
+                if (is_array($email_exit2)) {
+                    $thongbao = 'Mật khẩu là: ' . $email_exit2['accountPass'] . '<a href="index.php?act=dangnhap">Đăng nhập</a>';
+                } else {
+                    $thongbao = "Email không tồn tại";
+                }
+            }
+            include "site/accounts/forgetPass.php";
+            break;
         case 'thoat':
             session_unset();
             header('location: index.php');
