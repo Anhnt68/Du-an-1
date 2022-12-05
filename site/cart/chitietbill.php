@@ -27,8 +27,8 @@
                       <td> <img src="' . $image . '" alt="" style="height:100px ;"></td>
                       <td>' . $tensp . '</td>
                       <td>' . $soluong . '</td>
-                      <td>' . $giasp . '</td>
-                      <td>' . $tongtien . '</td>
+                      <td>' . number_format($giasp, 0, '', ',') . '</td>
+                      <td>' . number_format($tongtien, 0, '', ',') . '</td>
                       
                       
                     </tr>
