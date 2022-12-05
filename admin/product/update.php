@@ -12,7 +12,7 @@ if (is_file($hinhpath)) {
 ?>
 <div class="col-xl-8 m-auto">
     <div class="row frmtitle">
-        <h1>CẬP NHẬT SẢN PHẨM</h1>
+        <h1>CẬP NHẬT HÀNG HOÁ</h1>
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=updatepro" method="POST" enctype="multipart/form-data">
@@ -47,10 +47,6 @@ if (is_file($hinhpath)) {
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mô tả</label>
                 <textarea name="productDesc" style="resize: none;" class="form-control" id="exampleInputPassword1" cols="120" rows="8"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Dung Tích</label>
-                <input type="text" name="productCapacity" class="form-control" id="exampleInputPassword1" value="<?= $productCapacity ?>">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Số Lượng</label>

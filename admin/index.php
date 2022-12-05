@@ -64,8 +64,6 @@ if (isset($_GET['act'])) {
                 $productName = $_POST['productName'];
                 $productPrice = $_POST['productPrice'];
                 $productDesc = $_POST['productDesc'];
-
-                $productCapacity = $_POST['productCapacity'];
                 $quatity = $_POST['quatity'];
                 $productImage = $_FILES['productImage']['name'];
                 $target_dir = "../uploads/";
@@ -73,7 +71,7 @@ if (isset($_GET['act'])) {
                 if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                 } else {
                 }
-                insert_product($productName, $productPrice, $productImage, $productDesc, $productCapacity, $quatity, $categoryid);
+                insert_product($productName, $productPrice, $productImage, $productDesc, $quatity, $categoryid);
                 $thongbao = "Thêm thành công";
             }
             $listdm = loadAll_dm();
@@ -114,8 +112,6 @@ if (isset($_GET['act'])) {
                 $productName = $_POST['productName'];
                 $productPrice = $_POST['productPrice'];
                 $productDesc = $_POST['productDesc'];
-
-                $productCapacity = $_POST['productCapacity'];
                 $productImage = $_FILES['productImage']['name'];
                 $quatity = $_POST['quatity'];
                 $target_dir = "../uploads/";
@@ -125,7 +121,7 @@ if (isset($_GET['act'])) {
                 } else {
                     //echo "Sorry, there was an error uploading your file.";
                 }
-                update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc,  $productCapacity, $quatity);
+                update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc, $quatity);
                 $thongbao = "Cập nhật thành công";
             }
             $listdm = loadAll_dm();

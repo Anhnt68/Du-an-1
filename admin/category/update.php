@@ -35,7 +35,7 @@ if (is_file($hinhpath)) {
     </div>
     <div class="mb-3">
       <input type="hidden" name="id" value="<?= $id ?>">
-      <input type="submit" class="btn btn-primary" name="capnhat" value="capnhat">
+      <input type="submit" class="btn btn-primary" name="capnhat" value="Cập nhật">
       <button type="reset" class="btn btn-primary">Nhập lại</button>
       <a href="index.php?act=listdm"><button type="button" class="btn btn-primary">Danh sách</button></a>
     </div>

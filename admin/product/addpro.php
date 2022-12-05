@@ -1,6 +1,6 @@
 <div class="col-xl-8 m-auto">
     <div class="row frmtitle" style="margin: 10px 0;">
-        <h1>THÊM MỚI SẢN PHẨM</h1>
+        <h1>THÊM MỚI HÀNG HOÁ</h1>
     </div>
     <div class="row frmcontent">
         <form action="index.php?act=addpro" method="POST" enctype="multipart/form-data">
@@ -36,8 +36,6 @@
                 <label for="exampleInputPassword1" class="form-label">Số lượng</label>
                 <input type="text" name="quatity" class="form-control" id="exampleInputPassword1">
             </div>
-
-
             <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm mới">
             <button type="reset" class="btn btn-primary">Nhập lại</button>
             <a href="index.php?act=listpro"><button type="button" class="btn btn-primary">Danh sách</button></a>

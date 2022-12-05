@@ -1,7 +1,7 @@
 <div class="col-xl-10">
     <hr>
     <h2 class="text-center">
-        Danh sách loại hàng hóa
+        Danh sách hàng hóa
     </h2>
     <div class="">
 
@@ -26,7 +26,6 @@
                     <th>GIÁ</th>
                     <th>ẢNH</th>
                     <th>MÔ TẢ</th>
-                    <th>DUNG TÍCH</th>
                     <th>SỐ LƯỢNG</th>
                     <th> <a href="index.php?act=addpro"><button type="button" class="btn btn-primary">Thêm mới</button></a>
                     </th>
@@ -48,8 +47,6 @@
                                         <td>' . number_format($productPrice, 0, '', ',') . '</td>
                                         <td>' . $productImage . '</td>
                                         <td>' . $productDesc . '</td>
-                                        
-                                        <td>' . $productCapacity . '</td>
                                         <td>' . $quatity . '</td>
                                         <td><a  href="' . $suapro . '"><input type="button" value="Sửa" class="btn btn-primary"> </a> <a href="' . $xoapro . '"><input type="button" value="Xóa" class="btn btn-primary bg-danger"> </a></td>
                                     </tr>';

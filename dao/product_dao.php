@@ -1,7 +1,7 @@
 <?php
-function insert_product($productName, $productPrice, $productImage, $productDesc, $productCapacity, $quatity, $categoryid)
+function insert_product($productName, $productPrice, $productImage, $productDesc, $quatity, $categoryid)
 {
-    $sql = "insert into products(productName, productPrice, productImage, productDesc,productCapacity, quatity, categoryid) values('$productName', '$productPrice', '$productImage', '$productDesc','$productCapacity', '$quatity', '$categoryid')";
+    $sql = "insert into products(productName, productPrice, productImage, productDesc, quatity, categoryid) values('$productName', '$productPrice', '$productImage', '$productDesc', '$quatity', '$categoryid')";
     pdo_execute($sql);
 }
 function loadall_product($kyw, $categoryid)
@@ -73,12 +73,12 @@ function load_product_cungloai( $categoryid)
     return $listproduct;
 }
 
-function update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc, $productCapacity, $quatity)
+function update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc, $quatity)
 {
     if ($productImage != "")
-        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productImage = '" . $productImage . "',productDesc = '" . $productDesc . "',productCapacity = '" . $productCapacity . "', quatity = '" . $quatity . "' where id = " . $id;
+        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productImage = '" . $productImage . "',productDesc = '" . $productDesc . "', , quatity = '" . $quatity . "' where id = " . $id;
     else
-        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' ,productCapacity = '" . $productCapacity . "', quatity = '" . $quatity . "' where id = " . $id;
+        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' , quatity = '" . $quatity . "' where id = " . $id;
     pdo_execute($sql);
 }
 // view
