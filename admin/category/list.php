@@ -6,7 +6,6 @@
                 <table class="table mw-100">
                   <thead>
                       <tr>
-                        <th scope="col"></th>
                         <th scope="col">Mã loại</th>
                         <th scope="col">Tên loại</th>
                         <th scope="col">Ảnh</th>
@@ -31,7 +30,6 @@
                         }
                       echo'
                   <tr>
-                      <td scope="row"><input type="checkbox" name="" id=""></td>
                       <td>'.$id.'</td>
                       <td>'.$categoryName.'</td>
                       <td>'.$categoryImage.'</td>
@@ -47,10 +45,6 @@
                      </tbody>
                   
                   </table>
-                  <button type="submit" class="btn btn-primary">Chọn tất cả</button>
-                  <button type="reset" class="btn btn-primary">Bỏ chọn tất cả</button>
-                  <button type="reset" class="btn btn-primary">Xóa các mục đã chọn</button>
-                  <a href="index.php?act=adddm"><button type="button"  class="btn btn-primary" >Thêm mới</button></a> 
             </div>
         </div>
     </div>

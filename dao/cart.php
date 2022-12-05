@@ -1,7 +1,6 @@
 <?php
 function viewcart($del)
 {
-    $sum = 0;
     $stt1 = 0;
     $i = 0;
     $quantitysum = 0;
@@ -45,11 +44,10 @@ function viewcart($del)
                     <td>' . $stt1 . '</td>
                     <td><img src="' . $image . '" alt="" style="height:100px"></td>
                     <td>' . $cart[1] . '</td>
-=                    <td>' . number_format($cart[3], 0, '', ',') . '</td>
+                    <td>' . number_format($cart[3], 0, '', ',') . '</td>
                     <td>' . $cart[4] . '</td>
                     <td>' . number_format($priceSum, 0, '', ',') . '</td>
                     ' . $deleteProduct_td . '
-                  
                  </tr>
                 
                 ';
@@ -79,28 +77,13 @@ function tinhsoluong()
 function tongdonhang()
 {
     $sum = 0;
-    $pricenew = 0;
 
     foreach ($_SESSION['mycart'] as $cart) {
-        switch ($cart[6]) {
-            case '10':
-                $pricenew = $cart[3] * 0.1;
-                break;
-            case '50':
-                $pricenew = $cart[3] * 0.5;
-                break;
-            case '100':
-                $pricenew = $cart[3];
-                break;
-
-            default:
-                $pricenew = $cart[3];
-                break;
-        }
-        $sumPrice = $pricenew * $cart[4];
+        $sumPrice = $cart[3] * $cart[4];
         $sum += $sumPrice;
     }
     return $sum;
+   
 }
 function insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt,  $tongdonhang, $orderDate, $sodonhang)
 {
@@ -172,8 +155,6 @@ function get_tttt($x)
         case '1':
             $status = "Thanh toán qua momo";
             break;
-
-
         default:
             $status = "Thanh toán khi nhận hàng";
             break;
