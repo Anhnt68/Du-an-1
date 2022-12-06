@@ -156,7 +156,8 @@ if (isset($_GET['act'])) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['id'];
                 $billStatus = $_POST['billStatus'];
-                $listbill = update_bill($id, $billStatus);
+                $billPttt = $_POST['billPttt'];
+                $listbill = update_bill($id, $billStatus,$billPttt);
             }
             $listbill = loadall_bill2();
 
@@ -164,6 +165,7 @@ if (isset($_GET['act'])) {
             include "bill/listbill.php";
 
             break;
+
             // phần thống kê
         case 'listtk':
             $listthongke = loadAll_thongke();
