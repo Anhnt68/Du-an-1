@@ -4,7 +4,7 @@
         <?php
         if (isset($bill) && (is_array($bill))) {
             extract($bill);
-            $tttt = get_tttt($bill['billPttt']);
+            $tttt = get_ttttt($bill['billPttt']);
         }
         ?>
         <div class="col-xl-4">

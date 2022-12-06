@@ -150,6 +150,21 @@ function get_tttt($x)
 {
     switch ($x) {
         case '0':
+            $status = "Chưa thanh toán";
+            break;
+        case '1':
+            $status = "Thanh toán thành công";
+            break;
+        default:
+            $status = "Chưa thanh toán";
+            break;
+    }
+    return $status;
+}
+function get_ttttt($x)
+{
+    switch ($x) {
+        case '0':
             $status = "Thanh toán khi nhận hàng";
             break;
         case '1':
@@ -172,9 +187,9 @@ function loadall_bill2()
     $listbill = pdo_query($sql);
     return $listbill;
 }
-function update_bill($id, $billStatus)
+function update_bill($id, $billStatus , $billPttt)
 {
-    $sql = "update bill set  billStatus='" . $billStatus . "' where id=" . $id;
+    $sql = "update bill set  billStatus='" . $billStatus . "',billPttt='" . $billPttt . "' where id=" . $id;
 
     pdo_execute($sql);
 }
