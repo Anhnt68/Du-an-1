@@ -217,36 +217,66 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include "site/cart/bill.php";
             break;
         case 'billconfirm':
-            if (isset($_POST['dongydathang']) && ($_POST['dongydathang'])) {
-                if (isset($_SESSION['account'])) {
-                    $accountId = $_SESSION['account']['id'];
-                } else $id = 0;
-                $accountName = $_POST['accountName'];
-                $accountAddress = $_POST['accountAddress'];
-                $accountPhone = $_POST['accountPhone'];
-                $accountEmail = $_POST['accountEmail'];
-                $pttt = $_POST['check'];
-                $sodonhang = tinhsoluong();
-                $tongdonhang = tongdonhang();
-                $orderDate = date('d/m/Y');
+            if (isset($_POST['dongydathang'])) {
+                if ($_POST['dongydathang']) {
+                    if (isset($_SESSION['account'])) {
+                        $accountId = $_SESSION['account']['id'];
+                    } else $id = 0;
+                    $accountName = $_POST['accountName'];
+                    $accountAddress = $_POST['accountAddress'];
+                    $accountPhone = $_POST['accountPhone'];
+                    $accountEmail = $_POST['accountEmail'];
+                    $pttt = $_POST['check'];
+                    $sodonhang = tinhsoluong();
+                    $tongdonhang = tongdonhang();
+                    $orderDate = date('d/m/Y');
 
 
-                $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $orderDate, $sodonhang);
+                    $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $orderDate, $sodonhang);
 
-                foreach ($_SESSION['mycart'] as $cart) {
-                    insert_billdetail($cart[0], $idbill, $cart[4]);
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_billdetail($cart[0], $idbill, $cart[4]);
+                    }
+                    // // xoá session cart
+                    // $_SESSION['cart'] = [];
                 }
-                // // xoá session cart
-                // $_SESSION['cart'] = [];
+
+                $bill = loadone_bill($idbill);
+                $billct = loadall_billdeatil($idbill);
+                include "site/cart/billconfirm.php";
+                break;
             }
-            $bill = loadone_bill($idbill);
-            $billct = loadall_billdeatil($idbill);
-            include "site/cart/billconfirm.php";
+            if (isset($_POST['thanhtoanmomo'])) {
+                if ($_POST['thanhtoanmomo']) {
+                    if (isset($_SESSION['account'])) {
+                        $accountId = $_SESSION['account']['id'];
+                    } else $id = 0;
+                    $accountName = $_POST['accountName'];
+                    $accountAddress = $_POST['accountAddress'];
+                    $accountPhone = $_POST['accountPhone'];
+                    $accountEmail = $_POST['accountEmail'];
+                    $pttt = $_POST['check'];
+                    $sodonhang = tinhsoluong();
+                    $tongdonhang = tongdonhang();
+                    $orderDate = date('d/m/Y');
+
+
+                    $idbill = insert_bill($accountId, $accountName, $accountAddress, $accountPhone, $accountEmail, $pttt, $tongdonhang, $orderDate, $sodonhang);
+
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        insert_billdetail($cart[0], $idbill, $cart[4]);
+                    }
+                    // // xoá session cart
+                    // $_SESSION['cart'] = [];
+                }
+
+                $bill = loadone_bill($idbill);
+                $billct = loadall_billdeatil($idbill);
+                include "site/cart/xulythanhtoanmomo_atm.php";
+                break;
+            }
             break;
-        case 'thanhtoan':
-            $gia = tongdonhang();
-            include "site/cart/xulythanhtoanmomo_atm.php";
-            break;
+
         case 'mybill':
             if (isset($_POST['kyw']) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];

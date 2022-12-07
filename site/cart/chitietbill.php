@@ -41,7 +41,7 @@
       <th></th>
       <th colspan="3">Tổng tiền </th>
 
-      <th><?= $tien ?></th>
+      <th><?= number_format($tien, 0, '', ',') ?></th>
 
 
     </tr>
