@@ -7,6 +7,7 @@
         <thead>
             <tr>
                 <th scope="col">Mã đơn hàng</th>
+                <th scope="col">Tên khách hàng</th>
                 <th scope="col">Ngày đặt</th>
                 <th scope="col">Số lượng mặt hàng được đặt</th>
                 <th scope="col">Số lượng hàng đặt</th>
@@ -26,6 +27,10 @@
 
                 foreach ($listbill as $bill) {
                     extract($bill);
+                    $kh = $bill['billName'] . "
+                    <br />" . $bill['billEmail'] . "
+                    <br />" . $bill['billAddress'] . "
+                    <br />" . $bill['billPhone'];
                     $show = "index.php?act=show&id=" . $id;
 
                     $soluong = tinhsoluong($bill['quatity']);
@@ -34,15 +39,15 @@
                     $tttt = get_tttt($bill['billPttt']);
                     echo '
             <tr>
-            <td>DAM ' . $bill['id'] . '</td>
+            <td>DA1-' . $bill['id'] . '</td>
+            <td>' . $kh . '</td>
             <td>' . $bill['oderDate'] . '</td>
-        <td>' . $countsp . '</td>
-        <td>' . $bill["quatity"] . '</td>
-
-        <td>' . $bill['billTotal'] . '</td>
-        <td>' . $ttdh . '</td>
-        <td>' . $tttt . '</td>
-        <td><a  href="' . $show . '"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>
+            <td>' . $countsp . '</td>
+            <td>' . $bill["quatity"] . '</td>
+            <td>' . $bill['billTotal'] . '</td>
+            <td>' . $ttdh . '</td>
+            <td>' . $tttt . '</td>
+            <td><a  href="' . $show . '"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>
 
        
     </tr>

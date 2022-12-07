@@ -1,10 +1,14 @@
-const box = document.getElementById('momo');
-
+const dh = document.getElementById('dh');
+const momo = document.getElementById('momo');
+dh.style.display = 'none';
+momo.style.display = 'none';
 function handleRadioClick() {
   if (document.getElementById('check2').checked) {
-    box.style.display = 'block';
+    dh.style.display = 'block';
+    momo.style.display = 'none';
   } else {
-    box.style.display = 'none';
+    dh.style.display = 'none';
+    momo.style.display = 'block';
   }
 }
 

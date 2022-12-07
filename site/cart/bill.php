@@ -41,19 +41,19 @@
                 <p class="title text-center fs-3">Phương thức thanh toán</p>
                 <div class="row flex-column justify-content-between">
                     <div class="form-check mt-3">
-                        <input class="form-check-input" id="check2" type="radio" value="1" name="check" checked>
-                        <label class="form-check-label" for="defaultCheck1">
-                        Thanh toán Momo
+                        <input class="form-check-input" id="check1" type="radio" value="1" name="check"/>
+                        <label class="form-check-label" >
+                            Thanh toán Momo
                         </label>
                     </div>
 
                     <div class="form-check mt-3">
-                        <input class="form-check-input" id="check3" type="radio" name="check" value="0">
-                        <label class="form-check-label" for="defaultCheck1">
+                        <input class="form-check-input" id="check2" type="radio" value="0" name="check"/>
+                        <label class="form-check-label" >
                             Thanh toán khi nhận hàng
                         </label>
                     </div>
-
+                    
                 </div>
 
             </div>
@@ -66,15 +66,15 @@
 
                 </table>
             </div>
-            <div class="row m-auto col-2 mb-4">
-                <input type="submit" class="btn btn-primary" name="dongydathang" value="Đồng ý đặt hàng">
 
+            <div class="row m-auto col-2 mb-4" id="dh">
+                <input type="submit" class="btn btn-primary" name="dongydathang" value="Đồng ý đặt hàng">
             </div>
+            <div class="row m-auto col-3 mb-4" id="momo">
+                <input type="submit" class="btn btn-danger" name="thanhtoanmomo" value="Thanh toán MOMO ATM">
+            </div>
+
         </div>
     </form>
-    <div class="row m-auto col-2 mb-4">
-        <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="index.php?act=thanhtoan">
-            <input type="submit" id="momo" value="Thanh toán MOMO ATM" class="btn btn-danger">
-        </form>
-    </div>
+    
 </div>

@@ -45,11 +45,11 @@
                 echo '
                   <tr>
                       <td scope="row"><input type="checkbox" name="" id=""></td>
-                      <td>DAM-' . $bill['id'] . '</td>
+                      <td>DA1-' . $bill['id'] . '</td>
             <td>' . $kh . '</td>
             <td>' . $countsp . '</td>
             <td>' . $bill['quatity']. '</td>
-            <td>' . $bill['billTotal'] . '</td>
+            <td>' . number_format($bill['billTotal'], 0, '', ',') . '</td>
             <td>' . $ttdh. '</td>
             <td>' . $bill['oderDate'] . '</td>
             <td>' . $tttt . '</td>

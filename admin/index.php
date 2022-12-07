@@ -18,8 +18,21 @@ if (isset($_GET['act'])) {
                 $anhloai = $_FILES['anhloai']['name'];
                 $target_dir = "../uploads";
                 $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
-                insert_dm($tenloai, $motaloai, $anhloai);
-                $thongbao = "them thành công";
+                $errors = [];
+                if ($tenloai == "") {
+                    $errors['tenloai'] = "Tên loại không được để trống";
+                }
+                if ($anhloai == "") {
+                    $errors['anhloai'] = "Ảnh không được để trống";
+                }
+                if ($motaloai == "") {
+                    $errors['motaloai'] = "Mô tả không được để trống";
+                }
+
+                if (!$errors) {
+                    insert_dm($tenloai, $motaloai, $anhloai);
+                    $thongbao = "them thành công";
+                }
             }
             include "category/add.php";
             break;
@@ -71,8 +84,33 @@ if (isset($_GET['act'])) {
                 if (move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
                 } else {
                 }
-                insert_product($productName, $productPrice, $productImage, $productDesc, $quatity, $categoryid);
-                $thongbao = "Thêm thành công";
+                $errors = [];
+                if ($productName == "") {
+                    $errors['productName'] = "Tên sản phẩm không được để trống";
+                }
+                if ($productPrice == "") {
+                    $errors['productPrice'] = "Giá không được để trống";
+                }
+                if ($productPrice < 0) {
+                    $errors['productPrice'] = "Giá phải lớn hơn 0";
+                }
+                if ($productImage == "") {
+                    $errors['productImage'] = "Ảnh không được để trống";
+                }
+                if ($productDesc == "") {
+                    $errors['productDesc'] = "Mô tả không được để trống";
+                }
+                if ($quatity == "") {
+                    $errors['quatity'] = "Số lượng không được để trống";
+                }
+                if ($quatity < 0) {
+                    $errors['quatity'] = "Số lượng phải lớn hơn 0";
+                }
+
+                if (!$errors) {
+                    insert_product($productName, $productPrice, $productImage, $productDesc, $quatity, $categoryid);
+                    $thongbao = "Thêm thành công";
+                }
             }
             $listdm = loadAll_dm();
             include "product/addpro.php";
@@ -157,7 +195,7 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $billStatus = $_POST['billStatus'];
                 $billPttt = $_POST['billPttt'];
-                $listbill = update_bill($id, $billStatus,$billPttt);
+                $listbill = update_bill($id, $billStatus, $billPttt);
             }
             $listbill = loadall_bill2();
 

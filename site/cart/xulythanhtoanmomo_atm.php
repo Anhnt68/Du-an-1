@@ -31,10 +31,10 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
 $orderInfo = "Thanh toán qua MoMo ATM";
 // $amount = "10000";
- $amount = $gia;
+ $amount = $tongdonhang;
 $orderId = time() ."";
 // $redirectUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
-$redirectUrl = "http://localhost/Du-an-1/index.php?act=bill";
+$redirectUrl = "http://localhost/Du-an-1/index.php?act=mybill";
 $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
 $extraData = "";
 

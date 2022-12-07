@@ -17,24 +17,38 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Tên sản phẩm</label>
-                <input type="text" name="productName" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="productName" class="form-control" id="exampleInputPassword1" value="<?= isset($productName) ? $productName : '' ?>">
+                <span style="color: red;">
+                    <?= isset($errors['productName']) ? $errors['productName'] : '' ?>
+                </span><br>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Giá</label>
-                <input type="text" name="productPrice" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="productPrice" class="form-control" id="exampleInputPassword1" value="<?= isset($productPrice) ? $productPrice : '' ?>">
+                <span style="color: red;">
+                    <?= isset($errors['productPrice']) ? $errors['productPrice'] : '' ?>
+                </span><br>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Hình</label>
-                <input type="file" name="productImage" class="form-control" id="exampleInputPassword1">
+                <input type="file" name="productImage" class="form-control" id="exampleInputPassword1" value="<?= isset($productImage) ? $productImage : '' ?>">
+                <span style="color: red;">
+                    <?= isset($errors['productImage']) ? $errors['productImage'] : '' ?>
+                </span><br>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mô tả</label>
                 <textarea name="productDesc" class="form-control" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
+                <span style="color: red;">
+                    <?= isset($errors['productDesc']) ? $errors['productDesc'] : '' ?>
+                </span><br>
             </div>
-
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Số lượng</label>
-                <input type="text" name="quatity" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="quatity" class="form-control" id="exampleInputPassword1" value="<?= isset($quatity) ? $quatity : '' ?>">
+                <span style="color: red;">
+                    <?= isset($errors['quatity']) ? $errors['quatity'] : '' ?>
+                </span><br>
             </div>
             <input type="submit" class="btn btn-primary" name="themmoi" value="Thêm mới">
             <button type="reset" class="btn btn-primary">Nhập lại</button>
