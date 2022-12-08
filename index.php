@@ -22,9 +22,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'lienhe':
             include "site/lienhe.php";
             break;
-            case 'tintuc':
-                include "site/tintuc.php";
-                break;
         case 'dangnhap':
             if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                 $accountEmail = $_POST['accountEmail'];
