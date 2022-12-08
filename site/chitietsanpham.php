@@ -128,7 +128,6 @@ if (!is_array($pro_one)) {
     <!-- <style>
             .row{ display: grid;
                 grid-template-columns: repeat(4fr);
-
         </style> -->
     <div class="product-rating fw-bold fs-2 my-3">
         SẢN PHẨM LIÊN QUAN
