@@ -9,6 +9,12 @@
 }
 .sp{
     width: 100%;
+    margin: 25px;
+    transition: transform .2s;
+}
+
+.sp:hover{
+  transform: scale(1.25);
 }
 .bannernb{
     width: 80%;

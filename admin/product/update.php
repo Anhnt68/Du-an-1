@@ -46,7 +46,7 @@ if (is_file($hinhpath)) {
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mô tả</label>
-                <textarea name="productDesc" style="resize: none;" class="form-control" id="exampleInputPassword1" cols="120" rows="8"></textarea>
+                <textarea name="productDesc" style="resize: none;" class="form-control" id="exampleInputPassword1" cols="120" rows="8"><?= $productDesc ?></textarea>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Số Lượng</label>
@@ -67,6 +67,11 @@ if (is_file($hinhpath)) {
             ?>
         </form>
     </div>
+    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        CKEDITOR.replace('productDesc');
+    </script>
 </div>
 
 </div>
