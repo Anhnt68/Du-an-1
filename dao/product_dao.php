@@ -76,11 +76,12 @@ function load_product_cungloai( $categoryid)
 function update_product($id, $categoryid, $productName, $productPrice, $productImage, $productDesc, $quatity)
 {
     if ($productImage != "")
-        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productImage = '" . $productImage . "',productDesc = '" . $productDesc . "', , quatity = '" . $quatity . "' where id = " . $id;
+        $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productImage = '" . $productImage . "',productDesc = '" . $productDesc . "', quatity = '" . $quatity . "' where id = " . $id;
     else
         $sql = "UPDATE products set categoryid = '" . $categoryid . "',productName = '" . $productName . "',productPrice = '" . $productPrice . "',productDesc = '" . $productDesc . "' , quatity = '" . $quatity . "' where id = " . $id;
     pdo_execute($sql);
 }
+
 // view
 function update_view($id){
     $sql = "UPDATE products SET productView = productView+1 WHERE id=".$id;
