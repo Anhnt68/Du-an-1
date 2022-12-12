@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>Tổng đơn hàng</td>
-                    <td><?= $bill['billTotal']; ?></td>
+                    <td><?= number_format($bill['billTotal'], 0, '', ',') ?></td>
                 </tr>
                 <tr>
                     <td>Phương thức thanh toán</td>
@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <td>Điện thoại</td>
-                        <td><?= $bill['billPhone']; ?></td>
+                        <td>0<?= $bill['billPhone']; ?></td>
                     </tr>
                 </table>
 

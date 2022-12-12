@@ -30,7 +30,7 @@
                     $kh = $bill['billName'] . "
                     <br />" . $bill['billEmail'] . "
                     <br />" . $bill['billAddress'] . "
-                    <br />" . $bill['billPhone'];
+                    <br />0" . $bill['billPhone'];
                     $show = "index.php?act=show&id=" . $id;
 
                     $soluong = tinhsoluong($bill['quatity']);
@@ -44,7 +44,7 @@
             <td>' . $bill['oderDate'] . '</td>
             <td>' . $countsp . '</td>
             <td>' . $bill["quatity"] . '</td>
-            <td>' . $bill['billTotal'] . '</td>
+            <td>' . number_format($bill['billTotal'], 0, '', ',')  . '</td>
             <td>' . $ttdh . '</td>
             <td>' . $tttt . '</td>
             <td><a  href="' . $show . '"><input type="submit" value="Show đơn hàng" class="btn btn-primary"> </a></td>

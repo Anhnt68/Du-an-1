@@ -38,7 +38,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Mô tả</label>
-                <textarea name="productDesc" class="form-control" cols="80" rows="10" style="width: 100%;border-radius: 5px;"></textarea>
+                <textarea name="productDesc" class="form-control" cols="80" rows="10" style="width: 100%;border-radius: 5px;"><?= $productDesc ?? "" ?></textarea>
                 <span style="color: red;">
                     <?= isset($errors['productDesc']) ? $errors['productDesc'] : '' ?>
                 </span><br>
@@ -60,6 +60,11 @@
             ?>
         </form>
     </div>
+    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        CKEDITOR.replace('productDesc');
+    </script>
 </div>
 
 </div>

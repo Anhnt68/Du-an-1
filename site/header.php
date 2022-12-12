@@ -16,7 +16,7 @@
   <div class="container-fluid p-0">
     <nav class="navbar bg-white">
       <div class="container d-flex justify-content-between">
-        <a class="">
+        <a class="" href="index.php">
           <img src="site/src/img/logo1.png" class="logo">
         </a>
 
