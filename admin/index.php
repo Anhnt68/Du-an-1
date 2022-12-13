@@ -5,6 +5,7 @@ include "../dao/product_dao.php";
 include "../dao/accounts.php";
 include "../dao/cart.php";
 include "../dao/statistical_dao.php";
+include "../dao/news_dao.php";
 include "header.php";
 include "../dao/comment.php";
 if (isset($_GET['act'])) {
@@ -272,6 +273,74 @@ if (isset($_GET['act'])) {
             include "accounts/list.php";
 
             break;
+            // phần quản lý tin tứcccc
+            case 'addnews':
+                
+                if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+                    $news_title = $_POST['news_title'];
+                    $news_desc = $_POST['news_desc'];
+                    $news_detail = $_POST['news_detail'];
+                    $news_image = $_FILES['news_image']['name'];
+                    $target_dir = "../uploads";
+                    $target_file = $target_dir . basename($_FILES["news_image"]["name"]);
+                    $errors = [];
+                    if ($news_title == "") {
+                        $errors['news_title'] = "Tiêu đề không được để trống";
+                    }
+                    if ($news_image == "") {
+                        $errors['news_image'] = "Ảnh không được để trống";
+                    } if ($news_desc == "") {
+                        $errors['news_desc'] = "Mô tả không được để trống";
+                    } if ($news_detail == "") {
+                        $errors['news_detail'] = "Chi tiết không được để trống";
+                    }  
+                    if (!$errors) {
+                        insert_news($news_title,$news_desc,$news_detail,$news_image);
+                        $thongbao = "them thành công";
+                    }
+                }
+                include "news/add.php";
+                break;
+                case 'listnews':
+                    $listnews = loadAll_news();
+                    include "news/list.php";
+                    break;
+                    case 'xoanews':
+                        if ($_GET['id'] && $_GET['id'] > 0) {
+                            delete_news($_GET['id']);
+                        }
+                        $listnews = loadAll_news();
+                        include "news/list.php";
+                        break;
+                        case 'suanews':
+                            if ($_GET['id'] && $_GET['id'] > 0) {
+                                $news = loadOne_news($_GET['id']);
+                            }
+                            $listnews = loadAll_news();
+                            include "news/update.php";
+                            break;
+                            case 'updatenews':
+                                if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                                    $id = $_POST['id'];
+                                    $news_title = $_POST['news_title'];
+                                    $news_desc = $_POST['news_desc'];
+                                    $news_detail = $_POST['news_detail'];
+                                    $news_image = $_FILES['news_image']['name'];
+                                    $target_dir = "../uploads";
+                                    $target_file = $target_dir . basename($_FILES["news_image"]["name"]);
+                                    if (move_uploaded_file($_FILES["news_image"]["name"], $target_file)) {
+                                        //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                                    } else {
+                                        //echo "Sorry, there was an error uploading your file.";
+                                    }
+                                    update_news($id,$news_title,$news_desc,$news_detail,$news_image);
+                                    $thongbao = "Cập nhật thành công";
+                                }
+                                $listnews = loadAll_news();
+
+                               
+                                include "news/list.php";
+                                break;
         default:
             include "home.php";
             break;

@@ -9,6 +9,7 @@
                         <th scope="col">MÃ sản phẩm</th>
                         <th scope="col">Tên sản phẩm</th>
                         <th scope="col">Số lượng sản phẩm bán được</th>
+                        <!-- <th scope="col">Ngay mua</th> -->
                         <th scope="col">Giá của sản phẩm</th>
                         <th scope="col">tổng tiền thu được</th>
                       
@@ -23,6 +24,7 @@
                       <td>'.$masp.'</td>
                       <td>'.$tensp.'</td>
                       <td>'.$countsp.'</td>
+                      
                       <td>'.$giasp.'</td>
                       <td>'.$tienthudc.'</td>
                     

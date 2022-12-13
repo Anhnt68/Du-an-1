@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1-dev+20220930.5d48e1006b
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 12, 2022 lúc 04:29 PM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.5
+-- Host: 127.0.0.1
+-- Generation Time: Dec 13, 2022 at 03:09 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `duan1`
+-- Database: `duan1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -39,16 +39,17 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accounts`
+-- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `accountName`, `accountPass`, `accountPhone`, `accountEmail`, `accountImage`, `accountAddress`, `role`) VALUES
-(4, 'Nguyễn Tuấn Anh', 'anhnt683', 346237897, 'anhntph27773@gmail.com', 'account.png', 'Ninh Bình', 1);
+(4, 'Nguyễn Tuấn Anh', 'anhnt683', 346237897, 'anhntph27773@gmail.com', 'account.png', 'Ninh Bình', 1),
+(5, 'Nguyễn Đức Thịnh', 'ducthinh1420.', 915220156, 'thinh1420003@gmail.com', '', 'Nam Định', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bill`
+-- Table structure for table `bill`
 --
 
 CREATE TABLE `bill` (
@@ -66,7 +67,7 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bill`
+-- Dumping data for table `bill`
 --
 
 INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `billEmail`, `billPttt`, `billStatus`, `billTotal`, `oderDate`, `quatity`) VALUES
@@ -96,7 +97,7 @@ INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `billdetail`
+-- Table structure for table `billdetail`
 --
 
 CREATE TABLE `billdetail` (
@@ -107,7 +108,7 @@ CREATE TABLE `billdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `billdetail`
+-- Dumping data for table `billdetail`
 --
 
 INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
@@ -176,7 +177,7 @@ INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categorys`
+-- Table structure for table `categorys`
 --
 
 CREATE TABLE `categorys` (
@@ -187,7 +188,7 @@ CREATE TABLE `categorys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categorys`
+-- Dumping data for table `categorys`
 --
 
 INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) VALUES
@@ -203,7 +204,7 @@ INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`, `categoryDesc`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -216,7 +217,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `content`, `productId`, `accountId`, `accountName`, `commentDate`) VALUES
@@ -231,7 +232,30 @@ INSERT INTO `comments` (`id`, `content`, `productId`, `accountId`, `accountName`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `news_title` varchar(255) NOT NULL,
+  `news_image` varchar(255) NOT NULL,
+  `news_desc` varchar(255) NOT NULL,
+  `news_detail` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `news_title`, `news_image`, `news_desc`, `news_detail`) VALUES
+(3, '10 điểm tròn', 'Screenshot 2022-11-30 181623.png', 'ngon\"\"\"', '<ul>\r\n	<li>hàng tốt</li>\r\n	<li>chất lượng</li>\r\n</ul>\r\n'),
+(4, 'Cuộc sống trong tù', 'anhthe.jpg', 'fdsafhljdsahfldjsafhlsjakdfhlsadkjfhsadlfjkdhflasdkjfs\"', '<p>dsafdsafsdakfj;klsdajf;sdklajf;ksadljf</p>\r\n'),
+(5, 'Chơi thuốc quá đà', 'Screenshot 2022-11-30 181623.png', 'Dấu hiệu hút chích quá nhiều dẫn đến nghiện', '<p>Ho&agrave;ng l&agrave; đứa con ngoan do bạn b&egrave; rủ r&ecirc; n&ecirc;n dẫn đến nghiện</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fluathoangphi.vn%2Fthe-nao-la-nguoi-nghien-ma-tuy%2F&amp;psig=AOvVaw1f8PSCdL6Jz-kFGOtzzgA1&amp;ust=1670986225760000&amp;source=images&amp;cd=vfe&amp;ved=0CBAQjRxqFwoTCMCUjvXK9fsCFQAAAAAdAAAAABAE\" /><img alt=\"\" src=\"https://luathoangphi.vn/wp-content/uploads/2021/09/the-nao-la-nguoi-nghien-ma-tuy.jpg?v=1631627804\" style=\"height:400px; width:500px\" /></p>\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -247,7 +271,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `productDesc`, `productCapacity`, `quatity`, `productView`, `categoryId`) VALUES
@@ -260,86 +284,98 @@ INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `pr
 (17, 'Nước Hoa Gucci Memoire D’une EDP', 'gucci2.jpg', 2250000, '<p><strong>Đặc điểm của Gucci&nbsp;Memoire D&rsquo;une Odeur Eau De Parfum</strong></p>\r\n\r\n<ul>\r\n	<li><strong>Thương hiệu:</strong>&nbsp;Gucci</li>\r\n	<li><strong>Xuất xứ:</strong>&nbsp;Italia</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng chế:&nbsp;</strong>Alberto Morillas</li>\r\n	<li><strong>Thời gian ra mắt:</strong>&nbsp;2019</li>\r\n	<li><strong>Nh&oacute;m hương:</strong></li>\r\n	<li><strong>Thời gian giữ m&ugrave;i:</strong>&nbsp;Trung b&igrave;nh, từ 3 đến 6 tiếng</li>\r\n	<li><strong>Độ b&aacute;m tỏa:</strong>&nbsp;Gần, Trong v&ograve;ng một c&aacute;nh tay</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Hạnh nh&acirc;n đắng, Hoa c&uacute;c La M&atilde;</li>\r\n	<li><strong>Hương giữa:&nbsp;</strong>Hoa nh&agrave;i, Xạ hương, Hoa nh&agrave;i Ấn Độ</li>\r\n	<li><strong>Hương cuối:&nbsp;</strong>Gỗ tuyết t&ugrave;ng, Vanilla, Gỗ đ&agrave;n hương</li>\r\n	<li><strong>Phong c&aacute;ch:</strong>&nbsp;Tinh tế, B&iacute; ẩn</li>\r\n	<li><strong>Thời điểm sử dụng th&iacute;ch hợp:</strong>&nbsp;M&ugrave;a xu&acirc;n &ndash; M&ugrave;a hạ &ndash; M&ugrave;a thu, Ban ng&agrave;y</li>\r\n</ul>\r\n\r\n<h3><strong>Gucci Memoire D&rsquo;une Odeur Eau De Parfum</strong></h3>\r\n\r\n<p><strong>Gucci Memoire D&rsquo;une Odeur Eau De Parfum</strong><a href=\"https://theperfume.vn/nuoc-hoa/nuoc-hoa-gucci-memoire-dune-odeur-eau-de-parfum/\"><strong>&nbsp;</strong></a>được ra mắt trong năm 2019. Đ&acirc;y l&agrave; một m&ugrave;i hương mới của nh&agrave; Gucci khi m&agrave; n&oacute; kh&ocirc;ng ph&acirc;n biệt giới t&iacute;nh hay thời gian tuổi t&aacute;c, cho bất cứ ai cũng c&oacute; thể sử dụng. Hương thơm h&ocirc; biến ta trở th&agrave;nh nh&agrave; th&aacute;m hiểm đi kh&aacute;m ph&aacute; k&iacute; ức của ch&iacute;nh m&igrave;nh, cho ta sống lại với những k&iacute; ức ấy.&nbsp;<strong>Nước hoa Gucci xanh </strong>nhẹ nh&agrave;ng đưa ta kh&aacute;m ph&aacute; những cũng bậc cảm x&uacute;c qua hương thơm ch&acirc;n thực, tho&aacute;ng m&aacute;t v&agrave; tinh tế.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"\" src=\"https://theperfume.vn/wp-content/uploads/2021/09/Mem-oire-Du-ne-Od-eur-100ml.png\" style=\"height:775px; width:900px\" /></p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; Gucci M&eacute;moire D&rsquo;Une Odeur l&agrave; sự h&ograve;a quyện giữa những hương thơm tươi m&aacute;t, trong s&aacute;ng v&agrave; nồng n&agrave;n khiến cho bất kỳ ai cũng kh&oacute; c&oacute; thể cưỡng lại được. Gucci M&eacute;moire D&rsquo;Une Odeur d&ugrave;ng cho cả nam lẫn nữ l&agrave; thứ m&agrave; ngay cả khi nhắm mắt lại, n&oacute; cũng sẽ đưa bạn đến một khoảnh khoắc ch&iacute;nh x&aacute;c kh&ocirc;ng gian v&agrave; thời gian.M&ocirc; tả m&ugrave;i hương Gucci M&eacute;moire D&rsquo;Une Odeur EDP Nước hoa Gucci M&eacute;moire D&rsquo;Une Odeur EDP với hương thơm tươi m&aacute;t, trong s&aacute;ng v&agrave; nồng n&agrave;n, lưu lại sự l&ocirc;i cuốn của bạn. Lớp hương đầu mở ra với những nốt hương xanh m&aacute;t của hoa c&uacute;c La M&atilde; v&agrave; hoa nh&agrave;i san h&ocirc; Ấn Độ. Tiếp nối l&agrave; hương thơm chủ đạo xuất ph&aacute;t từ Ấn Độ: mật ong v&agrave; hoa nh&agrave;i san h&ocirc; được pha trộn theo c&ocirc;ng thức độc quyền. Lớp hương cuối kh&eacute;p lại với hương thơm ấm &aacute;p từ gỗ đ&agrave;n hương, ch&uacute;t tinh tế của gỗ tuyết t&ugrave;ng v&agrave; sự ngọt ng&agrave;o của vanilla. Vốn l&agrave; m&ugrave;i hương d&agrave;nh cho cả nam lẫn nữ, lớp hương cuối với sự bổ trợ của đ&agrave;n hương v&agrave; tuyết t&ugrave;ng đ&atilde; phần n&agrave;o đan xen, tạo n&ecirc;n vẻ vững v&agrave;ng v&agrave; phần n&agrave;o mạnh mẽ, kh&ocirc;ng qu&ecirc;n gọt giũa cho mềm mại với Vani ngọt ấm quen thuộc. &quot;Thật ra m&ugrave;i hương t&aacute;i hiện tất cả những k&yacute; ức m&agrave; ch&uacute;ng ta đ&atilde;, đang v&agrave; sẽ c&oacute;. N&oacute; đưa ta đến những nơi đ&atilde; từng đi qua, đang ở hay sẽ đến. T&ocirc;i kh&ocirc;ng muốn tạo ra Memoire D&rsquo;une Odeur cho giới t&iacute;nh cố định n&agrave;o, v&igrave; thật ra ai cũng cần phải c&oacute; k&yacute; ức&rdquo;, Alessandro Michele bộc bạch.</p>\r\n', 0, 100, 28, 3),
 (18, 'Nước Hoa Dior Sauvage EDP 100ml', 'dior1.jpg', 2980000, '<ul>\r\n	<li><strong>Thương hiệu:&nbsp;</strong>Dior</li>\r\n	<li><strong>Xuất xứ:&nbsp;</strong>Ph&aacute;p</li>\r\n	<li><strong>Thời gian ra mắt:&nbsp;</strong>2015</li>\r\n	<li><strong>D&ograve;ng:&nbsp;</strong>Eau De Toilette (EDT).</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng chế:&nbsp;</strong>Francois Demachy.</li>\r\n	<li><strong>Nh&oacute;m hương:&nbsp;</strong>Hương Cam Qu&yacute;t.</li>\r\n	<li><strong>Thời gian lưu hương:&nbsp;</strong>Rất l&acirc;u &ndash; Tr&ecirc;n 12 giờ.</li>\r\n	<li><strong>Độ tỏa hương:&nbsp;</strong>Xa &ndash; Toả hương trong v&ograve;ng b&aacute;n k&iacute;nh 1 m&eacute;t.</li>\r\n	<li><strong>Phong c&aacute;ch:&nbsp;</strong>Nam t&iacute;nh, tự nhi&ecirc;n, mạnh mẽ.</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Cam Bergamot, hạt ti&ecirc;u.</li>\r\n	<li><strong>Hương giữa:&nbsp;</strong>Hoa phong lữ, oải hương, ti&ecirc;u hồng, ti&ecirc;u tứ xuy&ecirc;n, cỏ vetiver, c&acirc;y patchaoli.</li>\r\n	<li><strong>Hương cuối:&nbsp;</strong>Ambroxan, nhựa labdanum, hương gỗ.</li>\r\n	<li><strong>Thời điểm khuy&ecirc;n d&ugrave;ng</strong>: H&egrave;, Thu, Ng&agrave;y, Đ&ecirc;m.</li>\r\n	<li><strong>Độ tuổi khuy&ecirc;n d&ugrave;ng</strong>: 20.</li>\r\n</ul>\r\n\r\n<h3><strong>Nước Hoa Dior Sauvage</strong></h3>\r\n\r\n<p>Một trong những m&ugrave;i hương nam t&iacute;nh được c&aacute;c đấng m&agrave;y r&acirc;u ưa chuộng kh&ocirc;ng thể kh&ocirc;ng nhắc đến Dior Sauvage. Chai nước hoa đến từ thương hiệu Christian Dior mang đến một vẻ nam t&iacute;nh, mạnh mẽ v&agrave; cuốn h&uacute;t. Hương thơm phổ biến v&agrave; được y&ecirc;u th&iacute;ch đến nỗi dường như ai cũng sở hữu cho m&igrave;nh một chai. Với nhu cầu l&agrave;m đẹp nhanh gọn hiện nay kh&ocirc;ng chỉ đến từ ph&aacute;i đẹp m&agrave; ph&aacute;i mạnh cũng rất quan t&acirc;m. Hiểu được vẫn về n&agrave;y m&agrave;&nbsp;<strong>Nước Hoa Dior Sauvage</strong>&nbsp;đ&atilde; ra đời. M&oacute;n qu&agrave; m&agrave; h&atilde;ng d&agrave;nh tặng c&aacute;c ch&agrave;ng l&agrave; một chai nước hoa fullsize, đi k&egrave;m l&agrave; một chai nước hoa mini v&agrave; tu&yacute;p kem dưỡng da sau cạo r&acirc;u.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"\" src=\"https://theperfume.vn/wp-content/uploads/2018/09/sauvage-dior-60ml.png\" style=\"height:401px; width:600px\" /></p>\r\n\r\n<p>&nbsp; &nbsp; N&acirc;ng cấp v&agrave; ph&aacute;t triển, Sauvage quay trở lại với m&ugrave;i hương ấn tượng, trưởng th&agrave;nh hơn nữa.&nbsp;<strong>Sauvage Parfum 100ml</strong><strong>&nbsp;</strong>cho ch&agrave;ng kh&aacute;m ph&aacute; sự quyến rũ, cuốn h&uacute;t nằm trong n&eacute;t hoang d&atilde; ở con người m&igrave;nh.&nbsp;<strong>Dior Sauvage Parfum 100ml</strong><strong>&nbsp;</strong>nổi trội giữa <strong>thế giới nước hoa</strong>&nbsp;với h&agrave;ng ng&agrave;n hương thơm mang phong c&aacute;ch kh&aacute;c nhau. Kết hợp c&ugrave;ng cơ thể rắn chắc của ch&agrave;ng hương thơm sẽ g&acirc;y thương nhớ cho bất k&igrave; ai chạm phải m&ugrave;i hương n&agrave;y.</p>\r\n\r\n<pre>\r\n<strong>Vẻ ngo&agrave;i sang trọng, đơn giản của nước hoa Dior Sauvage Parfum 100ml</strong></pre>\r\n\r\n<p><strong><strong>Dior Sauvage Parfum 100ml</strong>&nbsp;</strong>vẫn giữ nguy&ecirc;n thiết kế của Sauvage phi&ecirc;n bản gốc. Chai <strong>nước hoa</strong>&nbsp;h&igrave;nh trụ tr&ograve;n cầm chắc tr&ecirc;n tay. Để kh&aacute;c biệt hơn với những phi&ecirc;n bản trước sản phẩm khắc l&ecirc;n m&igrave;nh m&agrave;u xanh đen đậm hơn. Sắc xanh đen thể hiện sự lịch l&atilde;m, trưởng th&agrave;nh lại c&oacute; đ&ocirc;i ch&uacute;t bi ẩn khiến người ta phải t&ograve; m&ograve;. Nắp chai m&agrave;u đen s&aacute;ng b&oacute;ng với những đường g&acirc;n cắt kh&uacute;c to&aacute;t k&ecirc;n sự mạnh mẽ, nam t&iacute;nh cho to&agrave;n bộ sản phẩm.&nbsp;<strong>Sauvage Parfum 100ml</strong>&nbsp;chắc chắn sẽ l&agrave; trải nghiệm tuyệt vời d&agrave;nh cho c&aacute;c ch&agrave;ng.</p>\r\n', 0, 100, 1, 4),
 (19, 'Nước Hoa Le Labo 13 Another', 'lelabo2.jpg', 7850000, '<p><strong>Đặc điểm của&nbsp;<strong>Le Labo Another 13</strong>&nbsp;Eau De&nbsp;<strong>Parfum</strong></strong></p>\r\n\r\n<ul>\r\n	<li><strong>Thương hiệu:&nbsp;</strong>Le Labo</li>\r\n	<li><strong>Xuất xứ:</strong>&nbsp;USA</li>\r\n	<li><strong>Nh&agrave; pha chế:&nbsp;</strong>Nathalie Lorson</li>\r\n	<li><strong>Thời gian ra mắt:</strong>&nbsp;2010</li>\r\n	<li><strong>Nồng độ:</strong>&nbsp;EDP &ndash; Eau De Parfum</li>\r\n	<li><strong>Nh&oacute;m hương:</strong>&nbsp;Amber Woody &ndash; Hương gỗ phương đ&ocirc;ng</li>\r\n	<li><strong>Độ tỏa hương:&nbsp;</strong>Gần, trong v&ograve;ng một c&aacute;nh tay</li>\r\n	<li><strong>Thời gian lưu hương:</strong>&nbsp;L&acirc;u, từ 7 &ndash; 12 tiếng</li>\r\n	<li><strong>Phong c&aacute;ch:&nbsp;</strong>Tinh tế, Thanh lịch</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Long di&ecirc;n hương, Hương Iso E Super, Xạ hương, Tr&aacute;i l&ecirc;, Hạt v&ocirc;ng vang, Amyl Salicylate</li>\r\n	<li><strong>Thời điểm sử dụng th&iacute;ch hợp:</strong>&nbsp;M&ugrave;a xu&acirc;n &ndash; M&Ugrave;a hạ &ndash; M&ugrave;a thu &ndash; M&ugrave;a đ&ocirc;ng, Ng&agrave;y &ndash; Đ&ecirc;m</li>\r\n</ul>\r\n\r\n<p><strong>&nbsp;Le Labo Another 13<a href=\"https://theperfume.vn/nuoc-hoa/nuoc-hoa-le-labo-another-13-edp-100ml/\">&nbsp;</a></strong>l&agrave; chai nước hoa Unisex đến tư thương hiệu Le Labo. Đ&atilde; hơn 10 năm kể ng&agrave;y chai nước hoa n&agrave;y ra đời nhưng độ nổi tiếng của chai nước hoa ng&agrave;y c&agrave;ng tăng khi m&agrave; nước hoa nichie ng&agrave;y c&agrave;ng được y&ecirc;u th&iacute;ch. L&agrave; một người y&ecirc;u th&iacute;ch sự tinh tế, thanh lịch m&agrave; kh&ocirc;ng qu&aacute; đơn giản chắc chắn bạn phải d&ugrave;ng thử sản phẩm n&agrave;y.&nbsp;<strong>Le Labo Another 13 100ml</strong>&nbsp;cho những cảm nhận thật sạch sẽ v&agrave; tinh tươi như tờ giấy trắng. Nh&oacute;m hương gỗ phương đ&ocirc;ng sẽ đưa bạn đi từ bất ngờ n&agrave;y đến bất ngờ kh&aacute;c.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"\" src=\"https://theperfume.vn/wp-content/uploads/2021/12/L-e-La-bo-Ano-ther-1-3-100ml.png\" style=\"height:900px; width:900px\" /></p>\r\n\r\n<p>Nước Hoa Le Labo 13 Another 50ML - Đẳng Cấp, Sang Trọng. B&ecirc;n cạnh đ&oacute;, Hương Iso E Super v&agrave; Hương Amyl Salicylate l&agrave; hai hương bạn c&oacute; thể dễ d&agrave;ng cảm nhận được nhất khi sử dụng nước hoa n&agrave;y. Le La</p>\r\n', 0, 100, 1, 5),
-(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '<h3><strong>Đặc điểm của nước hoa Chanel Coco Noir Eau De Parfum&nbsp;</strong></h3>\r\n\r\n<ul>\r\n	<li><strong>Xuất xứ:</strong>&nbsp;Ph&aacute;p</li>\r\n	<li><strong>Thời điểm ra mắt:</strong>&nbsp;2012</li>\r\n	<li><strong>Nh&oacute;m hương:</strong>&nbsp;Gỗ phương Đ&ocirc;ng</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng tạo</strong><strong>:</strong>&nbsp;Christopher Cheldrake; Jacques Polge</li>\r\n	<li><strong>Phong c&aacute;ch:</strong>&nbsp;Nữ t&iacute;nh, c&aacute; t&iacute;nh, b&iacute; ẩn</li>\r\n	<li><strong>Thời gian lưu hương:</strong>&nbsp;Trong khoảng 10 tiếng</li>\r\n	<li><strong>Độ toả hương:&nbsp;</strong>Trong v&ograve;ng b&aacute;n k&iacute;nh 2m</li>\r\n	<li><strong>Thời điểm khuy&ecirc;n d&ugrave;ng:</strong>&nbsp;Khi thời tiết m&aacute;t mẻ, lạnh như m&ugrave;a thu đ&ocirc;ng</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Cam Bergamot, Cam, Bưởi hồng</li>\r\n	<li><strong>Hương giữa:</strong>&nbsp;Tr&aacute;i đ&agrave;o, hoa nh&agrave;i, hoa thủy ti&ecirc;n, hoa hồng, hoa phong lữ</li>\r\n	<li><strong>Hương cuối:</strong>&nbsp;Nhựa hương, đậu tonka, đ&agrave;n hương, hoắc hương, xạ hương, vani</li>\r\n</ul>\r\n\r\n<h3>&nbsp;</h3>\r\n\r\n<p>&nbsp; &nbsp; &nbsp;Nước hoa Chanel Coco Noir&nbsp;khiến c&aacute;c qu&yacute; c&ocirc; ng&acirc;y ngất v&igrave; hương thơm nồng n&agrave;n, b&iacute; ẩn, quyến rũ. Nếu d&ograve;ng nước hoa Chanel No.5. cho c&aacute;c n&agrave;ng cảm gi&aacute;c thanh lịch, nữ t&iacute;nh xen v&agrave;o ch&uacute;t cổ k&iacute;nh, vintage của người phụ nữ ng&agrave;y xưa. Th&igrave; Chanel Coco lại cho cảm gi&aacute;c ho&agrave;n to&agrave;n kh&aacute;c. M&ugrave;i hương c&ugrave;ng thiết kế của n&oacute; mang đến sự mạnh mẽ trong mỗi c&ocirc; g&aacute;i, thể hiện r&otilde; c&aacute; t&iacute;nh, mang theo n&eacute;t b&iacute; ẩn h&uacute;t hồn.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"\" src=\"https://theperfume.vn/wp-content/uploads/2019/01/nuoc-hoa-chanel-coco-noir-edp-100ml.png\" style=\"height:542px; width:600px\" />&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp;Sản phẩm n&agrave;y được rất nhiều người v&iacute; như một kh&uacute;c nhạc trữ t&igrave;nh &ecirc;m dịu v&agrave; du dương mang đến cảm gi&aacute;c bất tận cho người sử dụng lẫn những người xung quanh khi kh&aacute;m ph&aacute;. Những hương thơm nồng n&agrave;n, kỳ diệu v&agrave; đầy</p>\r\n', 0, 100, 12, 2),
-(21, 'Nước Hoa Nữ Dior Hypnotic Poison EDT ', 'dior2.jpg', 2800000, '<ul>\r\n	<li><strong>Thương hiệu:&nbsp;</strong>Dior</li>\r\n	<li><strong>Xuất xứ:&nbsp;</strong>Ph&aacute;p</li>\r\n	<li><strong>Thời gian ra mắt:&nbsp;</strong>1998</li>\r\n	<li><strong>D&ograve;ng:&nbsp;</strong>Eau De Toilette (EDT).</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng chế:&nbsp;</strong>Annick Menardo.</li>\r\n	<li><strong>Nh&oacute;m hương:</strong>&nbsp;Hương Oriental Vanilla (Hương vani phương Đ&ocirc;ng).</li>\r\n	<li><strong>Thời gian lưu hương:&nbsp;</strong>Rất l&acirc;u &ndash; Tr&ecirc;n 12 giờ.</li>\r\n	<li><strong>Độ tỏa hương:&nbsp;</strong>Xa &ndash; Toả hương trong v&ograve;ng b&aacute;n k&iacute;nh 2 m&eacute;t.</li>\r\n	<li><strong>Phong c&aacute;ch:&nbsp;</strong>Cổ điển, quyến rũ.</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Quả mơ, Quả mận, Quả dừa.</li>\r\n	<li><strong>Hương giữa:&nbsp;</strong>Hoa huệ trắng, Hoa nh&agrave;i, Hoa linh lan, Hoa hồng, Gỗ cẩm lai Brazil, Th&igrave; l&agrave; Ba Tư.</li>\r\n	<li><strong>Hương cuối:&nbsp;</strong>Gỗ đ&agrave;n hương, Hạnh nh&acirc;n, Hương Va ni, Xạ hương.</li>\r\n</ul>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h3>Nước hoa Dior Hypnotic Poison</h3>\r\n\r\n<p>Trong giới m&ugrave;i hương vẫn lưu giữ truyền thuyết về một lọ nước hoa &ldquo;thuốc độc&rdquo; c&oacute; khả năng khiến bất cứ ai &ldquo;chết lịm&rdquo; trong sự l&ocirc;i cuốn đầy ng&ocirc;ng cuồng. T&aacute;o bạo, b&iacute; ẩn nhưng m&ecirc; hoặc, nữ t&iacute;nh, &ldquo;huyền thoại&rdquo; say đắm l&ograve;ng người n&agrave;y ch&iacute;nh l&agrave;&nbsp;Nước hoa Dior Hypnotic Poison. Pha trộn n&ecirc;n bằng những nốt hương độc đ&aacute;o, biến những hương vị tương phản xếp chồng th&agrave;nh thế c&acirc;n bằng, Dior Hypnotic Poison ch&iacute;nh x&aacute;c l&agrave; một &ldquo;liều thuốc&rdquo; k&igrave; diệu m&agrave; Dior mang tới cho những qu&yacute; c&ocirc; hiện đại.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt=\"Nước hoa Hypnotic Poison EDT lừng lẫy nhà Dior\" src=\"https://theperfume.vn/wp-content/uploads/2018/09/nuoc-hoa-nu-dior-hypnotic-poison-edt.png\" style=\"height:531px; width:600px\" /></p>\r\n\r\n<p>&nbsp; &nbsp; Nước hoa Dior Hypnotic Poison Trong giới m&ugrave;i hương vẫn lưu giữ truyền thuyết về một lọ nước hoa &ldquo;thuốc độc&rdquo; c&oacute; khả năng khiến bất cứ ai &ldquo;chết lịm&rdquo; trong sự l&ocirc;i cuốn đầy ng&ocirc;ng cuồng. T&aacute;o bạo,</p>\r\n', 0, 100, 15, 4),
+(20, 'Nước Hoa Chanel Coco Noir EDP Cho Nữ 100ml', 'chanel1.jpg', 3690000, '<h3><strong>Đặc điểm của nước hoa Chanel Coco Noir Eau De Parfum&nbsp;</strong></h3>\r\n\r\n<ul>\r\n	<li><strong>Xuất xứ:</strong>&nbsp;Ph&aacute;p</li>\r\n	<li><strong>Thời điểm ra mắt:</strong>&nbsp;2012</li>\r\n	<li><strong>Nh&oacute;m hương:</strong>&nbsp;Gỗ phương Đ&ocirc;ng</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng tạo</strong><strong>:</strong>&nbsp;Christopher Cheldrake; Jacques Polge</li>\r\n	<li><strong>Phong c&aacute;ch:</strong>&nbsp;Nữ t&iacute;nh, c&aacute; t&iacute;nh, b&iacute; ẩn</li>\r\n	<li><strong>Thời gian lưu hương:</strong>&nbsp;Trong khoảng 10 tiếng</li>\r\n	<li><strong>Độ toả hương:&nbsp;</strong>Trong v&ograve;ng b&aacute;n k&iacute;nh 2m</li>\r\n	<li><strong>Thời điểm khuy&ecirc;n d&ugrave;ng:</strong>&nbsp;Khi thời tiết m&aacute;t mẻ, lạnh như m&ugrave;a thu đ&ocirc;ng</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Cam Bergamot, Cam, Bưởi hồng</li>\r\n	<li><strong>Hương giữa:</strong>&nbsp;Tr&aacute;i đ&agrave;o, hoa nh&agrave;i, hoa thủy ti&ecirc;n, hoa hồng, hoa phong lữ</li>\r\n	<li><strong>Hương cuối:</strong>&nbsp;Nhựa hương, đậu tonka, đ&agrave;n hương, hoắc hương, xạ hương, vani</li>\r\n</ul>\r\n\r\n<h3>&nbsp;</h3>\r\n\r\n<p>&nbsp; &nbsp; &nbsp;Nước hoa Chanel Coco Noir&nbsp;khiến c&aacute;c qu&yacute; c&ocirc; ng&acirc;y ngất v&igrave; hương thơm nồng n&agrave;n, b&iacute; ẩn, quyến rũ. Nếu d&ograve;ng nước hoa Chanel No.5. cho c&aacute;c n&agrave;ng cảm gi&aacute;c thanh lịch, nữ t&iacute;nh xen v&agrave;o ch&uacute;t cổ k&iacute;nh, vintage của người phụ nữ ng&agrave;y xưa. Th&igrave; Chanel Coco lại cho cảm gi&aacute;c ho&agrave;n to&agrave;n kh&aacute;c. M&ugrave;i hương c&ugrave;ng thiết kế của n&oacute; mang đến sự mạnh mẽ trong mỗi c&ocirc; g&aacute;i, thể hiện r&otilde; c&aacute; t&iacute;nh, mang theo n&eacute;t b&iacute; ẩn h&uacute;t hồn.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"\" src=\"https://theperfume.vn/wp-content/uploads/2019/01/nuoc-hoa-chanel-coco-noir-edp-100ml.png\" style=\"height:542px; width:600px\" />&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp;Sản phẩm n&agrave;y được rất nhiều người v&iacute; như một kh&uacute;c nhạc trữ t&igrave;nh &ecirc;m dịu v&agrave; du dương mang đến cảm gi&aacute;c bất tận cho người sử dụng lẫn những người xung quanh khi kh&aacute;m ph&aacute;. Những hương thơm nồng n&agrave;n, kỳ diệu v&agrave; đầy</p>\r\n', 0, 100, 15, 2),
+(21, 'Nước Hoa Nữ Dior Hypnotic Poison EDT ', 'dior2.jpg', 2800000, '<ul>\r\n	<li><strong>Thương hiệu:&nbsp;</strong>Dior</li>\r\n	<li><strong>Xuất xứ:&nbsp;</strong>Ph&aacute;p</li>\r\n	<li><strong>Thời gian ra mắt:&nbsp;</strong>1998</li>\r\n	<li><strong>D&ograve;ng:&nbsp;</strong>Eau De Toilette (EDT).</li>\r\n	<li><strong>Nh&agrave; s&aacute;ng chế:&nbsp;</strong>Annick Menardo.</li>\r\n	<li><strong>Nh&oacute;m hương:</strong>&nbsp;Hương Oriental Vanilla (Hương vani phương Đ&ocirc;ng).</li>\r\n	<li><strong>Thời gian lưu hương:&nbsp;</strong>Rất l&acirc;u &ndash; Tr&ecirc;n 12 giờ.</li>\r\n	<li><strong>Độ tỏa hương:&nbsp;</strong>Xa &ndash; Toả hương trong v&ograve;ng b&aacute;n k&iacute;nh 2 m&eacute;t.</li>\r\n	<li><strong>Phong c&aacute;ch:&nbsp;</strong>Cổ điển, quyến rũ.</li>\r\n	<li><strong>Hương đầu:</strong>&nbsp;Quả mơ, Quả mận, Quả dừa.</li>\r\n	<li><strong>Hương giữa:&nbsp;</strong>Hoa huệ trắng, Hoa nh&agrave;i, Hoa linh lan, Hoa hồng, Gỗ cẩm lai Brazil, Th&igrave; l&agrave; Ba Tư.</li>\r\n	<li><strong>Hương cuối:&nbsp;</strong>Gỗ đ&agrave;n hương, Hạnh nh&acirc;n, Hương Va ni, Xạ hương.</li>\r\n</ul>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<h3>Nước hoa Dior Hypnotic Poison</h3>\r\n\r\n<p>Trong giới m&ugrave;i hương vẫn lưu giữ truyền thuyết về một lọ nước hoa &ldquo;thuốc độc&rdquo; c&oacute; khả năng khiến bất cứ ai &ldquo;chết lịm&rdquo; trong sự l&ocirc;i cuốn đầy ng&ocirc;ng cuồng. T&aacute;o bạo, b&iacute; ẩn nhưng m&ecirc; hoặc, nữ t&iacute;nh, &ldquo;huyền thoại&rdquo; say đắm l&ograve;ng người n&agrave;y ch&iacute;nh l&agrave;&nbsp;Nước hoa Dior Hypnotic Poison. Pha trộn n&ecirc;n bằng những nốt hương độc đ&aacute;o, biến những hương vị tương phản xếp chồng th&agrave;nh thế c&acirc;n bằng, Dior Hypnotic Poison ch&iacute;nh x&aacute;c l&agrave; một &ldquo;liều thuốc&rdquo; k&igrave; diệu m&agrave; Dior mang tới cho những qu&yacute; c&ocirc; hiện đại.</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img alt=\"Nước hoa Hypnotic Poison EDT lừng lẫy nhà Dior\" src=\"https://theperfume.vn/wp-content/uploads/2018/09/nuoc-hoa-nu-dior-hypnotic-poison-edt.png\" style=\"height:531px; width:600px\" /></p>\r\n\r\n<p>&nbsp; &nbsp; Nước hoa Dior Hypnotic Poison Trong giới m&ugrave;i hương vẫn lưu giữ truyền thuyết về một lọ nước hoa &ldquo;thuốc độc&rdquo; c&oacute; khả năng khiến bất cứ ai &ldquo;chết lịm&rdquo; trong sự l&ocirc;i cuốn đầy ng&ocirc;ng cuồng. T&aacute;o bạo,</p>\r\n', 0, 100, 16, 4),
 (22, 'Nước Hoa Nữ Gucci Bloom EDP For Women ', 'nuochoa7.jpg', 2900000, '<p>&nbsp;</p>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td><strong>Xuất xứ</strong></td>\r\n			<td>Anh, Đức, Ph&aacute;p</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Năm ph&aacute;t h&agrave;nh</strong></td>\r\n			<td><strong>&nbsp;</strong>2017</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Nh&oacute;m hương</strong></td>\r\n			<td>Hoa huệ, Hoa nh&agrave;i, Hoa kim ng&acirc;n</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Phong c&aacute;ch</strong></td>\r\n			<td>&nbsp;Quyến rũ, Sang trọng, Qu&yacute; ph&aacute;i</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td><strong>Hương đầu</strong></td>\r\n			<td>Hoa nh&agrave;i</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Hương giữa&nbsp;</strong></td>\r\n			<td>Hoa huệ</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Hương cuối&nbsp;</strong></td>\r\n			<td>Hoa sử qu&acirc;n tử</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Gucci Bloom EDP For Her</strong>, một m&ugrave;i hương ti&ecirc;u biểu cho một n&eacute;t đẹp thanh tho&aacute;t v&agrave; tao nh&atilde; chuẩn &Yacute;. Nếu bạn lỡ say đắm m&ugrave;i hương thanh lịch v&agrave; quyến rũ của những đo&aacute; hoa trắng, th&igrave; nhất định bạn sẽ phải &quot;nghi&ecirc;ng m&igrave;nh ngả mũ&quot; khi bắt gặp m&ugrave;i hương của Gucci Bloom EDP tr&ecirc;n phố.<br />\r\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt=\"Gucci Bloom Eau De Parfum\" src=\"https://theperfume.vn/wp-content/uploads/2018/08/nuoc-hoa-gucci-bloom-edp.png\" style=\"height:449px; width:600px, text-align:center\" /><br />\r\nChưng cất hương thơm của một vườn hoa n&agrave;o Nh&agrave;i v&agrave; Huệ v&agrave;o buổi sớm, Gucci Bloom EDP toả hương thơm nức l&ograve;ng người, kiều diễm v&agrave; tr&agrave;n đầy sức sống. Ấy thế, đ&acirc;u đ&oacute; len lỏi trong từng tầng hương vẫn l&agrave; ch&uacute;t vị đắng nhưng tươi, bạn c&oacute; thể lấy m&ugrave;i hương của Tr&agrave; để tưởng tượng.<br />\r\n<br />\r\nTừng ph&uacute;t từng gi&acirc;y tr&ocirc;i qua, ta chỉ ng&agrave;y c&agrave;ng th&ecirc;m y&ecirc;u n&eacute;t hương &yacute; tứ, sang trọng m&agrave; Gucci Bloom EDP chưng cất. Nhiều người hỏi rằng Gucci Bloom EDP ph&ugrave; hợp với độ tuổi n&agrave;o, m&agrave; quả thật</p>\r\n', 0, 100, 32, 3);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `bill`
+-- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `billdetail`
+-- Indexes for table `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `categorys`
+-- Indexes for table `categorys`
 --
 ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `bill`
+-- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
--- AUTO_INCREMENT cho bảng `billdetail`
+-- AUTO_INCREMENT for table `billdetail`
 --
 ALTER TABLE `billdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
--- AUTO_INCREMENT cho bảng `categorys`
+-- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;

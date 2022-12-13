@@ -5,6 +5,7 @@ include "dao/product_dao.php";
 include "dao/category_dao.php";
 include "dao/cart.php";
 include "dao/accounts.php";
+include "dao/news_dao.php";
 include "site/header.php";
 include "dao/comment.php";
 include "global.php";
@@ -12,7 +13,7 @@ if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 $dsdm = loadAll_dm();
 $spnew = loadall_product_home();
 $proview = loadall_pro_view();
-
+$news = loadall_news_home();
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -296,7 +297,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
             include "site/cart/chitietbill.php";
             break;
+            case 'newsct':
+
+                if (isset($_GET["id"]) && ($_GET["id"] > 0)) {
+                    $id = $_GET["id"];
+                    $news_one = loadOne_news($id);         
+                    // extract($news_one);
+                }
+                include "site/chitiettintuc.php";
+                break;
     }
+    
 } else {
     include "site/home.php";
 }
