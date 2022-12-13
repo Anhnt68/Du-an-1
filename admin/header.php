@@ -77,6 +77,8 @@
                                         </li>
                                         <li class="list-group-item bg-secondary d-flex align-items-center"><i class="bi bi-chat-dots-fill fs-3 px-4 text-light"></i><a class="text-decoration-none fs-5 text-light" href="index.php?act=dsbl">Bình Luận</a>
                                         </li>
+                                        <li class="list-group-item bg-secondary d-flex align-items-center"><i class="bi bi-newspaper fs-3 px-4 text-light"></i><a class="text-decoration-none fs-5 text-light" href="index.php?act=listnews">Tin tức</a>
+                                        </li>
 
                                 </ul>
                         </div>
