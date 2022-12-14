@@ -15,7 +15,6 @@ if (isset($_GET['act'])) {
             //kiểm tra xem người dùng có click vào add danh mục k
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tenloai = $_POST['tenloai'];
-                $motaloai = $_POST['motaloai'];
                 $anhloai = $_FILES['anhloai']['name'];
                 $target_dir = "../uploads";
                 $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
@@ -26,12 +25,9 @@ if (isset($_GET['act'])) {
                 if ($anhloai == "") {
                     $errors['anhloai'] = "Ảnh không được để trống";
                 }
-                if ($motaloai == "") {
-                    $errors['motaloai'] = "Mô tả không được để trống";
-                }
 
                 if (!$errors) {
-                    insert_dm($tenloai, $motaloai, $anhloai);
+                    insert_dm($tenloai, $anhloai);
                     $thongbao = "them thành công";
                 }
             }
@@ -60,11 +56,10 @@ if (isset($_GET['act'])) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['id'];
                 $tenloai = $_POST['tenloai'];
-                $motaloai = $_POST['motaloai'];
                 $anhloai = $_FILES['anhloai']['name'];
                 $target_dir = "../uploads";
                 $target_file = $target_dir . basename($_FILES["anhloai"]["name"]);
-                update_dm($id, $tenloai, $motaloai, $anhloai);
+                update_dm($id, $tenloai, $anhloai);
                 $thongbao = "cập nhật thành công";
             }
             $listdm = loadAll_dm();

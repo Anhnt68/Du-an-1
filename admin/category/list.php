@@ -9,7 +9,6 @@
                         <th scope="col">Mã loại</th>
                         <th scope="col">Tên loại</th>
                         <th scope="col">Ảnh</th>
-                        <th scope="col">Mô tả</th>
                         <th scope="col">
                   <a href="index.php?act=adddm"><button type="button"  class="btn btn-primary" >Thêm mới</button></a> 
 
@@ -33,7 +32,6 @@
                       <td>'.$id.'</td>
                       <td>'.$categoryName.'</td>
                       <td>'.$categoryImage.'</td>
-                      <td>'.$categoryDesc.'</td>
                       
                       <td><a href="'.$suadm.'"><input type="button" value="Sửa" class="btn btn-primary"></a>
                       <a href="'.$xoadm.'"> <input type="button" value="Xóa" class="btn btn-primary bg-danger"></a>
