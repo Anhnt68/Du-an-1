@@ -30,10 +30,6 @@ if (is_file($hinhpath)) {
       <input type="file" name="anhloai" class="form-control" id="exampleInputPassword1"><?= $categoryImage ?>
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Mô Tả</label> <br>
-      <textarea name="motaloai" id="" cols="80" rows="10"><?= $categoryDesc ?>"</textarea>
-    </div>
-    <div class="mb-3">
       <input type="hidden" name="id" value="<?= $id ?>">
       <input type="submit" class="btn btn-primary" name="capnhat" value="Cập nhật">
       <button type="reset" class="btn btn-primary">Nhập lại</button>
