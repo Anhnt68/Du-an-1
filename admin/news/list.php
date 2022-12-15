@@ -1,9 +1,10 @@
-<div class="col-xl-10">
+<div class="col-xl-10 w-75">
                 <hr>
                 <h2 class="text-center">
                     Danh sách tin tức
                 </h2>
-                <table class="table mw-100">
+               <div class="width w-75">
+               <table class="table ">
                   <thead>
                       <tr>
                         <th scope="col">Mã tin</th>
@@ -48,7 +49,20 @@
                      </tbody>
                   
                   </table>
+               </div>
             </div>
         </div>
     </div>
+  <style>
+    p{
+      width: 600px!important;
+    }
+    p img{
+      width: 100px!important;
+      height: 100px!important;
+    }
+    tr td:nth-child(3){
+      width: 150px!important;
+    }
+  </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1-dev+20220930.5d48e1006b
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2022 lúc 05:25 PM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.5
+-- Host: 127.0.0.1
+-- Generation Time: Dec 15, 2022 at 04:06 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `duan1`
+-- Database: `duan1`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `accounts`
+-- Table structure for table `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -39,7 +39,7 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `accounts`
+-- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `accountName`, `accountPass`, `accountPhone`, `accountEmail`, `accountImage`, `accountAddress`, `role`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `accounts` (`id`, `accountName`, `accountPass`, `accountPhone`, `acc
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bill`
+-- Table structure for table `bill`
 --
 
 CREATE TABLE `bill` (
@@ -68,7 +68,7 @@ CREATE TABLE `bill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `bill`
+-- Dumping data for table `bill`
 --
 
 INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `billEmail`, `billPttt`, `billStatus`, `billTotal`, `oderDate`, `quatity`) VALUES
@@ -101,7 +101,7 @@ INSERT INTO `bill` (`id`, `accountId`, `billName`, `billAddress`, `billPhone`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `billdetail`
+-- Table structure for table `billdetail`
 --
 
 CREATE TABLE `billdetail` (
@@ -112,7 +112,7 @@ CREATE TABLE `billdetail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `billdetail`
+-- Dumping data for table `billdetail`
 --
 
 INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
@@ -189,7 +189,7 @@ INSERT INTO `billdetail` (`id`, `billId`, `productId`, `productQuantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categorys`
+-- Table structure for table `categorys`
 --
 
 CREATE TABLE `categorys` (
@@ -199,7 +199,7 @@ CREATE TABLE `categorys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categorys`
+-- Dumping data for table `categorys`
 --
 
 INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`) VALUES
@@ -215,7 +215,7 @@ INSERT INTO `categorys` (`id`, `categoryName`, `categoryImage`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -228,7 +228,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `comments`
+-- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `content`, `productId`, `accountId`, `accountName`, `commentDate`) VALUES
@@ -244,7 +244,7 @@ INSERT INTO `comments` (`id`, `content`, `productId`, `accountId`, `accountName`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -256,7 +256,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `news_title`, `news_image`, `news_desc`, `news_detail`) VALUES
@@ -268,14 +268,14 @@ INSERT INTO `news` (`id`, `news_title`, `news_image`, `news_desc`, `news_detail`
 (8, 'Nước hoa GUCCI hót họt', 'gucci3.jpg', 'Nước Hoa Gucci Bloom EDP 50ML', '<p>-&nbsp;<strong><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-edp-tinh-te-va-sang-trong\">Gucci Bloom</a></strong>&nbsp;l&agrave; d&ograve;ng nước hoa mới nhất của hang. Đ&acirc;y cũng l&agrave; sản phẩm đầu ti&ecirc;n ra đời dưới tay gi&aacute;m đốc s&aacute;ng tạo mới của Gucci, Alessandro Michele. M&ugrave;i hương nước hoa mới dự b&aacute;o sẽ trở th&agrave;nh tượng đ&agrave;i tiếp theo của h&atilde;ng thời trang n&agrave;y v&agrave; c&ugrave;ng với những d&ograve;ng sản phẩm ch&iacute;nh như Guilty, nước hoa Gucci Bamboo, nước hoa Gucci Flora v&agrave; Gucci by Gucci.</p>\r\n\r\n<p>- Với d&ograve;ng nước hoa&nbsp;<strong><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-gucci-bloom-edp/\">Gucci Bloom</a></strong>&nbsp;n&agrave;y, ch&uacute;ng ta c&oacute; thể mong đợi để thưởng thức một m&ugrave;i hương hoa kh&aacute;c biệt đầy biến h&oacute;a dưới b&agrave;n tay t&agrave;i hoa của nh&agrave; thiết kế nước hoa Alberto Morrillas. Những loại hoa trắng như hoa nh&agrave;i sambac tự nhi&ecirc;n v&agrave; hoa huệ trắng được kết hợp với hương gỗ của rễ c&acirc;y irit thơm v&agrave; nốt hương mới của hoa kim ng&acirc;n xứ Trung Hoa hoặc c&acirc;y Rangoon creeper (sử qu&acirc;n tử) (Combretum indicum), một loại c&acirc;y c&oacute; hoa m&agrave;u đỏ nguồn gốc từ Ấn Độ v&agrave; c&oacute; hương thơm độc đ&aacute;o.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/1000025647/file/gucci-bloom-hong_da93a0dcd4f14be4bc1ee849881cd17c_1024x1024.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/1000025647/file/253777273_1562665744072542_2907457893776207461_n_2c7278bd97f64571a499d49ee379642d_1024x1024.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- Vỏ chai được thiết kế ấn tượng với h&igrave;nh d&aacute;ng vu&ocirc;ng vức, m&agrave;u hồng nhạt đậm chất Vintage c&ugrave;ng với nh&atilde;n t&ecirc;n trang tr&iacute; đơn giản nhưng vẫn l&agrave;m to&aacute;t l&ecirc;n vẻ thanh lịch, tinh tế vốn c&oacute; của thương hiệu Gucci hẳn sẽ đốn gục h&agrave;ng triệu tr&aacute;i tim của c&aacute;c c&ocirc; n&agrave;ng y&ecirc;u th&iacute;ch sự l&atilde;ng mạng, cổ điển.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-gucci-bloom-edp/\"><img src=\"https://file.hstatic.net/1000025647/file/gucci-bloom_9b331e3e36d242c9bc5f05da8ed3b5dd_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-gucci-bloom-edp/\"><img src=\"https://file.hstatic.net/1000025647/file/chai-gucci-bloom_6c08925fa181483da30820b1ce82d211_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>M&ugrave;i hương đặc trưng:</strong>&nbsp;Hoa huệ, hoa nh&agrave;i, hoa Rangoon Creeper</p>\r\n\r\n<p><strong>Phong c&aacute;ch:</strong>&nbsp;Tinh tế, sang trọng</p>\r\n'),
 (9, 'Nước hoa Chanel lôi cuốn', 'chanel2.jpg', 'Nước Hoa Chanel Bloom EDP 50ML\"', '<h3><strong>Nước Hoa Chanel Gabrielle EDP 35ML -&nbsp;Tinh Khiết, Nhẹ Nh&agrave;ng, Gợi Cảm</strong></h3>\r\n\r\n<h3><br />\r\n-&nbsp;<strong><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">Gabrielle Chanel</a></strong>&nbsp;d&ograve;ng nước hoa mới nhất của Chanel, được lấy cảm hứng từ ch&iacute;nh người phụ nữ vĩ đại của thời trang thế giới, người s&aacute;ng lập thương hiệu Chanel. Gabrielle đ&atilde; sống v&agrave; trở th&agrave;nh con người m&agrave; ch&iacute;nh b&agrave; muốn.</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/chanel-gabrielle-fragrance_grande.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><br />\r\n- Với&nbsp;<a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">nước hoa Gabrielle Chanel</a>, nh&agrave; chế t&aacute;c nước hoa Olivier Polge đ&atilde; hợp t&aacute;c với Chanel Fragrance Creation and Development Laboratory để tạo ra một tầng hương mới &ndash; hương của những lo&agrave;i hoa trắng. Olivier đ&atilde; h&ograve;a quyện hương sắc ylangylang với hoa nh&agrave;i, hoa cam v&agrave; một ch&uacute;t tinh kh&ocirc;i của hoa huệ xứ Grasse. Rồi từ đ&oacute;, &ocirc;ng th&ecirc;m v&agrave;o xạ hương trắng, gỗ, đ&agrave;n hương v&agrave; vỏ qu&yacute;t. Cuối c&ugrave;ng l&agrave; sự g&oacute;p mặt của bưởi v&agrave; blackcurrant (quả l&yacute; chua đen), l&agrave;m tăng sự tươi m&aacute;t cho lớp hương hoa mịn m&agrave;ng, dịu d&agrave;ng trước đ&oacute;. Sự tổng h&ograve;a của c&aacute;c tầng hương m&agrave; đặc biệt hương hoa l&agrave;m chủ đạo đ&atilde; truyền tải tinh thần của Gabrielle: nữ t&iacute;nh m&agrave; vẫn mạnh mẽ, tươi mới m&agrave; vẫn nồng n&agrave;n. Gabrielle Chanel đ&acirc;u chỉ đơn thuần l&agrave; một m&ugrave;i hương. Đ&oacute; c&ograve;n l&agrave; một cuộc c&aacute;ch mạng thực thụ, như ch&iacute;nh cuộc c&aacute;ch mạng thời trang m&agrave; Coco Chanel đ&atilde; từng tạo n&ecirc;n.</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/nuoc_hoa_chanel_gabrielle_edp_cc74649767444b73879dd7d0ecec458a_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/1000025647/file/chanel-gabrielle-opener_grande-min_grande.jpg\" /></p>\r\n\r\n<h3><br />\r\n- Một m&ugrave;i hương đặc biệt như&nbsp;<a href=\"https://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">Gabrielle Chanel</a>&nbsp;cần được bảo bọc bởi thiết kế chai tương xứng với đẳng cấp. Th&acirc;n chai được l&agrave;m từ lớp k&iacute;nh thật mỏng &ndash; vốn cần nhiều năm để chế t&aacute;c ho&agrave;n hảo. Khi nh&igrave;n ở mặt nghi&ecirc;ng, bốn mặt k&iacute;nh tạo hiệu ứng như đang hướng về ph&iacute;a trung t&acirc;m. Trong khi phần nh&atilde;n chai được đặt ở vị tr&iacute; sao cho bắt lấy &aacute;nh s&aacute;ng một c&aacute;ch ho&agrave;n hảo nhất.</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"http://thegioisonmoi.com/collections/nuoc-hoa-nu-chinh-hang/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/nuoc-hoa-gabrielle-chanel_3b1e09167c4b4b998ad3aaf999ed9fa7_grande.jpg\" /></a></p>\r\n\r\n<p><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/gabrielle-chanel_grande.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/chanel_gabrielle_edp_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>M&ugrave;i hương đặc trưng</strong></p>\r\n\r\n<p>Hương đầu: Cam Mandarin, bưởi, quả l&yacute; chua đen</p>\r\n\r\n<p>Hương giữa: Hoa huệ, hoa Ylang Ylang, l&agrave;i, hoa cam</p>\r\n\r\n<p>Hương cuối: Xạ hương, gỗ đ&agrave;n hương.</p>\r\n'),
 (10, 'Nước Hoa Nữ Gucci Bloom Nettare', 'gucci3.jpg', 'Nước Hoa Nữ Gucci Bloom Nettare Fiori EDP Intense 100ML - Quyến Rũ, Sang Trọng\"\"', '<p>-&nbsp;<strong><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-nettare-fiori\">Gucci Bloom Nettare Di Fiori</a></strong>&nbsp;l&agrave; phi&ecirc;n bản được ra mắt tiếp nối th&agrave;nh c&ocirc;ng rực rỡ từ d&ograve;ng nước hoa Gucci Bloom đ&igrave;nh đ&aacute;m &ndash; Với nguồn cảm hứng mạnh mẽ đầy nữ quyền, Gucci Bloom Nettare Di Fiori được s&aacute;ng tạo ra như một th&ocirc;ng điệp l&agrave;m đẹp rất ri&ecirc;ng của mỗi người phụ nữ. Nước hoa Gucci Bloom Nettare Di Fiori th&iacute;ch hợp cho những c&ocirc; n&agrave;ng hiện đại, quyến rũ, đặc biệt th&iacute;ch nh&oacute;m hương hoa cỏ.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-nettare-fiori\"><img src=\"https://file.hstatic.net/1000025647/file/nuoc-hoa-gucci_00f2c09312254bed8483654de2da8bd0_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- Hương đầu của&nbsp;<strong><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-nettare-fiori\">Gucci Bloom Nettare Di Fiori&nbsp;</a></strong>l&agrave; sự h&ograve;a quyện giữa vị cay nồng của gừng v&agrave; hương hoa hồng thơm ng&aacute;t. Tầng hương giữa của Nettare Di Fiori tiếp tục chứng kiến sự hoạt động mạnh mẽ của hoa nh&agrave;i Sambac, hoa kim ng&acirc;n v&agrave; huệ trắng với cảm gi&aacute;c thanh m&aacute;t, nữ t&iacute;nh.&nbsp;Cuối c&ugrave;ng l&agrave; sự pha trộn giữa cỏ thơm Ấn Độ, xạ hương v&agrave; hoa Mộc ch&acirc;u &Aacute; gi&uacute;p mang đến &ldquo;c&aacute;i kết&rdquo; kh&ocirc;ng thể ấn tượng hơn cho d&ograve;ng nước hoa n&agrave;y.</p>\r\n\r\n<p><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-nettare-fiori\"><img src=\"https://file.hstatic.net/1000025647/file/gucci-bloom-aquadi-fiori_7a3f3c7c2f57463ba8a215c805968905_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- B&ecirc;n cạnh hương thơm thanh lịch th&igrave; vẻ ngo&agrave;i tinh tế đầy sang chảnh của Gucci Bloom EDP cũng l&agrave; một điểm nhấn kh&oacute; phai trong l&ograve;ng c&aacute;c t&iacute;n đồ nước hoa Gucci nữ. Với thiết kế vu&ocirc;ng vức thời thượng c&ugrave;ng chất liệu sơn m&agrave;i độc đ&aacute;o, nước hoa Gucci Bloom Nettare Di Fiori mang đến cảm gi&aacute;c mới mẻ đầy cuốn h&uacute;t khi cầm tr&ecirc;n tay. Th&acirc;n chai được trang tr&iacute; bằng gam hồng pastel với họa tiết c&acirc;y cỏ m&ugrave;a hạ v&agrave; logo Gucci nổi tiếng, vừa mang cảm gi&aacute;c th&acirc;n thiện lại cực kỳ sang trọng, qu&yacute; ph&aacute;i.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-nu-gucci-bloom-nettare-fiori\"><img src=\"https://file.hstatic.net/1000025647/file/2-10-min_ec850c23054c453fac87021ba1e4cfa8_1024x1024.jpg\" /></a></p>\r\n\r\n<p><strong>M&ugrave;i hương đặc trưng:</strong></p>\r\n\r\n<p>Hương Đầu: Hoa hồng, Gừng</p>\r\n\r\n<p>Hương giữa: Hoa huệ trắng, Hoa kim ng&acirc;n, Hoa nh&agrave;i</p>\r\n\r\n<p>Hương cuối: C&acirc;y hoắc hương, Xạ hương, Hoa mộc t&ecirc;</p>\r\n'),
-(11, 'Nước hoa Chanel lôi cuốn', 'chanel2.jpg', 'Nước hoa vip nhất hiệp nay', '<p><strong>Hương đầu:</strong>&nbsp;Hoa mộc lan, Dưa gang, Quả đ&agrave;o, Quả l&ecirc;, Cam Bergamot, Quả qu&yacute;t hồng.</p>\r\n\r\n<p><strong>Hương giữa:</strong>&nbsp;Hoa huệ trắng, Quả mận, Hoa t&iacute;m, Hoa phong lan,Hoa lan Nam Phi, Hoa nh&agrave;i, Hoa linh lan thung lũng, Hoa hồng.</p>\r\n\r\n<p><strong>Hương cuối</strong>: Xạ hương, Hương Va ni, Gỗ tuyết t&ugrave;ng, Quả m&acirc;m x&ocirc;i đen.</p>\r\n\r\n<p><strong>Phong c&aacute;ch:</strong>&nbsp;Qu&yacute; phải, sang trọng, nữ t&iacute;nh</p>\r\n'),
-(12, 'Nước Hoa Nữ Gucci Bloom Quyến Rũ, Sang Trọng', 'gucci2.jpg', 'Nước Hoa Nữ Gucci Bloom Quyến Rũ, Sang Trọng Và Lôi Cuốn', '<p>Nước Hoa Nữ Gucci Bloom Nettare Fiori EDP Intense 100ML - Quyến Rũ, Sang Trọng</p>\r\n'),
-(13, 'Nước Hoa Nữ Chanel Bloom Quyến Rũ, Sang Trọng', 'chanel1.jpg', 'Nước Hoa Nữ Chanel Bloom Quyến Rũ, Sang Trọng', '<p>Nước Hoa Nữ Gucci Bloom Nettare Fiori EDP Intense 100ML - Quyến Rũ, Sang Trọng...</p>\r\n');
+(11, 'Nước hoa Chanel lôi cuốn', 'chanel2.jpg', 'Nước hoa vip nhất hiệp nay\"', '<h3>&nbsp;<strong><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">Gabrielle Chanel</a></strong>&nbsp;d&ograve;ng nước hoa mới nhất của Chanel, được lấy cảm hứng từ ch&iacute;nh người phụ nữ vĩ đại của thời trang thế giới, người s&aacute;ng lập thương hiệu Chanel. Gabrielle đ&atilde; sống v&agrave; trở th&agrave;nh con người m&agrave; ch&iacute;nh b&agrave; muốn.</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/chanel-gabrielle-fragrance_grande.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><br />\r\n- Với&nbsp;<a href=\"http://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">nước hoa Gabrielle Chanel</a>, nh&agrave; chế t&aacute;c nước hoa Olivier Polge đ&atilde; hợp t&aacute;c với Chanel Fragrance Creation and Development Laboratory để tạo ra một tầng hương mới &ndash; hương của những lo&agrave;i hoa trắng. Olivier đ&atilde; h&ograve;a quyện hương sắc ylangylang với hoa nh&agrave;i, hoa cam v&agrave; một ch&uacute;t tinh kh&ocirc;i của hoa huệ xứ Grasse. Rồi từ đ&oacute;, &ocirc;ng th&ecirc;m v&agrave;o xạ hương trắng, gỗ, đ&agrave;n hương v&agrave; vỏ qu&yacute;t. Cuối c&ugrave;ng l&agrave; sự g&oacute;p mặt của bưởi v&agrave; blackcurrant (quả l&yacute; chua đen), l&agrave;m tăng sự tươi m&aacute;t cho lớp hương hoa mịn m&agrave;ng, dịu d&agrave;ng trước đ&oacute;. Sự tổng h&ograve;a của c&aacute;c tầng hương m&agrave; đặc biệt hương hoa l&agrave;m chủ đạo đ&atilde; truyền tải tinh thần của Gabrielle: nữ t&iacute;nh m&agrave; vẫn mạnh mẽ, tươi mới m&agrave; vẫn nồng n&agrave;n. Gabrielle Chanel đ&acirc;u chỉ đơn thuần l&agrave; một m&ugrave;i hương. Đ&oacute; c&ograve;n l&agrave; một cuộc c&aacute;ch mạng thực thụ, như ch&iacute;nh cuộc c&aacute;ch mạng thời trang m&agrave; Coco Chanel đ&atilde; từng tạo n&ecirc;n.</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\"><img src=\"https://file.hstatic.net/1000025647/file/nuoc_hoa_chanel_gabrielle_edp_cc74649767444b73879dd7d0ecec458a_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img src=\"https://file.hstatic.net/1000025647/file/chanel-gabrielle-opener_grande-min_grande.jpg\" /></p>\r\n\r\n<h3><br />\r\n- Một m&ugrave;i hương đặc biệt như&nbsp;<a href=\"https://thegioisonmoi.com/products/nuoc-hoa-chanel-gabrielle-edp\">Gabrielle Chanel</a>&nbsp;cần được bảo bọc bởi thiết kế chai tương xứng với đẳng cấp. Th&acirc;n chai được l&agrave;m từ lớp k&iacute;nh thật mỏng &ndash; vốn cần nhiều năm để chế t&aacute;c ho&agrave;n hảo. Khi nh&igrave;n ở mặt nghi&ecirc;ng, bốn mặt k&iacute;nh tạo hiệu ứng như đang hướng về ph&iacute;a trung t&acirc;m. Trong khi phần nh&atilde;n chai được đặt ở vị tr&iacute; sao cho bắt lấy &aacute;nh s&aacute;ng một c&aacute;ch ho&agrave;n hảo nhất.</h3>\r\n'),
+(12, 'Nước Hoa Nữ Gucci Bloom Quyến Rũ, Sang Trọng', 'gucci2.jpg', 'Nước Hoa Nữ Gucci Bloom Quyến Rũ, Sang Trọng Và Lôi Cuốn\"', '<p><strong>Nước Hoa Unisex Gucci Memoire D&rsquo;une Odeur EDP 100ML ( New )</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>-&nbsp;<strong><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-gucci-memoire-d-une-odeur-edp\">Nước hoa Gucci M&eacute;moire D&rsquo;Une Odeur&nbsp;</a></strong>vừa được&nbsp;h&atilde;ng Gucci&nbsp;cho ra mắt v&agrave;o m&ugrave;a thu năm 2019, đ&acirc;y l&agrave; m&ugrave;i hương được s&aacute;ng chế bởi Alberto Morillas d&ugrave;ng được cho cả Nam lẫn Nữ.&nbsp;<a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-gucci-memoire-d-une-odeur-edp\">Gucci M&eacute;moire D&rsquo;Une Odeur</a>&nbsp;l&agrave; sự h&ograve;a quyện giữa những hương thơm tươi m&aacute;t, trong s&aacute;ng v&agrave; nồng n&agrave;n khiến cho bất kỳ ai cũng kh&oacute; c&oacute; thể cưỡng lại được.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-gucci-memoire-d-une-odeur-edp\"><img src=\"https://file.hstatic.net/1000025647/file/nuoc-hoa-gucci-memoire_d1a43cdb4a6f4d4c8aa326b8a2814ea5_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- Lớp hương đầu mở ra với những nốt hương xanh m&aacute;t của hoa c&uacute;c La M&atilde; v&agrave; hoa nh&agrave;i san h&ocirc; Ấn Độ. Tiếp nối l&agrave; hương thơm chủ đạo xuất ph&aacute;t từ Ấn Độ: mật ong v&agrave; hoa nh&agrave;i san h&ocirc; được pha trộn theo c&ocirc;ng thức độc quyền. Lớp hương cuối kh&eacute;p lại với hương thơm ấm &aacute;p từ gỗ đ&agrave;n hương, ch&uacute;t tinh tế của gỗ tuyết t&ugrave;ng v&agrave; sự ngọt ng&agrave;o của vanilla.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://www.thegioisonmoi.com/products/nuoc-hoa-gucci-memoire-d-une-odeur-edp\"><img src=\"https://file.hstatic.net/1000025647/file/gucci-memoire-d-une-odeur-edp_1f2ad454093f4d5a91f02d039a74223a_1024x1024.jpg\" /></a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- Mẫu chai&nbsp;nước hoa Gucci M&eacute;moire D&rsquo;Une Odeur&nbsp;c&oacute; h&igrave;nh d&aacute;ng như c&acirc;y cột trong c&aacute;c c&ocirc;ng tr&igrave;nh thời La m&atilde; cổ đại, lấy cảm hứng từ một loại&nbsp;nước hoa Gucci&nbsp;cũ từ đầu những năm 90. Tượng trưng cho bầu trời đ&ecirc;m đầy sao v&agrave; thế giới trần gian nh&igrave;n chằm chằm v&agrave;o n&oacute; trong sự kỳ diệu, chiếc hộp m&agrave;u xanh l&aacute; c&acirc;y của nước hoa được trang tr&iacute; với c&aacute;c c&ocirc;ng cụ Celestial như những bức tranh của c&aacute;c nh&agrave; thờ La M&atilde; v&agrave; gothic thời Trung cổ v&agrave; Phục hưng ở ch&acirc;u &Acirc;u. Mẫu thiết kế đặc biệt n&agrave;y gợi nhớ lại những bức b&iacute;ch họa của Giotto trong Nh&agrave; nguyện Scrovegni ở Padova.</p>\r\n'),
+(13, 'Nước Hoa Nữ Chanel Bloom Quyến Rũ, Sang Trọng', 'chanel1.jpg', 'Nước Hoa Nữ Chanel Bloom Quyến Rũ, Sang Trọng', '<p><a href=\"https://kyo.vn/san-pham/nuoc-hoa-nu-chanel-coco-noir-edp/\"><strong>Nước Hoa Nữ Chanel Coco Noir EDP</strong></a>&nbsp;l&agrave; chai&nbsp;<a href=\"https://kyo.vn/nuoc-hoa/nuoc-hoa-nu/\"><strong>nước hoa nữ cao cấp</strong></a>&nbsp;đến từ thương hiệu Chanel nổi tiếng. Chanel Coco Noir sở hữu m&ugrave;i hương nồng n&agrave;n v&agrave; b&iacute; ẩn, thể hiện con người chững chạc của một qu&yacute; c&ocirc; phong c&aacute;ch v&agrave; quyến rũ. C&ugrave;ng&nbsp;<a href=\"https://kyo.vn/\"><strong>KYO</strong></a>&nbsp;t&igrave;m hiểu xem c&oacute; những g&igrave; đặc biệt ở sản phẩm m&ugrave;i hương n&agrave;y kh&ocirc;ng nh&eacute;!</p>\r\n\r\n<p><img alt=\"Nước Hoa Nữ Chanel Coco Noir EDP\" src=\"https://kyo.vn/wp-content/uploads/2022/09/nuoc-hoa-nu-chanel-coco-noir-edp-5.png\" style=\"height:600px; width:600px\" /></p>\r\n\r\n<p><em>Nước Hoa Nữ Chanel Coco Noir EDP</em></p>\r\n\r\n<h2><strong>Lịch sử nước hoa nữ Chanel Coco Noir EDP</strong></h2>\r\n\r\n<p><strong><a href=\"https://kyo.vn/nuoc-hoa/nuoc-hoa-nu/\">Nước hoa nữ</a>&nbsp;</strong>Chanel Coco Noir EDP được nh&agrave; s&aacute;ng chế Jacques Polge cho ra mắt v&agrave;o năm 2012. Coco Noir như một kh&uacute;c nhạc đệm đậm chất Baroque trữ t&igrave;nh, như một cuộc h&agrave;nh tr&igrave;nh truy t&igrave;m những k&yacute; ức c&ograve;n s&oacute;t lại của Gabrielle c&ograve;n s&oacute;t laaji dưới m&agrave;n trời đ&ecirc;m b&iacute; ẩn tại Venice xinh đẹp.</p>\r\n\r\n<p><img alt=\"Nước Hoa Nữ Chanel Coco Noir EDP Nước hoa nữ Chanel Coco Noir EDP được nhà sáng chế Jacques Polge cho ra mắt vào năm 2012.\" src=\"https://kyo.vn/wp-content/uploads/2022/09/nuoc-hoa-nu-chanel-coco-noir-edp-4.png\" style=\"height:600px; width:600px\" /></p>\r\n\r\n<p><em>Nước hoa nữ&nbsp;Chanel Coco Noir EDP được nh&agrave; s&aacute;ng chế Jacques Polge cho ra mắt v&agrave;o năm 2012.</em></p>\r\n\r\n<p>Chanel Coco Noir khiến c&aacute;c qu&yacute; c&ocirc; ng&acirc;y ngất v&igrave; hương thơm nồng n&agrave;n, b&iacute; ẩn, quyến rũ. Nếu nước hoa Chanel No.5 mang đến sự cổ điển thanh lịch th&igrave; Chanel Coco Noir lại mang n&eacute;t đẹp hiện đại bởi thiết kế vỏ đen mạnh mẽ. M&ugrave;i hương n&agrave;y sẽ l&agrave; sự lựa chọn đ&uacute;ng đắn cho c&aacute;c c&ocirc; n&agrave;ng theo đuổi phong c&aacute;ch c&aacute; t&iacute;nh, quyến rũ, thời thượng.</p>\r\n\r\n<p><img alt=\"Nước Hoa Nữ Chanel Coco Noir EDP Coco Noir như một khúc nhạc đệm đậm chất Baroque trữ tình, như một cuộc hành trình truy tìm những ký ức còn sót lại của Gabrielle còn sót laaji dưới màn trời đêm bí ẩn tại Venice xinh đẹp.\" src=\"https://kyo.vn/wp-content/uploads/2022/09/nuoc-hoa-nu-chanel-coco-noir-edp-9.png\" style=\"height:600px; width:600px\" /></p>\r\n\r\n<p><em>Coco Noir như một kh&uacute;c nhạc đệm đậm chất Baroque trữ t&igrave;nh, như một cuộc h&agrave;nh tr&igrave;nh truy t&igrave;m những k&yacute; ức c&ograve;n s&oacute;t lại của Gabrielle c&ograve;n s&oacute;t laaji dưới m&agrave;n trời đ&ecirc;m b&iacute; ẩn tại Venice xinh đẹp.</em></p>\r\n\r\n<h2><strong>Thiết kế huyền ảo v&agrave; b&iacute; ẩn của nước hoa Chanel Coco Noir&nbsp;</strong></h2>\r\n\r\n<p>Nhiều kh&aacute;ch h&agrave;ng cho rằng, ch&iacute;nh thiết kế vỏ đen huyền b&iacute; v&agrave; c&oacute; phần t&aacute;o bạo n&agrave;y đ&atilde; khiến họ quyết định lựa chọn&nbsp;<strong><a href=\"https://kyo.vn/nuoc-hoa/\">nước hoa</a>&nbsp;</strong>Chanel Coco Noir. Lớp vỏ đen tuyền c&ugrave;ng điểm nhấn l&agrave; phần viền v&agrave;ng khắc t&ecirc;n thương hiệu ở ch&iacute;nh diện th&acirc;n chai mang đến n&eacute;t cổ điển, b&iacute; ẩn nhưng rất hiện đại.</p>\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -290,7 +290,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `productDesc`, `quatity`, `productView`, `categoryId`) VALUES
@@ -330,93 +330,93 @@ INSERT INTO `products` (`id`, `productName`, `productImage`, `productPrice`, `pr
 (50, 'Nước hoa Le Labo The Noir 29 EDP', 'nuoc-hoa-le-labo-the-noir-29-100ml-620711cdb3519-12022022084757.jpg', 2560000, '<table cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><strong>Thương hiệu&nbsp;&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>Le labo</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Nồng độ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>Eau de Parfum</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Nh&oacute;m hương</strong></td>\r\n			<td>:</td>\r\n			<td>Hương gỗ thơm</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>M&ugrave;i hương ch&iacute;nh</strong></td>\r\n			<td>:</td>\r\n			<td>L&aacute; nguyệt quế,&nbsp;Gỗ tuyết t&ugrave;ng</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Độ lưu hương&nbsp;&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>L&acirc;u - 7h đến 12h</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Độ toả hương</strong></td>\r\n			<td>:</td>\r\n			<td>Gần - Trong v&ograve;ng một c&aacute;nh tay</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Phong c&aacute;ch&nbsp;&nbsp;&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>Cuốn h&uacute;t, Tinh tế, Sang trọng</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Xuất xứ&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>Mỹ</td>\r\n		</tr>\r\n		<tr>\r\n			<td><strong>Năm ph&aacute;t h&agrave;nh&nbsp;</strong></td>\r\n			<td>:</td>\r\n			<td>2015</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<h2><strong><em>Giới thiệu nước hoa&nbsp;Le Labo The Noir 29 EDP</em></strong></h2>\r\n\r\n<p>Nước hoa unisex&nbsp;<strong>The Noir 29&nbsp;</strong>của&nbsp;<a href=\"http://localhost/Du-an-1/index.php?act=sanpham&amp;categoryid=5\">thương hiệu&nbsp;</a><a href=\"https://vperfume.vn/collections/nuoc-hoa-le-labo\">Le Labo</a>&nbsp;được ra mắt 2015 ch&iacute;nh l&agrave; &ldquo;lời ngợi ca&rdquo; đối với l&aacute; tr&agrave; cũng như nghề thủ c&ocirc;ng xung quanh n&oacute;. M&ugrave;i hương đặc biệt của tr&agrave; đan xen nhẹ nh&agrave;ng với cam Bergamote v&agrave; quả sung, th&ecirc;m thắt hương đậm đ&agrave; của tuyết t&ugrave;ng, xạ hương v&agrave; cỏ hương b&agrave;i. C&aacute;c l&aacute; tr&agrave; được sử dụng kh&eacute;o l&eacute;o để mang một chất lượng thu h&uacute;t tới sản phẩm, tạo chỗ đứng ri&ecirc;ng biệt cho The Noir 29 tr&ecirc;n bảng xếp hạng c&aacute;c m&ugrave;i hương.</p>\r\n\r\n<p><a href=\"https://vperfume.vn/products/le-labo-the-noir-29-edp\"><img alt=\"Nước hoa Le Labo The Noir 29 EDP\" src=\"https://file.hstatic.net/1000339918/file/le-labo-the-noir-29-edp__5__14bb52aadaf348f38e26d4653bd37b8a_grande.jpg\" /></a></p>\r\n\r\n<h2><em><strong>Le Labo Th&eacute; Noir 29 - B&igrave;nh y&ecirc;n trong b&uacute;p tr&agrave; non</strong></em></h2>\r\n\r\n<p>Nước hoa&nbsp;<strong>Le Labo The Noir 29</strong>&nbsp;c&oacute; m&ugrave;i hương mở ra bằng một loạt hương liệu nhẹ nh&agrave;ng, m&ugrave;i hương ngọt ng&agrave;o của quả sung, điểm th&ecirc;m ch&uacute;t tự nhi&ecirc;n từ cam Bergamot khiến ta tưởng tượng về một vườn c&acirc;y thơm phức với những t&ocirc;ng vị ngọt ng&agrave;o, trẻ trung.&nbsp;Le Labo The Noir 29 &nbsp;trở n&ecirc;n s&aacute;ng tạo khi c&oacute; sự g&oacute;p mặt của tinh chất l&aacute; tr&agrave; đen tạo n&ecirc;n một m&ugrave;i hương đầy gợi cảm, tinh thế v&agrave; g&acirc;y nghiện. Ở nốt hương cuối c&ugrave;ng, hương thơm &aacute;nh l&ecirc;n m&ugrave;i cỏ tương ẩm ướt c&ugrave;ng t&agrave;n thuốc l&aacute; nức mũi.&nbsp;</p>\r\n\r\n<p>Điểm s&aacute;ng cuối c&ugrave;ng, m&ugrave;i hương g&acirc;y nghiện bởi t&ocirc;ng thuốc l&aacute; cay nồng, c&oacute; thể n&oacute;i The Noir 29 l&uacute;c n&agrave;y đ&atilde; b&ugrave;ng nổ c&aacute;ch lạ k&igrave;. Tựa như đ&oacute;a hoa đang le l&oacute;i giữa đ&aacute;m c&acirc;y kh&ocirc; v&agrave; chợt b&ugrave;ng nổ dưới &aacute;nh s&aacute;ng b&igrave;nh m&igrave;nh, tỏa ra một m&ugrave;i hương đầy k&iacute;ch th&iacute;ch v&agrave; l&ocirc;i cuốn.&nbsp;</p>\r\n\r\n<p>Sự điều chế m&ugrave;i hương k&igrave; diệu đến mức khi nhắc đến&nbsp;The Noir 29, người ta vẫn thường&nbsp;v&iacute; hương thơm của n&oacute;&nbsp;tựa như sự y&ecirc;n b&igrave;nh trong những b&uacute;p tr&agrave; non. Ch&iacute;nh v&igrave; vậy, d&ograve;ng hương n&agrave;y ph&ugrave; hợp nhất cho những người s&acirc;u lắng, c&oacute; gu v&agrave; th&iacute;ch cả sự ho&agrave;i niệm.</p>\r\n\r\n<p><a href=\"https://vperfume.vn/products/le-labo-the-noir-29-edp\"><img alt=\"Nước hoa Le Labo The Noir 29 EDP\" src=\"https://file.hstatic.net/1000339918/file/le-labo-the-noir-29-edp__1__056dd867589e4a0ea2a9f156e5aa2f56_grande.jpg\" /></a></p>\r\n\r\n<p><em><strong>Th&agrave;nh phần m&ugrave;i hương</strong></em></p>\r\n\r\n<ul>\r\n	<li><strong>Hương đầu:</strong>&nbsp;<a href=\"https://vperfume.vn/collections/cam-bergamot\" target=\"_self\">Cam Bergamot</a>,&nbsp;<a href=\"https://vperfume.vn/collections/qua-sung\" target=\"_self\">Quả sung</a>,&nbsp;<a href=\"https://vperfume.vn/collections/la-nguyet-que\" target=\"_self\">L&aacute; nguyệt quế</a></li>\r\n	<li><strong>Hương giữa:</strong>&nbsp;<a href=\"https://vperfume.vn/collections/go-tuyet-tung\" target=\"_self\">Gỗ tuyết t&ugrave;ng</a>,&nbsp;<a href=\"https://vperfume.vn/collections/co-huong-bai\" target=\"_self\">Cỏ hương b&agrave;i</a>,&nbsp;<a href=\"https://vperfume.vn/collections/xa-huong\" target=\"_self\">Xạ hương</a></li>\r\n	<li><strong>Hương cuối:</strong>&nbsp;<a href=\"https://vperfume.vn/collections/co-kho\" target=\"_self\">Cỏ kh&ocirc;</a>,&nbsp;<a href=\"https://vperfume.vn/collections/cay-thuoc-la\" target=\"_self\">C&acirc;y thuốc l&aacute;</a></li>\r\n</ul>\r\n\r\n<p><em><strong>Thời điểm d&ugrave;ng:</strong></em>&nbsp;Ng&agrave;y,&nbsp;Đ&ecirc;m, Xu&acirc;n, Thu</p>\r\n\r\n<h2><em><strong>Thiết kế chai nước hoa</strong></em>&nbsp;<strong><em>Le Labo The Noir 29 EDP</em></strong></h2>\r\n\r\n<p>Nước hoa&nbsp;<strong>Le Labo The Noir 29</strong>&nbsp;kh&aacute;c xa với kiểu chai nước hoa truyền thống, Le Labo Th&eacute; Noir 29 c&oacute; kiểu d&aacute;ng gọn g&agrave;ng với kiểu trang tr&iacute; c&aacute;c th&ocirc;ng tin nước hoa được in tr&ecirc;n th&acirc;n chai tr&ocirc;ng giống như những chai trong ph&ograve;ng th&iacute; nghiệm.</p>\r\n\r\n<p><a href=\"https://vperfume.vn/products/le-labo-the-noir-29-edp\"><img alt=\"Nước hoa Le Labo The Noir 29 EDP\" src=\"https://file.hstatic.net/1000339918/file/le-labo-the-noir-29-edp__4__bb608b4398984330860912a64e4a840f_grande.jpg\" /></a></p>\r\n', 100, 0, 5);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `accounts`
+-- Indexes for table `accounts`
 --
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `bill`
+-- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `billdetail`
+-- Indexes for table `billdetail`
 --
 ALTER TABLE `billdetail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `categorys`
+-- Indexes for table `categorys`
 --
 ALTER TABLE `categorys`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `accounts`
+-- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `bill`
+-- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
--- AUTO_INCREMENT cho bảng `billdetail`
+-- AUTO_INCREMENT for table `billdetail`
 --
 ALTER TABLE `billdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
--- AUTO_INCREMENT cho bảng `categorys`
+-- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT cho bảng `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
